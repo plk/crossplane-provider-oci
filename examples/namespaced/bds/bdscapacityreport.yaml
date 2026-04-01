@@ -1,0 +1,16 @@
+apiVersion: bds.oci.m.upbound.io/v1alpha1
+kind: BdsCapacityReport
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: bds/v1alpha1/bdscapacityreport
+  labels:
+    testing.upbound.io/example-name: test_bds_capacity_report
+  name: test-bds-capacity-report
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    shapeAvailabilities:
+    - shape: ${var.shape}

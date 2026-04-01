@@ -1,0 +1,13 @@
+apiVersion: network.oci.m.upbound.io/v1alpha1
+kind: FirewallNetworkFirewall
+metadata:
+  namespace: crossplane-system
+  name: nwfw-via-crossplane
+spec:
+  forProvider:
+    compartmentIdRef: 
+      name : compartment-via-crossplane1
+    subnetIdRef: 
+      name : subnet-via-crossplane
+    networkFirewallPolicyIdRef:
+      name : nwfwpolicy-via-crossplane

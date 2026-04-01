@@ -1,3 +1,7 @@
+/*
+Copyright 2021 Upbound Inc.
+*/
+
 package main
 
 import (
@@ -7,7 +11,7 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/pipeline"
 
-	"github.com/crossplane/upjet-provider-template/config"
+	"github.com/oracle/provider-oci/config"
 )
 
 func main() {
@@ -20,4 +24,5 @@ func main() {
 		panic(fmt.Sprintf("cannot calculate the absolute path with %s", rootDir))
 	}
 	pipeline.Run(config.GetProvider(), config.GetProviderNamespaced(), absRootDir)
+
 }

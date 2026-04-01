@@ -1,0 +1,19 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: PathRouteSet
+metadata:
+  labels:
+    testing.upbound.io/example-name: pathrouteset_label_1
+  name: pathrouteset1
+spec:
+  forProvider:
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    name: "pathrouteset1"
+    pathRoutes:
+      - backendSetNameSelector:
+          matchLabels:
+            testing.upbound.io/example-name: backendset_label_1
+        path: "/example/video/123"
+        pathMatchType:
+          - matchType: "EXACT_MATCH"

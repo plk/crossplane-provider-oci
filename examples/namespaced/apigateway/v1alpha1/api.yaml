@@ -1,0 +1,13 @@
+apiVersion: apigateway.oci.m.upbound.io/v1alpha1
+kind: Api
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: api_label_1
+  name: api1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    displayName: api1

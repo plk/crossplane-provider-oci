@@ -1,0 +1,15 @@
+apiVersion: functions.oci.m.upbound.io/v1alpha1
+kind: Function
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: function_label_1
+  name: function1
+spec:
+  forProvider:
+    applicationIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: application_label_1
+    displayName: function1
+    image: ${FUNCTION_IMAGE}
+    memoryInMbs: "128"

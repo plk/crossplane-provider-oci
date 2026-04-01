@@ -1,0 +1,15 @@
+apiVersion: audit.oci.m.upbound.io/v1alpha1
+kind: Configuration
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: audit/v1alpha1/configuration
+  labels:
+    testing.upbound.io/example-name: audit_configuration
+  name: audit-configuration
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    retentionPeriodDays: "99"

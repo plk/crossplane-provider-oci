@@ -1,0 +1,15 @@
+apiVersion: healthchecks.oci.m.upbound.io/v1alpha1
+kind: HttpProbe
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: httpprobe_label_1
+  name: httpprobe1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    protocol: HTTPS
+    targets:
+      - www.example.com

@@ -1,0 +1,21 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: RoutingPolicy
+metadata:
+  labels:
+    testing.upbound.io/example-name: routingpolicy_label_1
+  name: routingpolicy1
+spec:
+  forProvider:
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    conditionLanguageVersion: "V1"
+    name: "routingpolicy1"
+    rules:
+      - name: "example_routing_rules"
+        condition: "all(http.request.url.path eq (i ''))"
+        actions:
+          - name: "FORWARD_TO_BACKENDSET"
+            backendSetNameSelector:
+              matchLabels:
+                testing.upbound.io/example-name: backendset_label_1

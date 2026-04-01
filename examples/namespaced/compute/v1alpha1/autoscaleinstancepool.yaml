@@ -1,0 +1,24 @@
+apiVersion: compute.oci.m.upbound.io/v1alpha1
+kind: InstancePool
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: compute/v1alpha1/instancepool
+  labels:
+    testing.upbound.io/example-name: instancepool_label_2
+  name: instancepool2
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    displayName: instancepool2
+    instanceConfigurationIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: instanceconfiguration_label_2
+    placementConfigurations:
+      - availabilityDomain: ${AVAILABILITY_DOMAIN}
+        primarySubnetIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: subnet_label_1
+    size: 1

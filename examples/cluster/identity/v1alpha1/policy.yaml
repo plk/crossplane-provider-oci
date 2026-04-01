@@ -1,0 +1,16 @@
+apiVersion: identity.oci.upbound.io/v1alpha1
+kind: Policy
+metadata:
+  labels:
+    testing.upbound.io/example-name: policy_label_1
+  name: policy1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    description: "Test Policy"
+    name: policy1
+    statements:
+      - Allow group group1 to read instances in compartment compartment1
+      - Allow group group1 to inspect instances in compartment compartment1

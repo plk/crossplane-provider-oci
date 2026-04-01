@@ -1,0 +1,14 @@
+apiVersion: email.oci.m.upbound.io/v1alpha1
+kind: EmailDomain
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: emaildomain_label_1
+  name: emaildomain1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    description: "Test email domain"
+    name: email1.email.dummydomain.com

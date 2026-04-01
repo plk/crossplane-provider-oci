@@ -1,0 +1,12 @@
+apiVersion: identity.oci.m.upbound.io/v1alpha1
+kind: Compartment
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: compartment_label_1
+  name: compartment1
+spec:
+  forProvider:
+    compartmentId: "${COMPARTMENT_OCID}"
+    description: "Test Compartment"
+    name: compartment1

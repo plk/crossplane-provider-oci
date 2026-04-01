@@ -1,0 +1,12 @@
+apiVersion: email.oci.m.upbound.io/v1alpha1
+kind: EmailReturnPath
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: emailreturnpath_label_1
+  name: emailreturnpath1
+spec:
+  forProvider:
+    parentResourceIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: emaildomain_label_1

@@ -1,0 +1,12 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: Certificate
+metadata:
+  labels:
+    testing.upbound.io/example-name: certificate_label_1
+  name: certificate1
+spec:
+  forProvider:
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    certificateName: "certificate1"

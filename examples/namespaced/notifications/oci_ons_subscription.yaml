@@ -1,0 +1,11 @@
+apiVersion: ons.oci.m.upbound.io/v1alpha1
+kind: Subscription
+metadata:
+  namespace: crossplane-system
+  name: subscription-via-crossplane
+spec:
+  forProvider:
+    compartmentId: "ocid1.compartment.oc1..ssss"
+    topicId: "ocid1.onstopic.oc1.phx.ssss"
+    protocol: "EMAIL" 
+    endpoint: "ssssss@oracle.com"

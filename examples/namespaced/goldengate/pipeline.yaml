@@ -1,0 +1,22 @@
+apiVersion: goldengate.oci.m.upbound.io/v1alpha1
+kind: Pipeline
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: goldengate/v1alpha1/pipeline
+  labels:
+    testing.upbound.io/example-name: test_pipeline
+  name: test-pipeline
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    displayName: ${var.display_name}
+    licenseModel: ${var.license_model}
+    recipeType: ${var.recipe_type}
+    sourceConnectionDetails:
+    - connectionId: ${var.source_connection_id}
+    subnetId: ${var.test_subnet_id}
+    targetConnectionDetails:
+    - connectionId: ${var.target_connection_id}

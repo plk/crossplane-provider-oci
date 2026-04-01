@@ -1,0 +1,12 @@
+apiVersion: waf.oci.upbound.io/v1alpha1
+kind: WebAppFirewallPolicy
+metadata:
+  name: webappfirewallpolicy1
+  labels:
+    testing.upbound.io/example-name: webappfirewallpolicy_label_1
+spec:
+  forProvider:
+    displayName: webappfirewallpolicy1
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1

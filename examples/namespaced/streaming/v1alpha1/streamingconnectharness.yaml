@@ -1,0 +1,13 @@
+apiVersion: streaming.oci.m.upbound.io/v1alpha1
+kind: ConnectHarness
+metadata:
+  namespace: crossplane-system
+  name: connectharness1
+  labels:
+    testing.upbound.io/example-name: connectharness_label_1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    name: "connectharness1"

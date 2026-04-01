@@ -1,0 +1,12 @@
+apiVersion: functions.oci.m.upbound.io/v1alpha1
+kind: InvokeFunction
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: invokefunction_label_1
+  name: invokefunction1
+spec:
+  forProvider:
+    functionIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: function_label_1

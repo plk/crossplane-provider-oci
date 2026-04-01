@@ -1,0 +1,11 @@
+apiVersion: email.oci.m.upbound.io/v1alpha1
+kind: Suppression
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: suppression_label_1
+  name: suppression1
+spec:
+  forProvider:
+    compartmentId: ${TENANCY_OCID}
+    emailAddress: emailsuppression1@email.dummydomain.com

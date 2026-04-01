@@ -1,0 +1,88 @@
+apiVersion: datascience.oci.m.upbound.io/v1alpha1
+kind: ModelDeployment
+metadata:
+  annotations:
+    meta.upbound.io/example-id: datascience/v1alpha1/modeldeployment
+  labels:
+    testing.upbound.io/example-name: test_model_deployment
+  name: test-model-deployment
+  namespace: upbound-system
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    modelDeploymentConfigurationDetails:
+    - category_log_details:
+      - access:
+        - log_group_id: ${oci_logging_log_group.test_log_group.id}
+          log_id: ${oci_logging_log.test_log.id}
+        predict:
+        - log_group_id: ${oci_logging_log_group.test_log_group.id}
+          log_id: ${oci_logging_log.test_log.id}
+      defined_tags:
+        Operations.CostCenter: "42"
+      deploymentType: ${var.model_deployment_model_deployment_configuration_details_deployment_type}
+      description: ${var.model_deployment_description}
+      display_name: ${var.model_deployment_display_name}
+      environmentConfigurationDetails:
+      - cmd: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_cmd}
+        defaultEnvironmentVariables: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_default_environment_variables}
+        entrypoint: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_entrypoint}
+        environmentConfigurationType: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_environment_configuration_type}
+        environmentVariables: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_environment_variables}
+        healthCheckPort: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_health_check_port}
+        image: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_image}
+        imageDigest: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_image_digest}
+        serverPort: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_server_port}
+      freeform_tags:
+        Department: Finance
+      infrastructureConfigurationDetails:
+      - environment_configuration_details:
+        - cmd: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_cmd}
+          entrypoint: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_entrypoint}
+          environment_configuration_type: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_environment_configuration_type}
+          environment_variables: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_environment_variables}
+          health_check_port: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_health_check_port}
+          image: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_image}
+          image_digest: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_image_digest}
+          server_port: ${var.model_deployment_model_deployment_configuration_details_environment_configuration_details_server_port}
+        model_configuration_details:
+        - bandwidth_mbps: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_bandwidth_mbps}
+          instance_configuration:
+          - instance_shape_name: ${oci_core_shape.test_shape.name}
+            model_deployment_instance_shape_config_details:
+            - cpu_baseline: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_instance_configuration_model_deployment_instance_shape_config_details_cpu_baseline}
+              memory_in_gbs: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_instance_configuration_model_deployment_instance_shape_config_details_memory_in_gbs}
+              ocpus: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_instance_configuration_model_deployment_instance_shape_config_details_ocpus}
+            private_endpoint_id: ${oci_datascience_private_endpoint.test_private_endpoint.id}
+            subnet_id: ${oci_core_subnet.test_subnet.id}
+          maximum_bandwidth_mbps: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_maximum_bandwidth_mbps}
+          model_id: ${oci_datascience_model.test_model.id}
+          scaling_policy:
+          - auto_scaling_policies:
+            - auto_scaling_policy_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_auto_scaling_policy_type}
+              initial_instance_count: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_initial_instance_count}
+              maximum_instance_count: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_maximum_instance_count}
+              minimum_instance_count: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_minimum_instance_count}
+              rules:
+              - metric_expression_rule_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_metric_expression_rule_type}
+                metric_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_metric_type}
+                scale_in_configuration:
+                - instance_count_adjustment: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_in_configuration_instance_count_adjustment}
+                  pending_duration: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_in_configuration_pending_duration}
+                  query: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_in_configuration_query}
+                  scaling_configuration_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_in_configuration_scaling_configuration_type}
+                  threshold: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_in_configuration_threshold}
+                scale_out_configuration:
+                - instance_count_adjustment: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_out_configuration_instance_count_adjustment}
+                  pending_duration: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_out_configuration_pending_duration}
+                  query: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_out_configuration_query}
+                  scaling_configuration_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_out_configuration_scaling_configuration_type}
+                  threshold: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_auto_scaling_policies_rules_scale_out_configuration_threshold}
+            cool_down_in_seconds: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_cool_down_in_seconds}
+            instance_count: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_instance_count}
+            is_enabled: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_is_enabled}
+            policy_type: ${var.model_deployment_model_deployment_configuration_details_model_configuration_details_scaling_policy_policy_type}
+      opc_parent_rpt_url: ${var.model_deployment_opc_parent_rpt_url}
+      project_id: ${oci_datascience_project.test_project.id}

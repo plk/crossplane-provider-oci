@@ -1,0 +1,14 @@
+apiVersion: artifacts.oci.m.upbound.io/v1alpha1
+kind: Repository
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: repository_label_1
+  name: repository1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    isImmutable: false
+    repositoryType: GENERIC

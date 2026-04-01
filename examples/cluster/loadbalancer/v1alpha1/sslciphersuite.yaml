@@ -1,0 +1,13 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: SSLCipherSuite
+metadata:
+  labels:
+    testing.upbound.io/example-name: sslciphersuite_label_1
+  name: sslciphersuite1
+spec:
+  forProvider:
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    name: "sslciphersuite1"
+    ciphers: ["AES128-SHA","AES256-SHA"]

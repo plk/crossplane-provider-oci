@@ -1,0 +1,17 @@
+apiVersion: networking.oci.m.upbound.io/v1alpha1
+kind: NatGateway
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: natgateway_label_1
+  name: natgateway1
+spec:
+  forProvider:
+    blockTraffic: false
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    displayName: natgateway1
+    vcnIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: vcn_label_1

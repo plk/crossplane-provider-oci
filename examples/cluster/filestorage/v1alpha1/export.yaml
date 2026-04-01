@@ -1,0 +1,15 @@
+apiVersion: filestorage.oci.upbound.io/v1alpha1
+kind: Export
+metadata:
+  name: export1
+  labels:
+    testing.upbound.io/example-name: export_label_1
+spec:
+  forProvider:
+    exportSetIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: exportset_label_1
+    fileSystemIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: filesystem_label_1
+    path: "/examplemount"

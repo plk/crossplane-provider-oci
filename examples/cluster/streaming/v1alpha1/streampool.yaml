@@ -1,0 +1,17 @@
+apiVersion: streaming.oci.upbound.io/v1alpha1
+kind: StreamPool
+metadata:
+  name: streampool1
+  labels:
+    testing.upbound.io/example-name: streampool_label_1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    name: "streampool1"
+    customEncryptionKey:
+      - kmsKeyIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: key_label_1
+          

@@ -1,0 +1,13 @@
+apiVersion: compute.oci.m.upbound.io/v1alpha1
+kind: InstanceConsoleConnection
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: instanceconsoleconnection_label_1
+  name: instanceconsoleconnection1
+spec:
+  forProvider:
+    instanceIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: instance_label_1
+    publicKey: "${INSTANCECONSOLECONNECTION_PUBLICKEY}"

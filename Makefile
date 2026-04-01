@@ -1,25 +1,28 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME ?= upjet-provider-template
-PROJECT_REPO ?= github.com/crossplane/$(PROJECT_NAME)
+PROJECT_NAME := provider-oci
+PROJECT_REPO := github.com/oracle/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION ?= 1.5.7
 
-# Do not allow a version of terraform greater than 1.5.x, due to versions 1.6+ being
-# licensed under BSL, which is not permitted.
-TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAFORM_VERSION)\n1.6" | sort -V | head -n1`" ] && echo 1 || echo 0)
+export TERRAFORM_PROVIDER_SOURCE := oracle/oci
+export TERRAFORM_PROVIDER_REPO := https://github.com/oracle/terraform-provider-oci
+export TERRAFORM_PROVIDER_VERSION := 8.7.0
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-oci
+export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-oci_v$(TERRAFORM_PROVIDER_VERSION)
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-oci/$(TERRAFORM_PROVIDER_VERSION)
+export TERRAFORM_DOCS_PATH := website/docs/r
 
-export TERRAFORM_PROVIDER_SOURCE ?= hashicorp/null
-export TERRAFORM_PROVIDER_REPO ?= https://github.com/hashicorp/terraform-provider-null
-export TERRAFORM_PROVIDER_VERSION ?= 3.2.4
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-null
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= https://releases.hashicorp.com/$(TERRAFORM_PROVIDER_DOWNLOAD_NAME)/$(TERRAFORM_PROVIDER_VERSION)
-export TERRAFORM_NATIVE_PROVIDER_BINARY ?= terraform-provider-null_v3.2.4_x5
-export TERRAFORM_DOCS_PATH ?= docs/resources
+export CROSSPLANE_PROVIDER_VERSION := 1.0
+# Insert Oracle-CrossplaneProvider/<version> to terraform oci User-Agent using
+# USER_AGENT_PROVIDER_NAME (default=Oracle-TerraformProvider).
+# The value will be inserted as <USER_AGENT_PROVIDER_NAME>/<terraform oci version>
+# Sample from terraform oci verbose log:
+# User-Agent: Oracle-GoSDK/65.37.1 ... Oracle-CrossplaneProvider/1.0 Oracle-TerraformProvider/4.120.0
+export USER_AGENT_PROVIDER_NAME := Oracle-CrossplaneProvider/$(CROSSPLANE_PROVIDER_VERSION) Oracle-TerraformProvider
 
-
-PLATFORMS ?= linux_amd64 linux_arm64
+PLATFORMS ?= darwin_amd64 linux_arm64 linux_amd64
 
 # -include will silently skip missing files, which allows us
 # to load those files with a target in the Makefile. If only
@@ -44,7 +47,7 @@ NPROCS ?= 1
 # to half the number of CPU cores.
 GO_TEST_PARALLEL := $(shell echo $$(( $(NPROCS) / 2 )))
 
-GO_REQUIRED_VERSION ?= 1.24
+GO_REQUIRED_VERSION ?= 1.25
 GOLANGCILINT_VERSION ?= 2.7.2
 GO_STATIC_PACKAGES = $(GO_PROJECT)/cmd/provider $(GO_PROJECT)/cmd/generator
 GO_LDFLAGS += -X $(GO_PROJECT)/internal/version.Version=$(VERSION)
@@ -52,32 +55,110 @@ GO_SUBDIRS += cmd internal apis
 -include build/makelib/golang.mk
 
 # ====================================================================================
+# Setup Sub-packages
+# SUBPACKAGES can be:
+# - "monolith" (default): builds the traditional single provider binary
+# - comma-separated service names: builds only specified service sub-packages
+#   e.g., "config,compute,networking"
+SUBPACKAGES ?= monolith
+
+# Helper variable for comma
+comma := ,
+
+# Configure GO_STATIC_PACKAGES based on SUBPACKAGES value
+ifeq ($(SUBPACKAGES),monolith)
+# Monolith build - traditional behavior
+GO_STATIC_PACKAGES = $(GO_PROJECT)/cmd/provider $(GO_PROJECT)/cmd/generator
+else
+# Sub-package build - parse comma-separated list and build service-specific binaries
+SUBPACKAGE_LIST := $(subst $(comma), ,$(SUBPACKAGES))
+GO_STATIC_PACKAGES = $(GO_PROJECT)/cmd/generator $(foreach pkg,$(SUBPACKAGE_LIST),$(GO_PROJECT)/cmd/provider/$(pkg))
+endif
+
+# ====================================================================================
+# Override build target for sub-packages
+# This overrides the default build target from golang.mk when SUBPACKAGES is set
+
+ifneq ($(SUBPACKAGES),monolith)
+# Override the build target for sub-package builds
+build: $(UP)
+	@$(INFO) Building sub-packages: $(SUBPACKAGES)
+	@for pkg in $(SUBPACKAGE_LIST); do \
+		$(MAKE) build.subpackage.$$pkg PLATFORMS="$(PLATFORMS)" || exit 1; \
+	done
+	@$(OK) Built sub-packages: $(SUBPACKAGES)
+
+# Also override go.build for consistency
+go.build: build
+endif
+
+# ====================================================================================
 # Setup Kubernetes tools
 
 KIND_VERSION = v0.31.0
 UPTEST_VERSION = v2.2.0
 CRDDIFF_VERSION = v0.12.1
-CROSSPLANE_CLI_VERSION = v2.1.3
+CROSSPLANE_CLI_VERSION = v2.2.0
 # for e2e testing
-CROSSPLANE_VERSION = 2.1.3
+CROSSPLANE_VERSION = 2.2.0
 -include build/makelib/k8s_tools.mk
 
 # ====================================================================================
 # Setup Images
 
-REGISTRY_ORGS ?= ghcr.io/crossplane-contrib
+REGISTRY_ORGS ?= xpkg.upbound.io/upbound
 IMAGES = $(PROJECT_NAME)
 -include build/makelib/imagelight.mk
 
 # ====================================================================================
 # Setup XPKG
 
-XPKG_REG_ORGS ?= ghcr.io/crossplane-contrib
-# NOTE(hasheddan): skip promoting on xpkg.crossplane.io as channel tags are
+XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
+# NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
 # inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= ghcr.io/crossplane-contrib
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
 XPKGS = $(PROJECT_NAME)
+XPKG_DIR = $(OUTPUT_DIR)/package
+XPKG_IGNORE = kustomization.yaml
+XPKG_OUTPUT_DIR ?= $(OUTPUT_DIR)/xpkg
+BATCH_PLATFORMS ?= linux_amd64,linux_arm64
+
+export XPKG_REG_ORGS := $(XPKG_REG_ORGS)
+export XPKG_REG_ORGS_NO_PROMOTE := $(XPKG_REG_ORGS_NO_PROMOTE)
+export XPKG_DIR := $(XPKG_DIR)
+export XPKG_IGNORE := $(XPKG_IGNORE)
+export XPKG_OUTPUT_DIR := $(XPKG_OUTPUT_DIR)
+export BATCH_PLATFORMS := $(BATCH_PLATFORMS)
+
+# Config provider setup for sub-packages
+CONFIG_CRD_GROUP = oci
+PROVIDER_AUTH_GROUP = oci
+CONFIG_DEPENDENCY_REG_ORG ?= $(XPKG_REG_ORGS)
+
+export CONFIG_CRD_GROUP := $(CONFIG_CRD_GROUP)
+export PROVIDER_AUTH_GROUP := $(PROVIDER_AUTH_GROUP)
+export CONFIG_DEPENDENCY_REG_ORG := $(CONFIG_DEPENDENCY_REG_ORG)
+
 -include build/makelib/xpkg.mk
+
+# NOTE(hasheddan): we force image building to happen prior to xpkg build so that
+# we ensure image is present in daemon.
+xpkg.build.provider-oci: do.build.images
+
+# NOTE(hasheddan): we ensure up is installed prior to running platform-specific
+# build steps in parallel to avoid encountering an installation race condition.
+build.init: $(UP) kustomize-crds
+
+# Prepare package directory with CRDs
+kustomize-crds: output.init
+	@$(INFO) Preparing package directory with CRDs...
+	@rm -fr $(OUTPUT_DIR)/package || $(FAIL)
+	@cp -R package $(OUTPUT_DIR) || $(FAIL)
+	@# Ensure CRDs are copied to the output package directory
+	@mkdir -p $(OUTPUT_DIR)/package/crds || $(FAIL)
+	@cp -R package/crds/* $(OUTPUT_DIR)/package/crds/ 2>/dev/null || true
+	@$(OK) Package directory prepared with CRDs
+
 
 # ====================================================================================
 # Fallthrough
@@ -93,26 +174,13 @@ fallthrough: submodules
 	@echo Initial setup complete. Running make again . . .
 	@make
 
-# NOTE(hasheddan): we force image building to happen prior to xpkg build so that
-# we ensure image is present in daemon.
-xpkg.build.upjet-provider-template: do.build.images
-
-# NOTE(hasheddan): we ensure up is installed prior to running platform-specific
-# build steps in parallel to avoid encountering an installation race condition.
-build.init: $(UP) $(CROSSPLANE_CLI) check-terraform-version
-
 # ====================================================================================
 # Setup Terraform for fetching provider schema
 TERRAFORM := $(TOOLS_HOST_DIR)/terraform-$(TERRAFORM_VERSION)
 TERRAFORM_WORKDIR := $(WORK_DIR)/terraform
 TERRAFORM_PROVIDER_SCHEMA := config/schema.json
 
-check-terraform-version:
-ifneq ($(TERRAFORM_VERSION_VALID),1)
-	$(error invalid TERRAFORM_VERSION $(TERRAFORM_VERSION), must be less than 1.6.0 since that version introduced a not permitted BSL license))
-endif
-
-$(TERRAFORM): check-terraform-version
+$(TERRAFORM):
 	@$(INFO) installing terraform $(HOSTOS)-$(HOSTARCH)
 	@mkdir -p $(TOOLS_HOST_DIR)/tmp-terraform
 	@curl -fsSL https://releases.hashicorp.com/terraform/$(TERRAFORM_VERSION)/terraform_$(TERRAFORM_VERSION)_$(SAFEHOST_PLATFORM).zip -o $(TOOLS_HOST_DIR)/tmp-terraform/terraform.zip
@@ -131,14 +199,25 @@ $(TERRAFORM_PROVIDER_SCHEMA): $(TERRAFORM)
 
 pull-docs:
 	@if [ ! -d "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" ]; then \
-  		mkdir -p "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" && \
+		mkdir -p "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" && \
 		git clone -c advice.detachedHead=false --depth 1 --filter=blob:none --branch "v$(TERRAFORM_PROVIDER_VERSION)" --sparse "$(TERRAFORM_PROVIDER_REPO)" "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)"; \
 	fi
 	@git -C "$(WORK_DIR)/$(TERRAFORM_PROVIDER_SOURCE)" sparse-checkout set "$(TERRAFORM_DOCS_PATH)"
 
 generate.init: $(TERRAFORM_PROVIDER_SCHEMA) pull-docs
 
-.PHONY: $(TERRAFORM_PROVIDER_SCHEMA) pull-docs check-terraform-version
+# Transform resolver references to use scheme-based resolution for sub-package architecture
+generate.resolve: generate
+	@$(INFO) transforming resolver references for sub-package architecture
+	@go run github.com/crossplane/upjet/v2/cmd/resolver -g oci.upbound.io -a github.com/oracle/provider-oci/internal/apis -s
+	@$(OK) transforming resolver references for sub-package architecture
+
+# Complete build workflow: generate → resolve → build
+build.complete: generate.resolve build
+	@$(INFO) complete build workflow finished
+	@$(OK) complete build workflow finished
+
+.PHONY: $(TERRAFORM_PROVIDER_SCHEMA) pull-docs generate.resolve build.complete
 # ====================================================================================
 # Targets
 
@@ -172,69 +251,102 @@ submodules:
 run: go.build
 	@$(INFO) Running Crossplane locally out-of-cluster . . .
 	@# To see other arguments that can be provided, run the command with --help instead
-	$(GO_OUT_DIR)/provider --debug
+	UPBOUND_CONTEXT="local" $(GO_OUT_DIR)/provider --debug
+
+run-only:
+	@$(INFO) Running Crossplane locally out-of-cluster w/o build . . .
+	@# To see other arguments that can be provided, run the command with --help instead
+	UPBOUND_CONTEXT="local" $(GO_OUT_DIR)/provider --debug
 
 # ====================================================================================
 # End to End Testing
-CROSSPLANE_NAMESPACE = crossplane-system
+CROSSPLANE_NAMESPACE = upbound-system
 -include build/makelib/local.xpkg.mk
 -include build/makelib/controlplane.mk
 
-# This target requires the following environment variables to be set:
-# - UPTEST_EXAMPLE_LIST, a comma-separated list of examples to test
-#   To ensure the proper functioning of the end-to-end test resource pre-deletion hook, it is crucial to arrange your resources appropriately.
-#   You can check the basic implementation here: https://github.com/crossplane/uptest/blob/main/internal/templates/03-delete.yaml.tmpl.
-# - UPTEST_CLOUD_CREDENTIALS (optional), multiple sets of AWS IAM User credentials specified as key=value pairs.
-#   The support keys are currently `DEFAULT` and `PEER`. So, an example for the value of this env. variable is:
-#   DEFAULT='[default]
-#   aws_access_key_id = REDACTED
-#   aws_secret_access_key = REDACTED'
-#   PEER='[default]
-#   aws_access_key_id = REDACTED
-#   aws_secret_access_key = REDACTED'
-#   The associated `ProviderConfig`s will be named as `default` and `peer`.
-# - UPTEST_DATASOURCE_PATH (optional), please see https://github.com/crossplane/uptest#injecting-dynamic-values-and-datasource
-uptest: $(UPTEST) $(KUBECTL) $(CHAINSAW) $(CROSSPLANE_CLI)
+uptest: $(UPTEST) $(KUBECTL) $(KUTTL)
 	@$(INFO) running automated tests
-	@KUBECTL=$(KUBECTL) CHAINSAW=$(CHAINSAW) CROSSPLANE_CLI=$(CROSSPLANE_CLI) CROSSPLANE_NAMESPACE=$(CROSSPLANE_NAMESPACE) $(UPTEST) e2e "${UPTEST_EXAMPLE_LIST}" --data-source="${UPTEST_DATASOURCE_PATH}" --setup-script=cluster/test/setup.sh --default-conditions="Test" || $(FAIL)
+	@KUBECTL=$(KUBECTL) KUTTL=$(KUTTL) $(UPTEST) e2e "${UPTEST_EXAMPLE_LIST}" --setup-script=cluster/test/setup.sh || $(FAIL)
 	@$(OK) running automated tests
 
 local-deploy: build controlplane.up local.xpkg.deploy.provider.$(PROJECT_NAME)
 	@$(INFO) running locally built provider
 	@$(KUBECTL) wait provider.pkg $(PROJECT_NAME) --for condition=Healthy --timeout 5m
-	@$(KUBECTL) -n crossplane-system wait --for=condition=Available deployment --all --timeout=5m
+	@$(KUBECTL) -n upbound-system wait --for=condition=Available deployment --all --timeout=5m
 	@$(OK) running locally built provider
 
 e2e: local-deploy uptest
 
-crddiff: $(UPTEST)
-	@$(INFO) Checking breaking CRD schema changes
-	@for crd in $${MODIFIED_CRD_LIST}; do \
-		if ! git cat-file -e "$${GITHUB_BASE_REF}:$${crd}" 2>/dev/null; then \
-			echo "CRD $${crd} does not exist in the $${GITHUB_BASE_REF} branch. Skipping..." ; \
-			continue ; \
-		fi ; \
-		echo "Checking $${crd} for breaking API changes..." ; \
-		changes_detected=$$(go run github.com/crossplane/uptest/cmd/crddiff@$(CRDDIFF_VERSION) revision --enable-upjet-extensions <(git cat-file -p "$${GITHUB_BASE_REF}:$${crd}") "$${crd}" 2>&1) ; \
-		if [[ $$? != 0 ]] ; then \
-			printf "\033[31m"; echo "Breaking change detected!"; printf "\033[0m" ; \
-			echo "$${changes_detected}" ; \
-			echo ; \
-		fi ; \
+.PHONY: cobertura submodules fallthrough run crds.clean generate.resolve build.complete kustomize-crds
+
+# ====================================================================================
+# Sub-package Targets
+# These targets support building and packaging individual service sub-packages
+
+# Build a specific sub-package
+# Usage: make build.subpackage.compute
+# Usage with specific platform: make build.subpackage.compute PLATFORMS=linux_amd64
+build.subpackage.%:
+	@if [ "$*" = "config" ]; then \
+		output_name="provider-family-oci"; \
+		$(INFO) Building sub-package $$output_name for platforms: $(PLATFORMS); \
+	else \
+		output_name="provider-oci-$*"; \
+		$(INFO) Building sub-package $$output_name for platforms: $(PLATFORMS); \
+	fi
+	@if [ ! -d "cmd/provider/$*" ]; then \
+		echo "Error: Sub-package directory cmd/provider/$* does not exist."; \
+		echo "Note: Sub-package directories will be created by the code generator in Phase 2."; \
+		echo "For now, this is expected behavior as we're implementing the build system first."; \
+		exit 1; \
+	fi
+	@for platform in $(PLATFORMS); do \
+		GOOS=$$(echo $$platform | cut -d_ -f1); \
+		GOARCH=$$(echo $$platform | cut -d_ -f2); \
+		echo "  Building for $$GOOS/$$GOARCH..."; \
+		output_name="$*"; \
+		mkdir -p $(OUTPUT_DIR)/bin/$${GOOS}_$${GOARCH}; \
+		CGO_ENABLED=0 GOOS=$$GOOS GOARCH=$$GOARCH $(GO) build -ldflags '$(GO_LDFLAGS)' \
+			-o $(OUTPUT_DIR)/bin/$${GOOS}_$${GOARCH}/$$output_name$(BINARY_EXT) \
+			$(GO_PROJECT)/cmd/provider/$*/ || exit 1; \
 	done
-	@$(OK) Checking breaking CRD schema changes
+	@if [ "$*" = "config" ]; then \
+		$(OK) Built sub-package provider-family-oci for platforms: $(PLATFORMS); \
+	else \
+		$(OK) Built sub-package provider-oci-$* for platforms: $(PLATFORMS); \
+	fi
 
-schema-version-diff:
-	@$(INFO) Checking for native state schema version changes
-	@export PREV_PROVIDER_VERSION=$$(git cat-file -p "${GITHUB_BASE_REF}:Makefile" | sed -nr 's/^export[[:space:]]*TERRAFORM_PROVIDER_VERSION[[:space:]]*:=[[:space:]]*(.+)/\1/p'); \
-	echo Detected previous Terraform provider version: $${PREV_PROVIDER_VERSION}; \
-	echo Current Terraform provider version: $${TERRAFORM_PROVIDER_VERSION}; \
-	mkdir -p $(WORK_DIR); \
-	git cat-file -p "$${GITHUB_BASE_REF}:config/schema.json" > "$(WORK_DIR)/schema.json.$${PREV_PROVIDER_VERSION}"; \
-	./scripts/version_diff.py config/generated.lst "$(WORK_DIR)/schema.json.$${PREV_PROVIDER_VERSION}" config/schema.json
-	@$(OK) Checking for native state schema version changes
+# Test a specific sub-package
+# Usage: make test.subpackage.compute
+test.subpackage.%:
+	@$(INFO) Testing sub-package $*
+	@if [ ! -d "cmd/provider/$*" ] && [ ! -d "internal/controller/$*" ]; then \
+		echo "Error: Sub-package directories for '$*' do not exist."; \
+		echo "Note: Sub-package directories will be created by the code generator in Phase 2."; \
+		echo "For now, this is expected behavior as we're implementing the build system first."; \
+		exit 1; \
+	fi
+	@if [ -d "cmd/provider/$*" ]; then \
+		$(GO) test -v $(GO_PROJECT)/cmd/provider/$*/...; \
+	fi
+	@if [ -d "internal/controller/$*" ]; then \
+		$(GO) test -v $(GO_PROJECT)/internal/controller/$*/...; \
+	fi
+	@$(OK) Testing sub-package $*
 
-.PHONY: cobertura submodules fallthrough run crds.clean
+# Debug target to verify SUBPACKAGES configuration
+debug-subpackages:
+	@echo "SUBPACKAGES: $(SUBPACKAGES)"
+	@echo "SUBPACKAGE_LIST: $(SUBPACKAGE_LIST)"
+	@echo "GO_STATIC_PACKAGES: $(GO_STATIC_PACKAGES)"
+
+# Build sub-packages for current platform only (faster for development)
+# Usage: make build.dev SUBPACKAGES="compute,networking"
+build.dev:
+	@CURRENT_PLATFORM=$$(go env GOOS)_$$(go env GOARCH); \
+	$(MAKE) build PLATFORMS="$$CURRENT_PLATFORM" SUBPACKAGES="$(SUBPACKAGES)"
+
+.PHONY: build.subpackage.% test.subpackage.% debug-subpackages build.dev
 
 # ====================================================================================
 # Special Targets
@@ -244,6 +356,45 @@ Crossplane Targets:
     cobertura             Generate a coverage report for cobertura applying exclusions on generated files.
     submodules            Update the submodules, such as the common build scripts.
     run                   Run crossplane locally, out-of-cluster. Useful for development.
+
+Sub-package Build Support:
+    SUBPACKAGES           Variable to control build behavior (default: "monolith")
+                          Examples:
+                            make build                                # builds monolithic provider (default)
+                            make build SUBPACKAGES=config             # builds only config sub-package
+                            make build SUBPACKAGES=config,compute     # builds multiple sub-packages
+
+    PLATFORMS             Variable to control target platforms (default: "darwin_amd64 linux_arm64 linux_amd64")
+                          Examples:
+                            make build PLATFORMS=linux_amd64          # build only for linux/amd64
+                            make build PLATFORMS="linux_amd64 linux_arm64"  # build for multiple platforms
+
+Sub-package Architecture:
+    generate.resolve      Transform resolver references for sub-package support
+    build.complete        Complete workflow: generate → resolve → build
+    build.dev             Build sub-packages for current platform only (faster for development)
+                          Example: make build.dev SUBPACKAGES="compute,networking"
+
+Sub-package Targets:
+    build.subpackage.%    Build a specific sub-package binary
+                          Example: make build.subpackage.compute
+    package.subpackage.%  Package a specific sub-package as container
+                          Example: make package.subpackage.networking
+    test.subpackage.%     Run tests for a specific sub-package
+                          Example: make test.subpackage.blockstorage
+
+Available sub-packages:
+    config, compute, networking, blockstorage, networkconnectivity, containerengine,
+    identity, objectstorage, loadbalancer, networkloadbalancer, dns, kms, functions,
+    logging, monitoring, events, streaming, filestorage, artifacts, vault, ons,
+    certificatesmanagement, networkfirewall, healthchecks
+
+Batch Processing:
+    batch-process         Process sub-packages with up xpkg batch command (internal use)
+    build-subpackages     Build sub-package xpkg files without pushing to registry
+                          Example: make build-subpackages SUBPACKAGES_FOR_BATCH="config,networking" BATCH_PLATFORMS=linux_amd64
+    publish-subpackages   Build and push sub-packages to registry
+                          Example: make publish-subpackages SUBPACKAGES_FOR_BATCH="config,networking" BATCH_PLATFORMS=linux_amd64
 
 endef
 # The reason CROSSPLANE_MAKE_HELP is used instead of CROSSPLANE_HELP is because the crossplane
@@ -257,6 +408,6 @@ help-special: crossplane.help
 
 .PHONY: crossplane.help help-special
 
-# TODO(negz): Update CI to use these targets.
-vendor: modules.download
-vendor.check: modules.check
+# ====================================================================================
+# Sub-package Support
+-include build/makelib/subpackage.mk

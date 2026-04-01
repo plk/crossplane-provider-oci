@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: clone-repo-template
+spec:
+  templates:
+    - name: check-contents
+      container:
+        image: docker.io/alpine:3.23
+        command: [sh, -c]
+        args:
+          - |
+            echo "Listing repo contents:"
+            ls -la /git-repo
+            echo "Checking uname:"
+            uname | tr '[:upper:]' '[:lower:]'
+        volumeMounts:
+          - name: git-repo
+            mountPath: /git-repo
+    - name: clone-repo
+      inputs:
+        parameters:
+        - name: git_repo
+        - name: git_ref
+      container:
+        image: docker.io/alpine/git:latest
+        command: [sh, -c]
+        args:
+        - |
+          git clone --single-branch --branch {{inputs.parameters.git_ref}} {{inputs.parameters.git_repo}} /src 
+          cd /src && git status
+          echo "Listing src contents:"
+          ls -la /src
+          cp -r /src/. /git-repo/
+          echo "Listing git-repo contents:"
+          ls -la /git-repo
+        volumeMounts:
+        - name: git-repo
+          mountPath: /git-repo

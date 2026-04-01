@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: crossplane-template
+spec:
+  templates:
+    - name: setup-crossplane
+      inputs:
+        parameters:
+        - name: namespace
+        - name: region
+        - name: providers
+        - name: provider-image-repo-name
+        - name: family-provider-version
+        - name: tenancy
+      container:
+        image: docker.io/alpine/k8s:1.31.13
+        command: [bash, -c]
+        args:
+        - |
+          echo "Setting up Crossplane with the following parameters:"
+          echo "Namespace: {{inputs.parameters.namespace}}"
+          echo "Region: {{inputs.parameters.region}}"
+          echo "Providers: {{inputs.parameters.providers}}"
+          echo "Family Provider Version: {{inputs.parameters.family-provider-version}}"
+          /git-repo/argo/scripts/setup_crossplane.sh
+        volumeMounts:
+        - name: git-repo
+          mountPath: /git-repo
+        env:
+        - name: NAMESPACE
+          value: "{{inputs.parameters.namespace}}"
+        - name: REGION
+          value: "{{inputs.parameters.region}}"
+        - name: PROVIDERS
+          value: "{{inputs.parameters.providers}}"
+        - name: FAMILY_PROVIDER_VERSION
+          value: "{{inputs.parameters.family-provider-version}}"  
+        - name: TENANCY_OCID
+          value: "{{inputs.parameters.tenancy}}"
+        - name: PROVIDER_IMAGE_REPO_NAME
+          value: "{{inputs.parameters.provider-image-repo-name}}"
+    - name: delete-crossplane
+      inputs:
+        parameters:
+        - name: namespace
+      container:
+        image: docker.io/alpine/k8s:1.31.13
+        command: [bash, -c]
+        args:
+        - |
+          echo "Deleting Crossplane in namespace {{inputs.parameters.namespace}}"
+          kubectl delete providers --all -n {{inputs.parameters.namespace}} --ignore-not-found
+          helm uninstall crossplane -n {{inputs.parameters.namespace}} --ignore-not-found
+          kubectl delete namespace {{inputs.parameters.namespace}} --ignore-not-found

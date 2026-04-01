@@ -1,0 +1,15 @@
+apiVersion: datasafe.oci.m.upbound.io/v1alpha1
+kind: AlertPolicyRule
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: datasafe/v1alpha1/alertpolicyrule
+  labels:
+    testing.upbound.io/example-name: test_alert_policy_rule
+  name: test-alert-policy-rule
+spec:
+  forProvider:
+    alertPolicyId: ${var.policy_id}
+    description: ${var.alert_policy_rule_description}
+    displayName: ${var.alert_policy_rule_display_name}
+    expression: ${var.alert_policy_rule_expression}

@@ -1,0 +1,15 @@
+apiVersion: identity.oci.m.upbound.io/v1alpha1
+kind: TagNamespace
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: tagnamespace_label_1
+  name: tagnamespace1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    description: "Test Tag Namespace"
+    isRetired: false
+    name: tagnamespace1

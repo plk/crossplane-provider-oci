@@ -1,3 +1,7 @@
+/*
+Copyright 2022 Upbound Inc.
+*/
+
 package v1alpha1
 
 import (
@@ -7,7 +11,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "template.m.crossplane.io"
+	Group   = "oci.m.upbound.io"
 	Version = "v1alpha1"
 )
 

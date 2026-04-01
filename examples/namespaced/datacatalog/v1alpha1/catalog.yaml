@@ -1,0 +1,13 @@
+apiVersion: datacatalog.oci.m.upbound.io/v1alpha1
+kind: Catalog
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: catalog_label_1
+  name: catalog1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    displayName: catalog1

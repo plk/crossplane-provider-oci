@@ -1,0 +1,16 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: BackendSet
+metadata:
+  labels:
+    testing.upbound.io/example-name: backendset_label_1
+  name: backendset1
+spec:
+  forProvider:
+    healthChecker:
+      - protocol: "HTTP"
+        urlPath: "/healthcheck"
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    name: "backendset1"
+    policy: "LEAST_CONNECTIONS"

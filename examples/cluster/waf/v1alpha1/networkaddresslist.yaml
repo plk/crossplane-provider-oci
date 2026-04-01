@@ -1,0 +1,18 @@
+apiVersion: waf.oci.upbound.io/v1alpha1
+kind: NetworkAddressList
+metadata:
+  name: networkaddresslist1
+  labels:
+    testing.upbound.io/example-name: networkaddresslist_label_1
+spec:
+  forProvider:
+    displayName: networkaddresslist1
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    type: "VCN_ADDRESSES"
+    vcnAddresses:
+      - vcnIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: vcn_label_1
+        addresses: "10.0.0.0/24"

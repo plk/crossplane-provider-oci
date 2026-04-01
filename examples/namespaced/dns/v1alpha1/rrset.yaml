@@ -1,0 +1,15 @@
+apiVersion: dns.oci.m.upbound.io/v1alpha1
+kind: Rrset
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: rrset_label_1
+  name: rrset1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    domain: rrset1.zone1.oci-dns1
+    rtype: TXT
+    zoneNameOrId: zone1.oci-dns1

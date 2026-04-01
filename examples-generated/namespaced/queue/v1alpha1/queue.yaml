@@ -1,0 +1,35 @@
+apiVersion: queue.oci.m.upbound.io/v1alpha1
+kind: Queue
+metadata:
+  annotations:
+    meta.upbound.io/example-id: queue/v1alpha1/queue
+  labels:
+    testing.upbound.io/example-name: test_queue
+  name: test-queue
+  namespace: upbound-system
+spec:
+  forProvider:
+    capabilities:
+    - isPrimaryConsumerGroupEnabled: ${var.queue_capabilities_is_primary_consumer_group_enabled}
+      primaryConsumerGroupDeadLetterQueueDeliveryCount: ${var.queue_capabilities_primary_consumer_group_dead_letter_queue_delivery_count}
+      primaryConsumerGroupDisplayName: ${var.queue_capabilities_primary_consumer_group_display_name}
+      primaryConsumerGroupFilter: ${var.queue_capabilities_primary_consumer_group_filter}
+      type: ${var.queue_capabilities_type}
+    channelConsumptionLimit: ${var.queue_channel_consumption_limit}
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: example
+    customEncryptionKeyIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: test_key
+    deadLetterQueueDeliveryCount: ${var.queue_dead_letter_queue_delivery_count}
+    definedTags:
+      foo-namespace.bar-key: value
+    displayName: ${var.queue_display_name}
+    freeformTags:
+      bar-key: value
+    purgeTrigger: ${var.purge_trigger}
+    purgeType: ${var.purge_type}
+    retentionInSeconds: ${var.queue_retention_in_seconds}
+    timeoutInSeconds: ${var.queue_timeout_in_seconds}
+    visibilityInSeconds: ${var.queue_visibility_in_seconds}

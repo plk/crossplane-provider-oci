@@ -1,0 +1,12 @@
+apiVersion: filestorage.oci.upbound.io/v1alpha1
+kind: Snapshot
+metadata:
+  name: snapshot1
+  labels:
+    testing.upbound.io/example-name: snapshot_label_1
+spec:
+  forProvider:
+    fileSystemIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: filesystem_label_1
+    name: "snapshot1"

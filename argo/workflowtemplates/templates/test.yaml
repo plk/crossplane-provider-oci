@@ -1,0 +1,132 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: test-template
+spec:
+  templates:
+    - name: create-resource
+      inputs:
+        parameters:
+        - name: resourceFile
+        - name: envVars
+          value: "" # Default value, can be overridden
+        - name: setupFile
+          value: "" # Default value, can be overridden
+        - name: setupEnvVars
+          value: "" # Default value, can be overridden
+      container:
+        image: docker.io/alpine/k8s:1.31.13
+        command: [bash, -c]
+        args:
+        - |
+          set -e
+          # Apply setup YAML if provided
+          if [ -n "{{inputs.parameters.setupFile}}" ]; then
+            echo "Applying setup from file: {{inputs.parameters.setupFile}}"
+            if [ -n "{{inputs.parameters.setupEnvVars}}" ]; then
+              for envVar in $(echo "{{inputs.parameters.setupEnvVars}}" | tr ',' '\n'); do
+                export $envVar
+                echo "Exported env var: $envVar"
+              done
+            fi
+            envsubst < /git-repo/{{inputs.parameters.setupFile}} > /tmp/setup-output.yaml
+            cat /tmp/setup-output.yaml
+            envsubst < /git-repo/{{inputs.parameters.setupFile}} | kubectl apply -f - 
+            echo "Setup applied successfully."
+          fi
+
+          # Create the main resource
+          echo "Creating resource from file: {{inputs.parameters.resourceFile}}"
+          apiVersion=$(yq e '.apiVersion' /git-repo/{{inputs.parameters.resourceFile}})
+          group="${apiVersion%%/*}"
+          kind=$(yq e '.kind' /git-repo/{{inputs.parameters.resourceFile}})
+          name=$(yq e '.metadata.name' /git-repo/{{inputs.parameters.resourceFile}})
+
+          echo -n "${name,,}"       > /tmp/resourceName.txt
+          echo -n "${kind,,}"       > /tmp/resourceKind.txt
+          echo -n "${group}"        > /tmp/resourceGroup.txt
+
+          echo "Creating ${kind,,} ${name,,}"
+          if [ -n "{{inputs.parameters.envVars}}" ]; then
+            for envVar in $(echo "{{inputs.parameters.envVars}}" | tr ',' '\n'); do
+              export $envVar
+            done
+          fi
+          envsubst < /git-repo/{{inputs.parameters.resourceFile}} | kubectl apply -f - 
+          echo "Validating ${kind,,} ${name,,} creation..."
+          echo "kubectl wait --for=condition=Ready=True ${kind,,}.${group}/${name,,} --timeout=900s"
+          kubectl wait --for=condition=Ready=True ${kind,,}.${group}/${name,,} --timeout=900s
+          echo "Resource created successfully."
+        volumeMounts:
+        - name: git-repo
+          mountPath: /git-repo
+      outputs:
+        parameters:
+        - name: resourceName
+          valueFrom:
+            path: /tmp/resourceName.txt
+        - name: resourceKind
+          valueFrom:
+            path: /tmp/resourceKind.txt
+        - name: resourceGroup
+          valueFrom:
+            path: /tmp/resourceGroup.txt
+    - name: delete-resource
+      inputs:
+        parameters:
+        - name: resourceKind
+        - name: resourceName
+        - name: resourceGroup
+        - name: teardownFile
+          value: "" # Default value, can be overridden
+        - name: teardownEnvVars
+          value: "" # Default value, can be overridden
+      container:
+        image: docker.io/alpine/k8s:1.31.13
+        command: [bash, -c]
+        args:
+        - |
+          set -e
+          # Apply teardown YAML if provided
+          if [ -n "{{inputs.parameters.teardownFile}}" ]; then
+            echo "Applying teardown from file: {{inputs.parameters.teardownFile}}"
+            if [ -n "{{inputs.parameters.teardownEnvVars}}" ]; then
+              for envVar in $(echo "{{inputs.parameters.teardownEnvVars}}" | tr ',' '\n'); do
+                export $envVar
+              done
+            fi
+            envsubst < /git-repo/{{inputs.parameters.teardownFile}} | kubectl apply -f - 
+            echo "Teardown applied successfully."
+          fi
+
+          # Delete the main resource
+          echo "Deleting {{inputs.parameters.resourceKind}}.{{inputs.parameters.resourceGroup}} {{inputs.parameters.resourceName}}"
+          kubectl delete {{inputs.parameters.resourceKind}}.{{inputs.parameters.resourceGroup}}/{{inputs.parameters.resourceName}}
+          echo "Waiting for {{inputs.parameters.resourceKind}} {{inputs.parameters.resourceName}} deletion..."
+          kubectl wait --for=delete {{inputs.parameters.resourceKind}}.{{inputs.parameters.resourceGroup}}/{{inputs.parameters.resourceName}} --timeout=900s
+          echo "Resource deleted successfully."
+        volumeMounts:
+        - name: git-repo
+          mountPath: /git-repo
+    - name: describe-resource
+      inputs:
+        parameters:
+        - name: resourceKind
+        - name: resourceName
+      container:
+        image: docker.io/alpine/k8s:1.31.13
+        command: [bash, -c]
+        args:
+        - |
+          set -e
+          echo "Describing {{inputs.parameters.resourceKind}} {{inputs.parameters.resourceName}}"
+          kubectl describe {{inputs.parameters.resourceKind}}/{{inputs.parameters.resourceName}} > /tmp/{{inputs.parameters.resourceName}}-description.txt
+          cat /tmp/{{inputs.parameters.resourceName}}-description.txt
+        volumeMounts:
+        - name: git-repo
+          mountPath: /git-repo
+      outputs:
+        parameters:
+        - name: description
+          valueFrom:
+            path: /tmp/{{inputs.parameters.resourceName}}-description.txt

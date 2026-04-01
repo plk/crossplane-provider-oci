@@ -1,0 +1,16 @@
+apiVersion: loadbalancer.oci.upbound.io/v1alpha1
+kind: RuleSet
+metadata:
+  labels:
+    testing.upbound.io/example-name: ruleset_label_1
+  name: ruleset1
+spec:
+  forProvider:
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    name: "ruleset1"
+    items:
+      - action: "ADD_HTTP_REQUEST_HEADER"
+        header: "example_header_name"
+        value: "example_header_value"

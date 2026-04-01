@@ -1,0 +1,14 @@
+apiVersion: compute.oci.m.upbound.io/v1alpha1
+kind: InstanceConfiguration
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: instanceconfiguration_label_1
+  name: instanceconfiguration1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    instanceDetails:
+      - instanceType: "compute"

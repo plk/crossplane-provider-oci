@@ -1,0 +1,18 @@
+apiVersion: dns.oci.m.upbound.io/v1alpha1
+kind: SteeringPolicyAttachment
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: steeringpolicyattachment_label_1
+  name: steeringpolicyattachment1
+spec:
+  forProvider:
+    displayName: steeringpolicyattachment1
+    domainName: steeringpolicyattachment1.zone1.oci-dns1
+    steeringPolicyIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: steeringpolicy_label_1
+    zoneIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: zone_label_1
+

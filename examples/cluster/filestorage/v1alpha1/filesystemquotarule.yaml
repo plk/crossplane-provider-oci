@@ -1,0 +1,15 @@
+apiVersion: filestorage.oci.upbound.io/v1alpha1
+kind: FileSystemQuotaRule
+metadata:
+  name: filesystemquotarule1
+  labels:
+    testing.upbound.io/example-name: filesystemquotarule_label_1
+spec:
+  forProvider:
+    displayName: filesystemquotarule1
+    fileSystemIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: filesystem_label_1
+    isHardQuota: true
+    principalType: "DEFAULT_USER"
+    quotaLimitInGigabytes: 0

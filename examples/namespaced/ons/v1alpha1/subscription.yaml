@@ -1,0 +1,17 @@
+apiVersion: ons.oci.m.upbound.io/v1alpha1
+kind: Subscription
+metadata:
+  namespace: crossplane-system
+  labels:
+    testing.upbound.io/example-name: subscription_label_1
+  name: subscription1
+spec:
+  forProvider:
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    endpoint: RobotNotExist@oracle.com
+    protocol: EMAIL
+    topicIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: notificationtopic_label_1

@@ -1,0 +1,13 @@
+apiVersion: limits.oci.upbound.io/v1alpha1
+kind: Quota
+metadata:
+  labels:
+    testing.upbound.io/example-name: quota_label_1
+  name: quota1
+spec:
+  forProvider:
+    compartmentId: "${TENANCY_OCID}"
+    description: "Test quota"
+    name: quota1
+    statements: 
+    - "set vcn quota to 2 in compartment ${COMPARTMENT_NAME}"

@@ -1,0 +1,17 @@
+apiVersion: meteringcomputation.oci.m.upbound.io/v1alpha1
+kind: UsageCarbonEmission
+metadata:
+  namespace: crossplane-system
+  annotations:
+    meta.upbound.io/example-id: meteringcomputation/v1alpha1/usagecarbonemission
+  labels:
+    testing.upbound.io/example-name: test_usage_carbon_emission
+  name: test-usage-carbon-emission
+spec:
+  forProvider:
+    compartmentDepth: 1
+    groupBy:
+    - service
+    tenantId: ${var.tenancy_ocid}
+    timeUsageEnded: ${var.time_usage_ended}
+    timeUsageStarted: ${var.time_usage_started}

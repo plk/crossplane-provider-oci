@@ -1,0 +1,15 @@
+apiVersion: blockstorage.oci.upbound.io/v1alpha1
+kind: Volume
+metadata:
+  labels:
+    testing.upbound.io/example-name: volume_label_1
+  name: volume1
+spec:
+  forProvider:
+    # Refer to following terraform example for brief resource fields
+    # https://registry.terraform.io/providers/oracle/oci/7.27.0/docs/resources/core_volume
+    compartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    availabilityDomain: ${AVAILABILITY_DOMAIN}
+    displayName: volume1
