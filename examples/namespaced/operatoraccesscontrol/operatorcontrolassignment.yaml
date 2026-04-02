@@ -1,12 +1,13 @@
+---
 apiVersion: operatoraccesscontrol.oci.m.upbound.io/v1alpha1
 kind: OperatorControlAssignment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: operatoraccesscontrol/v1alpha1/operatorcontrolassignment
   labels:
     testing.upbound.io/example-name: test_operator_control_assignment
   name: test-operator-control-assignment
+  namespace: crossplane-system
 spec:
   forProvider:
     comment: ${var.operator_control_assignment_comment}
@@ -27,18 +28,16 @@ spec:
     resourceId: ocid1.exadatainfrastructure.test..${random_string.random_suffix.result}
     resourceName: ${var.operator_control_assignment_resource_name}
     resourceType: ${var.operator_control_assignment_resource_type}
-
 ---
-
 apiVersion: operatoraccesscontrol.oci.m.upbound.io/v1alpha1
 kind: OperatorControl
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: operatoraccesscontrol/v1alpha1/operatorcontrolassignment
   labels:
     testing.upbound.io/example-name: test_operator_control
   name: test-operator-control
+  namespace: crossplane-system
 spec:
   forProvider:
     approverGroupsList:

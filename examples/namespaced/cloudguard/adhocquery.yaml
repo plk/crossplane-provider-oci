@@ -1,12 +1,13 @@
+---
 apiVersion: cloudguard.oci.m.upbound.io/v1alpha1
 kind: AdhocQuery
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudguard/v1alpha1/adhocquery
   labels:
     testing.upbound.io/example-name: test_adhoc_query
   name: test-adhoc-query
+  namespace: crossplane-system
 spec:
   forProvider:
     adhocQueryDetails:

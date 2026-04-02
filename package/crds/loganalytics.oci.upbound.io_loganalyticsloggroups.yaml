@@ -179,8 +179,7 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               initProvider:
@@ -301,8 +300,7 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               managementPolicies:
@@ -441,8 +439,7 @@ spec:
                       or on the cloud.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   timeCreated:
                     description: The date and time the resource was created, in the

@@ -154,10 +154,6 @@ spec:
                       see Resource Tags. Example: {"Operations.CostCenter": "42"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  description:
-                    description: (Updatable) The description of the network firewall
-                      policy. This field can be used to add additional info.
-                    type: string
                   displayName:
                     description: (Updatable) A user-friendly optional name for the
                       firewall policy. Avoid entering confidential information.
@@ -279,10 +275,6 @@ spec:
                       see Resource Tags. Example: {"Operations.CostCenter": "42"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  description:
-                    description: (Updatable) The description of the network firewall
-                      policy. This field can be used to add additional info.
-                    type: string
                   displayName:
                     description: (Updatable) A user-friendly optional name for the
                       firewall policy. Avoid entering confidential information.
@@ -377,10 +369,6 @@ spec:
                       see Resource Tags. Example: {"Operations.CostCenter": "42"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  description:
-                    description: (Updatable) The description of the network firewall
-                      policy. This field can be used to add additional info.
-                    type: string
                   displayName:
                     description: (Updatable) A user-friendly optional name for the
                       firewall policy. Avoid entering confidential information.

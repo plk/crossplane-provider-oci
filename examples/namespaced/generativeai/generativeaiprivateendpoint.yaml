@@ -1,12 +1,13 @@
+---
 apiVersion: generativeai.oci.m.upbound.io/v1alpha1
 kind: GenerativeAiPrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/generativeaiprivateendpoint
   labels:
     testing.upbound.io/example-name: test_generative_ai_private_endpoint
   name: test-generative-ai-private-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -21,18 +22,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn_subnet
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/generativeaiprivateendpoint
   labels:
     testing.upbound.io/example-name: vcn_subnet
   name: vcn-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -50,18 +49,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: pe_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/generativeaiprivateendpoint
   labels:
     testing.upbound.io/example-name: pe_vcn
   name: pe-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16

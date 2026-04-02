@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: MlApplicationInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/mlapplicationinstance
   labels:
     testing.upbound.io/example-name: test_ml_application_instance
   name: test-ml-application-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     authConfiguration:
@@ -29,18 +30,16 @@ spec:
     mlApplicationImplementationIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_ml_application_implementation
-
 ---
-
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: MlApplication
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/mlapplicationinstance
   labels:
     testing.upbound.io/example-name: test_ml_application
   name: test-ml-application
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -49,18 +48,16 @@ spec:
     description: ${var.ml_application_description}
     freeformTags: ${var.ml_application_freeform_tags}
     name: ${var.ml_application_name}
-
 ---
-
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: MlApplicationImplementation
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/mlapplicationinstance
   labels:
     testing.upbound.io/example-name: test_ml_application_implementation
   name: test-ml-application-implementation
+  namespace: crossplane-system
 spec:
   forProvider:
     allowedMigrationDestinations: ${var.ml_application_implementation_allowed_migration_destinations}

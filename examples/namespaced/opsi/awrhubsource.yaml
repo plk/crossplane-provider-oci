@@ -1,12 +1,13 @@
+---
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: AwrHubSource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/awrhubsource
   labels:
     testing.upbound.io/example-name: test_awr_hub_source
   name: test-awr-hub-source
+  namespace: crossplane-system
 spec:
   forProvider:
     awrHubIdSelector:
@@ -20,18 +21,16 @@ spec:
     freeformTags: ${var.awr_hub_source_freeform_tags}
     name: ${var.awr_hub_source_name}
     type: ${var.awr_hub_source_type}
-
 ---
-
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: AwrHub
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/awrhubsource
   labels:
     testing.upbound.io/example-name: test_awr_hub
   name: test-awr-hub
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -44,18 +43,16 @@ spec:
     operationsInsightsWarehouseIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_operations_insights_warehouse
-
 ---
-
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: OperationsInsightsWarehouse
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/awrhubsource
   labels:
     testing.upbound.io/example-name: test_operations_insights_warehouse
   name: test-operations-insights-warehouse
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

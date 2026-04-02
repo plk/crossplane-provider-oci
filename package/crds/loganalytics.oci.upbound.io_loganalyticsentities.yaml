@@ -75,10 +75,9 @@ spec:
               forProvider:
                 properties:
                   cloudResourceId:
-                    description: (Updatable) The OCID of the Cloud resource which
-                      this entity is a representation of. This may be blank when the
-                      entity represents a non-cloud resource that the customer may
-                      have on their premises.
+                    description: The OCID of the Cloud resource which this entity
+                      is a representation of. This may be blank when the entity represents
+                      a non-cloud resource that the customer may have on their premises.
                     type: string
                   compartmentId:
                     description: (Updatable) Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -289,8 +288,7 @@ spec:
                     description: (Updatable) The metadata name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     additionalProperties:
@@ -326,10 +324,9 @@ spec:
                   autoscaler.
                 properties:
                   cloudResourceId:
-                    description: (Updatable) The OCID of the Cloud resource which
-                      this entity is a representation of. This may be blank when the
-                      entity represents a non-cloud resource that the customer may
-                      have on their premises.
+                    description: The OCID of the Cloud resource which this entity
+                      is a representation of. This may be blank when the entity represents
+                      a non-cloud resource that the customer may have on their premises.
                     type: string
                   compartmentId:
                     description: (Updatable) Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -540,8 +537,7 @@ spec:
                     description: (Updatable) The metadata name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     additionalProperties:
@@ -676,10 +672,9 @@ spec:
                       analytics entity.
                     type: number
                   cloudResourceId:
-                    description: (Updatable) The OCID of the Cloud resource which
-                      this entity is a representation of. This may be blank when the
-                      entity represents a non-cloud resource that the customer may
-                      have on their premises.
+                    description: The OCID of the Cloud resource which this entity
+                      is a representation of. This may be blank when the entity represents
+                      a non-cloud resource that the customer may have on their premises.
                     type: string
                   compartmentId:
                     description: (Updatable) Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -759,8 +754,7 @@ spec:
                     description: (Updatable) The metadata name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     additionalProperties:

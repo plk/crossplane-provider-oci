@@ -1,12 +1,13 @@
+---
 apiVersion: generativeai.oci.m.upbound.io/v1alpha1
 kind: AgentAgentEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/agentagentendpoint
   labels:
     testing.upbound.io/example-name: test_agent_endpoint
   name: test-agent-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     agentId: ${var.test_agent_id}

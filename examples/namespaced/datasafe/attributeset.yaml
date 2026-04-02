@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: AttributeSet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/attributeset
   labels:
     testing.upbound.io/example-name: test_attribute_set
   name: test-attribute-set
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSetType: ${var.attribute_set_type}

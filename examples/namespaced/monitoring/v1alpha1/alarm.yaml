@@ -1,21 +1,22 @@
+---
 apiVersion: monitoring.oci.m.upbound.io/v1alpha1
 kind: Alarm
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: alarm_label_1
   name: alarm1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: alarm1
-    isEnabled: false
-    namespace: "alarmnamespace1"
-    query: "CpuUtilization[10m].percentile(0.9) < 85"
-    severity: "WARNING"
-    metricCompartmentIdSelector:
-      matchLabels:
-        testing.upbound.io/example-name: compartment_label_1
     destinationsSelector:
       matchLabels:
         testing.upbound.io/example-name: notificationtopic_label_1
+    displayName: alarm1
+    isEnabled: false
     isNotificationsPerMetricDimensionEnabled: true
+    metricCompartmentIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: compartment_label_1
+    namespace: alarmnamespace1
+    query: CpuUtilization[10m].percentile(0.9) < 85
+    severity: WARNING

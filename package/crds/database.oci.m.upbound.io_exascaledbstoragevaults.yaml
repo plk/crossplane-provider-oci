@@ -65,9 +65,8 @@ spec:
                       percentage of High Capacity database storage.
                     type: number
                   autoscaleLimitInGbs:
-                    description: (Updatable) The maximum limit, in gigabytes, to which
-                      the Vault storage size can automatically scale when auto scaling
-                      is enabled for the Database Storage Vault
+                    description: (Updatable) Maximum limit storage size in gigabytes,
+                      that is applicable for the Database Storage Vault.
                     type: number
                   availabilityDomain:
                     description: The name of the availability domain in which the
@@ -393,9 +392,8 @@ spec:
                       percentage of High Capacity database storage.
                     type: number
                   autoscaleLimitInGbs:
-                    description: (Updatable) The maximum limit, in gigabytes, to which
-                      the Vault storage size can automatically scale when auto scaling
-                      is enabled for the Database Storage Vault
+                    description: (Updatable) Maximum limit storage size in gigabytes,
+                      that is applicable for the Database Storage Vault.
                     type: number
                   availabilityDomain:
                     description: The name of the availability domain in which the
@@ -792,9 +790,8 @@ spec:
                       type: string
                     type: array
                   autoscaleLimitInGbs:
-                    description: (Updatable) The maximum limit, in gigabytes, to which
-                      the Vault storage size can automatically scale when auto scaling
-                      is enabled for the Database Storage Vault
+                    description: (Updatable) Maximum limit storage size in gigabytes,
+                      that is applicable for the Database Storage Vault.
                     type: number
                   availabilityDomain:
                     description: The name of the availability domain in which the

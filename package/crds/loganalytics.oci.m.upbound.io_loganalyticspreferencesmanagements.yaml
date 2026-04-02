@@ -74,8 +74,7 @@ spec:
                       type: object
                     type: array
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               initProvider:
@@ -104,8 +103,7 @@ spec:
                       type: object
                     type: array
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               managementPolicies:
@@ -192,8 +190,7 @@ spec:
                       type: object
                     type: array
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               conditions:

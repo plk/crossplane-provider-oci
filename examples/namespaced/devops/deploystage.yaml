@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: DeployStage
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deploystage
   labels:
     testing.upbound.io/example-name: test_wait_deploy_stage
   name: test-wait-deploy-stage
+  namespace: crossplane-system
 spec:
   forProvider:
     deployPipelineIdSelector:
@@ -23,18 +24,16 @@ spec:
     waitCriteria:
     - waitDuration: PT5S
       waitType: ABSOLUTE_WAIT
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deploystage
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

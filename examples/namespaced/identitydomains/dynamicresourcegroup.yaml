@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: DynamicResourceGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/dynamicresourcegroup
   labels:
     testing.upbound.io/example-name: test_dynamic_resource_group
   name: test-dynamic-resource-group
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.dynamic_resource_group_authorization}
     description: ${var.dynamic_resource_group_description}
     displayName: ${var.dynamic_resource_group_display_name}

@@ -1,14 +1,15 @@
+---
 apiVersion: dataintegration.oci.m.upbound.io/v1alpha1
 kind: Workspace
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: workspace_label_1
   name: workspace1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
-    description: "Test Data Integration Workspace"
+    description: Test Data Integration Workspace
     displayName: workspace1

@@ -22,9 +22,6 @@ func (tr *AgentDataSource) Hub() {}
 func (tr *AgentKnowledgeBase) Hub() {}
 
 // Hub marks this type as a conversion hub.
-func (tr *AgentProvisionedCapacity) Hub() {}
-
-// Hub marks this type as a conversion hub.
 func (tr *AgentTool) Hub() {}
 
 // Hub marks this type as a conversion hub.
@@ -35,9 +32,6 @@ func (tr *Endpoint) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *GenerativeAiPrivateEndpoint) Hub() {}
-
-// Hub marks this type as a conversion hub.
-func (tr *ImportedModel) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Model) Hub() {}

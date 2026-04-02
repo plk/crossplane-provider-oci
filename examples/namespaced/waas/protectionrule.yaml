@@ -1,12 +1,13 @@
+---
 apiVersion: waas.oci.m.upbound.io/v1alpha1
 kind: ProtectionRule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: waas/v1alpha1/protectionrule
   labels:
     testing.upbound.io/example-name: test_waas_protection_rule
   name: test-waas-protection-rule
+  namespace: crossplane-system
 spec:
   forProvider:
     action: DETECT
@@ -14,7 +15,7 @@ spec:
     - exclusions:
       - example.com
       target: REQUEST_COOKIES
-    key: "933161"
+    key: '933161'
     waasPolicyIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_waas_policy

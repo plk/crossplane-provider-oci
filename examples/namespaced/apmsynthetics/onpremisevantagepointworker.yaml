@@ -1,12 +1,13 @@
+---
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: OnPremiseVantagePointWorker
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/onpremisevantagepointworker
   labels:
     testing.upbound.io/example-name: test_on_premise_vantage_point_worker
   name: test-on-premise-vantage-point-worker
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:
@@ -18,18 +19,16 @@ spec:
         testing.upbound.io/example-name: test_on_premise_vantage_point
     resourcePrincipalTokenPublicKey: ${var.on_premise_vantage_point_worker_resource_principal_token_public_key}
     version: ${var.on_premise_vantage_point_worker_version}
-
 ---
-
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/onpremisevantagepointworker
   labels:
     testing.upbound.io/example-name: test_apm_domain
   name: test-apm-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -39,18 +38,16 @@ spec:
     displayName: ${var.apm_domain_display_name}
     freeformTags: ${var.apm_domain_freeform_tags}
     isFreeTier: ${var.apm_domain_is_free_tier}
-
 ---
-
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: OnPremiseVantagePoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/onpremisevantagepointworker
   labels:
     testing.upbound.io/example-name: test_on_premise_vantage_point
   name: test-on-premise-vantage-point
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:

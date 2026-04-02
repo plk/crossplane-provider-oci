@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: NotebookSession
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/notebooksession
   labels:
     testing.upbound.io/example-name: tf_notebook_session
   name: tf-notebook-session
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -20,18 +21,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: tf_project
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/notebooksession
   labels:
     testing.upbound.io/example-name: tf_subnet
   name: tf-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.1.0/24
@@ -41,18 +40,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: tf_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/notebooksession
   labels:
     testing.upbound.io/example-name: tf_vcn
   name: tf-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

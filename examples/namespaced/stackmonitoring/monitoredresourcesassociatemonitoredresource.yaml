@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResourcesAssociateMonitoredResource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresourcesassociatemonitoredresource
   labels:
     testing.upbound.io/example-name: test_monitored_resources_associate_monitored_resource
   name: test-monitored-resources-associate-monitored-resource
+  namespace: crossplane-system
 spec:
   forProvider:
     associationType: uses
@@ -19,18 +20,16 @@ spec:
     sourceResourceIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_monitored_resource1
-
 ---
-
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresourcesassociatemonitoredresource
   labels:
     testing.upbound.io/example-name: test_monitored_resource1
   name: test-monitored-resource1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -46,21 +45,19 @@ spec:
     - name: osName
       value: Linux
     - name: osVersion
-      value: "7.0"
+      value: '7.0'
     resourceTimeZone: en
     type: host
-
 ---
-
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresourcesassociatemonitoredresource
   labels:
     testing.upbound.io/example-name: test_monitored_resource2
   name: test-monitored-resource2
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -76,6 +73,6 @@ spec:
     - name: osName
       value: Linux
     - name: osVersion
-      value: "7.0"
+      value: '7.0'
     resourceTimeZone: en
     type: host

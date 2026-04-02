@@ -27,10 +27,9 @@ type NamespaceLookupsUpdateDataManagementInitParameters struct {
 	// The name of the lookup to operate on.
 	LookupName *string `json:"lookupName,omitempty" tf:"lookup_name,omitempty"`
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
-	// Path to the file containing data for the lookup update.
 	UpdateLookupFile *string `json:"updateLookupFile,omitempty" tf:"update_lookup_file,omitempty"`
 }
 
@@ -50,10 +49,9 @@ type NamespaceLookupsUpdateDataManagementObservation struct {
 	// The name of the lookup to operate on.
 	LookupName *string `json:"lookupName,omitempty" tf:"lookup_name,omitempty"`
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
-	// Path to the file containing data for the lookup update.
 	UpdateLookupFile *string `json:"updateLookupFile,omitempty" tf:"update_lookup_file,omitempty"`
 }
 
@@ -75,11 +73,10 @@ type NamespaceLookupsUpdateDataManagementParameters struct {
 	// +kubebuilder:validation:Optional
 	LookupName *string `json:"lookupName,omitempty" tf:"lookup_name,omitempty"`
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
-	// Path to the file containing data for the lookup update.
 	// +kubebuilder:validation:Optional
 	UpdateLookupFile *string `json:"updateLookupFile,omitempty" tf:"update_lookup_file,omitempty"`
 }

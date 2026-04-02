@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SqlFirewallPolicy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sqlfirewallpolicy
   labels:
     testing.upbound.io/example-name: test_sql_firewall_policy
   name: test-sql-firewall-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     description: ${var.sql_firewall_policy_description}

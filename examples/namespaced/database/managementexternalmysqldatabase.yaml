@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ManagementExternalMySqlDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/managementexternalmysqldatabase
   labels:
     testing.upbound.io/example-name: test_external_my_sql_database
   name: test-external-my-sql-database
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

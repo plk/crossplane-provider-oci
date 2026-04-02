@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: SocialIdentityProvider
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/socialidentityprovider
   labels:
     testing.upbound.io/example-name: test_social_identity_provider
   name: test-social-identity-provider
+  namespace: crossplane-system
 spec:
   forProvider:
     accessTokenUrl: ${var.social_identity_provider_access_token_url}

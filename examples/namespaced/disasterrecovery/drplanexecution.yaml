@@ -1,12 +1,13 @@
+---
 apiVersion: disasterrecovery.oci.m.upbound.io/v1alpha1
 kind: DrPlanExecution
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: disasterrecovery/v1alpha1/drplanexecution
   labels:
     testing.upbound.io/example-name: test_dr_plan_execution
   name: test-dr-plan-execution
+  namespace: crossplane-system
 spec:
   forProvider:
     definedTags: ${map("${oci_identity_tag_namespace.tag-namespace1.name}.${oci_identity_tag.tag1.name}",
@@ -20,18 +21,16 @@ spec:
     planIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_dr_plan
-
 ---
-
 apiVersion: disasterrecovery.oci.m.upbound.io/v1alpha1
 kind: DrPlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: disasterrecovery/v1alpha1/drplanexecution
   labels:
     testing.upbound.io/example-name: test_dr_plan
   name: test-dr-plan
+  namespace: crossplane-system
 spec:
   forProvider:
     definedTags: ${map("${oci_identity_tag_namespace.tag-namespace1.name}.${oci_identity_tag.tag1.name}",

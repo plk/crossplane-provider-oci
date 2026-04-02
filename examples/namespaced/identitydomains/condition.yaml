@@ -1,19 +1,20 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Condition
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/condition
   labels:
     testing.upbound.io/example-name: test_condition
   name: test-condition
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeName: ${var.condition_attribute_name}
     attributeSets:
     - all
     attributeValue: ${var.condition_attribute_value}
-    attributes: ""
+    attributes: ''
     authorization: ${var.condition_authorization}
     description: ${var.condition_description}
     evaluateConditionIf: ${var.condition_evaluate_condition_if}

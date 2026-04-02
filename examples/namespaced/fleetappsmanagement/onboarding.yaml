@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: Onboarding
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/onboarding
   labels:
     testing.upbound.io/example-name: test_onboarding
   name: test-onboarding
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -15,5 +16,5 @@ spec:
     definedTags: ${map("Oracle-Tags.CreatedBy", "updatedValue")}
     freeformTags:
       Department: Accounting
-    isCostTrackingTagEnabled: "false"
-    isFamsTagEnabled: "false"
+    isCostTrackingTagEnabled: 'false'
+    isFamsTagEnabled: 'false'

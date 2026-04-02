@@ -1,12 +1,13 @@
+---
 apiVersion: generativeai.oci.m.upbound.io/v1alpha1
 kind: DedicatedAiCluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/dedicatedaicluster
   labels:
     testing.upbound.io/example-name: test_hosting_cluster
   name: test-hosting-cluster
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

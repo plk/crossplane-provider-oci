@@ -1,12 +1,13 @@
+---
 apiVersion: generativeai.oci.m.upbound.io/v1alpha1
 kind: AgentKnowledgeBase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: generativeai/v1alpha1/agentknowledgebase
   labels:
     testing.upbound.io/example-name: test_service_managed_knowledge_base
   name: test-service-managed-knowledge-base
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

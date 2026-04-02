@@ -1,18 +1,19 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: IdentityProvider
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/identityprovider
   labels:
     testing.upbound.io/example-name: test_identity_provider
   name: test-identity-provider
+  namespace: crossplane-system
 spec:
   forProvider:
     assertionAttribute: ${var.identity_provider_assertion_attribute}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authnRequestBinding: ${var.identity_provider_authn_request_binding}
     authorization: ${var.identity_provider_authorization}
     description: ${var.identity_provider_description}

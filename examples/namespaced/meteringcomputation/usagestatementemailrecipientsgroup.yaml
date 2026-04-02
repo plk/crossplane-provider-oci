@@ -1,12 +1,13 @@
+---
 apiVersion: meteringcomputation.oci.m.upbound.io/v1alpha1
 kind: UsageStatementEmailRecipientsGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: meteringcomputation/v1alpha1/usagestatementemailrecipientsgroup
   labels:
     testing.upbound.io/example-name: test_usage_statement_email_recipients_group
   name: test-usage-statement-email-recipients-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,12 +1,13 @@
+---
 apiVersion: bds.oci.m.upbound.io/v1alpha1
 kind: BdsInstanceMetastoreConfig
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: bds/v1alpha1/bdsinstancemetastoreconfig
   labels:
     testing.upbound.io/example-name: test_bds_instance_metastore_config
   name: test-bds-instance-metastore-config
+  namespace: crossplane-system
 spec:
   forProvider:
     bdsApiKeyId: ${var.api_key_id}

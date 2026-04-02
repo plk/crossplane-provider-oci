@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Setting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/setting
   labels:
     testing.upbound.io/example-name: test_setting
   name: test-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     accountAlwaysTrustScope: ${var.setting_account_always_trust_scope}
@@ -20,7 +21,7 @@ spec:
     allowedNotificationRedirectUrls: ${var.setting_allowed_notification_redirect_urls}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     auditEventRetentionPeriod: ${var.setting_audit_event_retention_period}
     authorization: ${var.setting_authorization}
     certificateValidation:

@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: ApprovalWorkflowStep
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflowstep
   labels:
     testing.upbound.io/example-name: test_approval_workflow_step
   name: test-approval-workflow-step
+  namespace: crossplane-system
 spec:
   forProvider:
     approvers:
@@ -17,7 +18,7 @@ spec:
     approversExpressions: ${var.approval_workflow_step_approvers_expressions}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.approval_workflow_step_authorization}
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
     minimumApprovals: ${var.approval_workflow_step_minimum_approvals}
@@ -28,22 +29,20 @@ spec:
     - key: ${var.approval_workflow_step_tags_key}
       value: ${var.approval_workflow_step_tags_value}
     type: ${var.approval_workflow_step_type}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: User
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflowstep
   labels:
     testing.upbound.io/example-name: test_approval_workflow_step_user
   name: test-approval-workflow-step-user
+  namespace: crossplane-system
 spec:
   forProvider:
     emails:
-    - primary: "true"
+    - primary: 'true'
       type: work
       value: value@email.com
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}

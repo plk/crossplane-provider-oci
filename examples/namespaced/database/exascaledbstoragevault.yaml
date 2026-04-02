@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExascaleDbStorageVault
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/exascaledbstoragevault
   labels:
     testing.upbound.io/example-name: test_exascale_db_storage_vault
   name: test-exascale-db-storage-vault
+  namespace: crossplane-system
 spec:
   forProvider:
     additionalFlashCacheInPercent: 20

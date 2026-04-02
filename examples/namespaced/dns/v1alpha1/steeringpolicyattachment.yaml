@@ -1,10 +1,11 @@
+---
 apiVersion: dns.oci.m.upbound.io/v1alpha1
 kind: SteeringPolicyAttachment
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: steeringpolicyattachment_label_1
   name: steeringpolicyattachment1
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: steeringpolicyattachment1
@@ -15,4 +16,3 @@ spec:
     zoneIdSelector:
       matchLabels:
         testing.upbound.io/example-name: zone_label_1
-

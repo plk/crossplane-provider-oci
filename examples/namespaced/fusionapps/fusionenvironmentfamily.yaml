@@ -1,12 +1,13 @@
+---
 apiVersion: fusionapps.oci.m.upbound.io/v1alpha1
 kind: FusionEnvironmentFamily
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fusionapps/v1alpha1/fusionenvironmentfamily
   labels:
     testing.upbound.io/example-name: test_fusion_environment_family
   name: test-fusion-environment-family
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

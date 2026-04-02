@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SensitiveDataModelReferentialRelation
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sensitivedatamodelreferentialrelation
   labels:
     testing.upbound.io/example-name: test_sensitive_data_model_referential_relation
   name: test-sensitive-data-model-referential-relation
+  namespace: crossplane-system
 spec:
   forProvider:
     child:
@@ -28,18 +29,16 @@ spec:
     sensitiveDataModelIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_sensitive_data_model
-
 ---
-
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SensitiveDataModel
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sensitivedatamodelreferentialrelation
   labels:
     testing.upbound.io/example-name: test_sensitive_data_model
   name: test-sensitive-data-model
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

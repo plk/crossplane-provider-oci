@@ -17,6 +17,9 @@ spec:
     - emailAddress: ${var.fusion_environment_create_fusion_environment_admin_user_details_email_address}
       firstName: ${var.fusion_environment_create_fusion_environment_admin_user_details_first_name}
       lastName: ${var.fusion_environment_create_fusion_environment_admin_user_details_last_name}
+      passwordSecretRef:
+        key: example-key
+        name: example-secret
       username: ${var.fusion_environment_create_fusion_environment_admin_user_details_username}
     definedTags:
       foo-namespace.bar-key: value

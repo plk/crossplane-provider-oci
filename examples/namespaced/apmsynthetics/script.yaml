@@ -1,12 +1,13 @@
+---
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: Script
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/script
   labels:
     testing.upbound.io/example-name: test_script
   name: test-script
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:
@@ -20,18 +21,16 @@ spec:
     - isSecret: ${var.script_parameters_is_secret}
       paramName: ${var.script_parameters_param_name}
       paramValue: ${var.script_parameters_param_value}
-
 ---
-
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/script
   labels:
     testing.upbound.io/example-name: test_apm_domain
   name: test-apm-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

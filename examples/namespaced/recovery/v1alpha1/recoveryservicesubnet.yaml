@@ -1,21 +1,19 @@
+---
 apiVersion: recovery.oci.m.upbound.io/v1alpha1
 kind: RecoveryServiceSubnet
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: recoveryservicesubnet_label_1
   name: recoveryservicesubnet1
+  namespace: crossplane-system
 spec:
   forProvider:
-    # Refer to following terraform example for brief resource fields
-    # https://registry.terraform.io/providers/oracle/oci/7.27.0/docs/resources/recovery_recovery_service_subnet
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: recoveryservicesubnet1
+    subnets:
+    - ${SUBNET_OCID}
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn_label_1
-    displayName: recoveryservicesubnet1
-    subnets:
-      - ${SUBNET_OCID}
-      

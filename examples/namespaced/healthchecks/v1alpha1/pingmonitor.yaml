@@ -1,10 +1,11 @@
+---
 apiVersion: healthchecks.oci.m.upbound.io/v1alpha1
 kind: PingMonitor
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: pingmonitor_label_1
   name: pingmonitor1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -14,5 +15,4 @@ spec:
     intervalInSeconds: 30
     protocol: ICMP
     targets:
-      - www.example.com
-
+    - www.example.com

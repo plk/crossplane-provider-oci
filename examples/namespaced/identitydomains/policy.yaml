@@ -1,18 +1,19 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Policy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/policy
   labels:
     testing.upbound.io/example-name: test_policy
   name: test-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     active: ${var.policy_active}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.policy_authorization}
     description: ${var.policy_description}
     externalId: externalId
@@ -31,18 +32,16 @@ spec:
     tags:
     - key: ${var.policy_tags_key}
       value: ${var.policy_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Rule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/policy
   labels:
     testing.upbound.io/example-name: test_policy_rule
   name: test-policy-rule
+  namespace: crossplane-system
 spec:
   forProvider:
     condition: condition

@@ -1,29 +1,28 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: RepositoryMirror
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/repositorymirror
   labels:
     testing.upbound.io/example-name: test_repository_mirror
   name: test-repository-mirror
+  namespace: crossplane-system
 spec:
   forProvider:
     repositoryIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_mirrored_repository
-
 ---
-
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: Connection
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/repositorymirror
   labels:
     testing.upbound.io/example-name: test_connection
   name: test-connection
+  namespace: crossplane-system
 spec:
   forProvider:
     accessToken: ${var.connection_access_token}
@@ -33,18 +32,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/repositorymirror
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

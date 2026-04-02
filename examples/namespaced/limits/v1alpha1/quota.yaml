@@ -1,14 +1,15 @@
+---
 apiVersion: limits.oci.m.upbound.io/v1alpha1
 kind: Quota
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: quota_label_1
   name: quota1
+  namespace: crossplane-system
 spec:
   forProvider:
-    compartmentId: "${TENANCY_OCID}"
-    description: "Test quota"
+    compartmentId: ${TENANCY_OCID}
+    description: Test quota
     name: quota1
-    statements: 
-    - "set vcn quota to 2 in compartment ${COMPARTMENT_NAME}"
+    statements:
+    - set vcn quota to 2 in compartment ${COMPARTMENT_NAME}

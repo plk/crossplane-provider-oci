@@ -13,7 +13,6 @@ import (
 	datastore "github.com/oracle/provider-oci/internal/controller/namespaced/ocvp/datastore"
 	datastorecluster "github.com/oracle/provider-oci/internal/controller/namespaced/ocvp/datastorecluster"
 	esxihost "github.com/oracle/provider-oci/internal/controller/namespaced/ocvp/esxihost"
-	managementappliance "github.com/oracle/provider-oci/internal/controller/namespaced/ocvp/managementappliance"
 	sddc "github.com/oracle/provider-oci/internal/controller/namespaced/ocvp/sddc"
 )
 
@@ -25,7 +24,6 @@ func Setup_ocvp(mgr ctrl.Manager, o controller.Options) error {
 		datastore.Setup,
 		datastorecluster.Setup,
 		esxihost.Setup,
-		managementappliance.Setup,
 		sddc.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
@@ -43,7 +41,6 @@ func SetupGated_ocvp(mgr ctrl.Manager, o controller.Options) error {
 		datastore.SetupGated,
 		datastorecluster.SetupGated,
 		esxihost.SetupGated,
-		managementappliance.SetupGated,
 		sddc.SetupGated,
 	} {
 		if err := setup(mgr, o); err != nil {

@@ -23,9 +23,6 @@ type DrScansInitParameters struct {
 
 	// (Updatable) The Disaster recovery SCAN TCPIP port. Default is 1521.
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp,omitempty" tf:"scan_listener_port_tcp,omitempty"`
-
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
-	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }
 
 type DrScansObservation struct {
@@ -38,9 +35,6 @@ type DrScansObservation struct {
 
 	// (Updatable) The Disaster recovery SCAN TCPIP port. Default is 1521.
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp,omitempty" tf:"scan_listener_port_tcp,omitempty"`
-
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
-	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }
 
 type DrScansParameters struct {
@@ -56,10 +50,6 @@ type DrScansParameters struct {
 	// (Updatable) The Disaster recovery SCAN TCPIP port. Default is 1521.
 	// +kubebuilder:validation:Optional
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp" tf:"scan_listener_port_tcp,omitempty"`
-
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
-	// +kubebuilder:validation:Optional
-	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }
 
 type NodesInitParameters struct {
@@ -145,7 +135,7 @@ type ScansInitParameters struct {
 	// (Updatable) The Disaster recovery SCAN TCPIP port. Default is 1521.
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp,omitempty" tf:"scan_listener_port_tcp,omitempty"`
 
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
+	// (Updatable) The SCAN TCPIP SSL port. Default is 2484.
 	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }
 
@@ -163,7 +153,7 @@ type ScansObservation struct {
 	// (Updatable) The Disaster recovery SCAN TCPIP port. Default is 1521.
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp,omitempty" tf:"scan_listener_port_tcp,omitempty"`
 
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
+	// (Updatable) The SCAN TCPIP SSL port. Default is 2484.
 	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }
 
@@ -185,7 +175,7 @@ type ScansParameters struct {
 	// +kubebuilder:validation:Optional
 	ScanListenerPortTCP *float64 `json:"scanListenerPortTcp,omitempty" tf:"scan_listener_port_tcp,omitempty"`
 
-	// (Updatable) The DR SCAN TCPIP SSL port. Default is 2484.
+	// (Updatable) The SCAN TCPIP SSL port. Default is 2484.
 	// +kubebuilder:validation:Optional
 	ScanListenerPortTCPSSL *float64 `json:"scanListenerPortTcpSsl,omitempty" tf:"scan_listener_port_tcp_ssl,omitempty"`
 }

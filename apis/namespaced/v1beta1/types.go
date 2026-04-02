@@ -6,8 +6,8 @@ package v1beta1
 
 import (
 	xpv2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
+	xpv22 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
 // A ProviderConfigSpec defines the desired state of a ProviderConfig.
@@ -34,7 +34,7 @@ type ProviderConfigStatus struct {
 
 // A ProviderConfig configures a Oracle Cloud Infrastructure (OCI) provider.
 // +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
-// +kubebuilder:resource:scope=Cluster,categories={crossplane,provider,oci}
+// +kubebuilder:resource:scope=Namespaced,categories={crossplane,provider,oci}
 // +kubebuilder:subresource:status
 type ProviderConfig struct {
 	metav1.TypeMeta   `json:",inline"`
@@ -55,16 +55,16 @@ type ProviderConfigList struct {
 
 // A ProviderConfigUsage indicates that a resource is using a ProviderConfig.
 // +kubebuilder:object:root=true
-// +kubebuilder:resource:scope=Cluster,categories={crossplane,provider,oci}
+// +kubebuilder:resource:scope=Namespaced,categories={crossplane,provider,oci}
 type ProviderConfigUsage struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	xpv2.ProviderConfigUsage `json:",inline"`
+	xpv22.TypedProviderConfigUsage `json:",inline"`
 }
 
 // GetProviderConfigReference of this ProviderConfigUsage.
-func (pc *ProviderConfigUsage) GetProviderConfigReference() xpv2.Reference {
+func (pc *ProviderConfigUsage) GetProviderConfigReference() xpv2.ProviderConfigReference {
 	return pc.ProviderConfigReference
 }
 
@@ -74,33 +74,13 @@ func (pc *ProviderConfigUsage) GetResourceReference() xpv2.TypedReference {
 }
 
 // SetProviderConfigReference of this ProviderConfigUsage.
-func (pc *ProviderConfigUsage) SetProviderConfigReference(r xpv2.Reference) {
+func (pc *ProviderConfigUsage) SetProviderConfigReference(r xpv2.ProviderConfigReference) {
 	pc.ProviderConfigReference = r
 }
 
 // SetResourceReference of this ProviderConfigUsage.
 func (pc *ProviderConfigUsage) SetResourceReference(r xpv2.TypedReference) {
 	pc.ResourceReference = r
-}
-
-// ProviderConfigGroupKind is the GroupKind for ProviderConfig
-var ProviderConfigGroupKind = schema.GroupKind{
-	Group: Group,
-	Kind:  "ProviderConfig",
-}.String()
-
-// ProviderConfigGroupVersionKind is the GroupVersionKind for ProviderConfig
-var ProviderConfigGroupVersionKind = schema.GroupVersionKind{
-	Group:   Group,
-	Version: Version,
-	Kind:    "ProviderConfig",
-}
-
-// ProviderConfigUsageListGroupVersionKind is the GroupVersionKind for ProviderConfigUsageList
-var ProviderConfigUsageListGroupVersionKind = schema.GroupVersionKind{
-	Group:   Group,
-	Version: Version,
-	Kind:    "ProviderConfigUsageList",
 }
 
 // +kubebuilder:object:root=true
@@ -110,4 +90,29 @@ type ProviderConfigUsageList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []ProviderConfigUsage `json:"items"`
+}
+
+// +kubebuilder:object:root=true
+
+// A ClusterProviderConfig configures a Template provider.
+// +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="AGE",type="date",JSONPath=".metadata.creationTimestamp"
+// +kubebuilder:printcolumn:name="SECRET-NAME",type="string",JSONPath=".spec.credentials.secretRef.name",priority=1
+// +kubebuilder:resource:scope=Namespaced
+// +kubebuilder:resource:scope=Namespaced,categories={crossplane,provider,template}
+type ClusterProviderConfig struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+
+	Spec   ProviderConfigSpec   `json:"spec"`
+	Status ProviderConfigStatus `json:"status,omitempty"`
+}
+
+// +kubebuilder:object:root=true
+
+// ClusterProviderConfigList contains a list of ProviderConfig.
+type ClusterProviderConfigList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []ClusterProviderConfig `json:"items"`
 }

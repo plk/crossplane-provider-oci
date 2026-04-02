@@ -5192,11 +5192,6 @@ func (in *ZoneInitParameters) DeepCopyInto(out *ZoneInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.ResolutionMode != nil {
-		in, out := &in.ResolutionMode, &out.ResolutionMode
-		*out = new(string)
-		**out = **in
-	}
 	if in.Scope != nil {
 		in, out := &in.Scope, &out.Scope
 		*out = new(string)
@@ -5404,11 +5399,6 @@ func (in *ZoneObservation) DeepCopyInto(out *ZoneObservation) {
 			(*in)[i].DeepCopyInto(&(*out)[i])
 		}
 	}
-	if in.ResolutionMode != nil {
-		in, out := &in.ResolutionMode, &out.ResolutionMode
-		*out = new(string)
-		**out = **in
-	}
 	if in.Scope != nil {
 		in, out := &in.Scope, &out.Scope
 		*out = new(string)
@@ -5539,11 +5529,6 @@ func (in *ZoneParameters) DeepCopyInto(out *ZoneParameters) {
 	}
 	if in.Name != nil {
 		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
-	if in.ResolutionMode != nil {
-		in, out := &in.ResolutionMode, &out.ResolutionMode
 		*out = new(string)
 		**out = **in
 	}

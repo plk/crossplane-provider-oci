@@ -68,9 +68,6 @@ type CrossConnectInitParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// The name of the FastConnect interface where this cross-connect is installed. Option will be provided only on request for select tenancies.
-	InterfaceName *string `json:"interfaceName,omitempty" tf:"interface_name,omitempty"`
-
 	// (Updatable) Set to true to activate the cross-connect. You activate it after the physical cabling is complete, and you've confirmed the cross-connect's light levels are good and your side of the interface is up. Activation indicates to Oracle that the physical connection is ready.
 	IsActive *bool `json:"isActive,omitempty" tf:"is_active,omitempty"`
 
@@ -92,9 +89,6 @@ type CrossConnectInitParameters struct {
 	// Selector for a CrossConnectGroup in networkconnectivity to populate nearCrossConnectOrCrossConnectGroupId.
 	// +kubebuilder:validation:Optional
 	NearCrossConnectOrCrossConnectGroupIDSelector *v1.NamespacedSelector `json:"nearCrossConnectOrCrossConnectGroupIdSelector,omitempty" tf:"-"`
-
-	// The name of the FastConnect device where this cross-connect is installed. Option will be provided only on request for select tenancies.
-	OciPhysicalDeviceName *string `json:"ociPhysicalDeviceName,omitempty" tf:"oci_physical_device_name,omitempty"`
 
 	// The port speed for this cross-connect. To get a list of the available port speeds, see ListCrossConnectPortSpeedShapes.  Example: 10 Gbps
 	PortSpeedShapeName *string `json:"portSpeedShapeName,omitempty" tf:"port_speed_shape_name,omitempty"`
@@ -128,9 +122,6 @@ type CrossConnectObservation struct {
 	// The cross-connect's Oracle ID (OCID).
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The name of the FastConnect interface where this cross-connect is installed. Option will be provided only on request for select tenancies.
-	InterfaceName *string `json:"interfaceName,omitempty" tf:"interface_name,omitempty"`
-
 	// (Updatable) Set to true to activate the cross-connect. You activate it after the physical cabling is complete, and you've confirmed the cross-connect's light levels are good and your side of the interface is up. Activation indicates to Oracle that the physical connection is ready.
 	IsActive *bool `json:"isActive,omitempty" tf:"is_active,omitempty"`
 
@@ -146,7 +137,7 @@ type CrossConnectObservation struct {
 	// The FastConnect device that terminates the logical connection. This device might be different than the device that terminates the physical connection.
 	OciLogicalDeviceName *string `json:"ociLogicalDeviceName,omitempty" tf:"oci_logical_device_name,omitempty"`
 
-	// The name of the FastConnect device where this cross-connect is installed. Option will be provided only on request for select tenancies.
+	// The FastConnect device that terminates the physical connection.
 	OciPhysicalDeviceName *string `json:"ociPhysicalDeviceName,omitempty" tf:"oci_physical_device_name,omitempty"`
 
 	// A string identifying the meet-me room port for this cross-connect.
@@ -223,10 +214,6 @@ type CrossConnectParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// The name of the FastConnect interface where this cross-connect is installed. Option will be provided only on request for select tenancies.
-	// +kubebuilder:validation:Optional
-	InterfaceName *string `json:"interfaceName,omitempty" tf:"interface_name,omitempty"`
-
 	// (Updatable) Set to true to activate the cross-connect. You activate it after the physical cabling is complete, and you've confirmed the cross-connect's light levels are good and your side of the interface is up. Activation indicates to Oracle that the physical connection is ready.
 	// +kubebuilder:validation:Optional
 	IsActive *bool `json:"isActive,omitempty" tf:"is_active,omitempty"`
@@ -252,10 +239,6 @@ type CrossConnectParameters struct {
 	// Selector for a CrossConnectGroup in networkconnectivity to populate nearCrossConnectOrCrossConnectGroupId.
 	// +kubebuilder:validation:Optional
 	NearCrossConnectOrCrossConnectGroupIDSelector *v1.NamespacedSelector `json:"nearCrossConnectOrCrossConnectGroupIdSelector,omitempty" tf:"-"`
-
-	// The name of the FastConnect device where this cross-connect is installed. Option will be provided only on request for select tenancies.
-	// +kubebuilder:validation:Optional
-	OciPhysicalDeviceName *string `json:"ociPhysicalDeviceName,omitempty" tf:"oci_physical_device_name,omitempty"`
 
 	// The port speed for this cross-connect. To get a list of the available port speeds, see ListCrossConnectPortSpeedShapes.  Example: 10 Gbps
 	// +kubebuilder:validation:Optional

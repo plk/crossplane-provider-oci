@@ -1,12 +1,13 @@
+---
 apiVersion: ospgateway.oci.m.upbound.io/v1alpha1
 kind: AddressActionVerification
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ospgateway/v1alpha1/addressactionverification
   labels:
     testing.upbound.io/example-name: test_address_action_verification
   name: test-address-action-verification
+  namespace: crossplane-system
 spec:
   forProvider:
     city: ${var.address.city}

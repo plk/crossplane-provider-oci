@@ -169,9 +169,6 @@ spec:
                           description: (Updatable) Preferred recycle level for hosts
                             associated with the reservation config.
                           type: string
-                        state:
-                          description: (Updatable) The state of the host group configuration.
-                          type: string
                         target:
                           description: (Updatable) Either the platform name or compute
                             shape that the configuration is targeting
@@ -313,9 +310,6 @@ spec:
                         recycleLevel:
                           description: (Updatable) Preferred recycle level for hosts
                             associated with the reservation config.
-                          type: string
-                        state:
-                          description: (Updatable) The state of the host group configuration.
                           type: string
                         target:
                           description: (Updatable) Either the platform name or compute
@@ -475,9 +469,6 @@ spec:
                           description: (Updatable) Preferred recycle level for hosts
                             associated with the reservation config.
                           type: string
-                        state:
-                          description: (Updatable) The state of the host group configuration.
-                          type: string
                         target:
                           description: (Updatable) Either the platform name or compute
                             shape that the configuration is targeting
@@ -515,7 +506,7 @@ spec:
                       way to place on hosts is to target the specific host group.
                     type: boolean
                   state:
-                    description: (Updatable) The state of the host group configuration.
+                    description: The lifecycle state of the host group
                     type: string
                   systemTags:
                     additionalProperties:

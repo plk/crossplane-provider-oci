@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: SecurityQuestionSetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/securityquestionsetting
   labels:
     testing.upbound.io/example-name: test_security_question_setting
   name: test-security-question-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.security_question_setting_authorization}
     externalId: externalId
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}

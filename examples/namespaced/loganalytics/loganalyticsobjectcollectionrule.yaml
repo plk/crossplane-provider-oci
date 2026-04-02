@@ -1,12 +1,13 @@
+---
 apiVersion: loganalytics.oci.m.upbound.io/v1alpha1
 kind: LogAnalyticsObjectCollectionRule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: loganalytics/v1alpha1/loganalyticsobjectcollectionrule
   labels:
     testing.upbound.io/example-name: objectCollectionRuleRequired
   name: objectcollectionrulerequired
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

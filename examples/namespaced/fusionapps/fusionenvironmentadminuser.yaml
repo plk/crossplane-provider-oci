@@ -1,12 +1,13 @@
+---
 apiVersion: fusionapps.oci.m.upbound.io/v1alpha1
 kind: FusionEnvironmentAdminUser
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fusionapps/v1alpha1/fusionenvironmentadminuser
   labels:
     testing.upbound.io/example-name: test_fusion_environment_admin_user
   name: test-fusion-environment-admin-user
+  namespace: crossplane-system
 spec:
   forProvider:
     emailAddress: ${var.fusion_environment_admin_user_email_address}

@@ -1,17 +1,18 @@
+---
 apiVersion: waf.oci.m.upbound.io/v1alpha1
 kind: WebAppFirewall
 metadata:
-  namespace: crossplane-system
-  name: webappfirewall1
   labels:
     testing.upbound.io/example-name: webappfirewall_label_1
+  name: webappfirewall1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: webappfirewall1
-    backendType: "LOAD_BALANCER"
+    backendType: LOAD_BALANCER
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: webappfirewall1
     loadBalancerIdSelector:
       matchLabels:
         testing.upbound.io/example-name: loadbalancer_label_1

@@ -1,12 +1,13 @@
+---
 apiVersion: osmanagementhub.oci.m.upbound.io/v1alpha1
 kind: LifecycleStageAttachManagedInstancesManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: osmanagementhub/v1alpha1/lifecyclestageattachmanagedinstancesmanagement
   labels:
     testing.upbound.io/example-name: test_lifecycle_stage_attach_managed_instances_management
   name: test-lifecycle-stage-attach-managed-instances-management
+  namespace: crossplane-system
 spec:
   forProvider:
     lifecycleStageId: ${data.oci_os_management_hub_lifecycle_stage.test_lifecycle_stage.lifecycle_stage_id}

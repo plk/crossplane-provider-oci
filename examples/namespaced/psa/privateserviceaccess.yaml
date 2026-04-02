@@ -1,12 +1,13 @@
+---
 apiVersion: psa.oci.m.upbound.io/v1alpha1
 kind: PrivateServiceAccess
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: psa/v1alpha1/privateserviceaccess
   labels:
     testing.upbound.io/example-name: test_private_service_access
   name: test-private-service-access
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -24,18 +25,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: subnet1
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: psa/v1alpha1/privateserviceaccess
   labels:
     testing.upbound.io/example-name: test_nsg
   name: test-nsg
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -45,18 +44,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn1
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: psa/v1alpha1/privateserviceaccess
   labels:
     testing.upbound.io/example-name: subnet1
   name: subnet1
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.20.0/24
@@ -74,18 +71,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn1
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: psa/v1alpha1/privateserviceaccess
   labels:
     testing.upbound.io/example-name: vcn1
   name: vcn1
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16

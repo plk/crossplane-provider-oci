@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExternalContainerDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/externalcontainerdatabase
   labels:
     testing.upbound.io/example-name: test_external_container_database
   name: test-external-container-database
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

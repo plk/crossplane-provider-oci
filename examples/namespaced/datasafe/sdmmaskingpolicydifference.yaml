@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SdmMaskingPolicyDifference
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sdmmaskingpolicydifference
   labels:
     testing.upbound.io/example-name: test_sdm_masking_policy_difference
   name: test-sdm-masking-policy-difference
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -15,18 +16,16 @@ spec:
     maskingPolicyIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_masking_policy
-
 ---
-
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: MaskingPolicy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sdmmaskingpolicydifference
   labels:
     testing.upbound.io/example-name: test_masking_policy
   name: test-masking-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     columnSource:
@@ -37,18 +36,16 @@ spec:
         testing.upbound.io/example-name: example
     description: ${var.masking_policy_description}
     displayName: ${var.masking_policy_display_name}
-
 ---
-
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SensitiveDataModel
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sdmmaskingpolicydifference
   labels:
     testing.upbound.io/example-name: test_sensitive_data_model
   name: test-sensitive-data-model
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

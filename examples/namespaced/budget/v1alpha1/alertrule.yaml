@@ -1,15 +1,16 @@
+---
 apiVersion: budget.oci.m.upbound.io/v1alpha1
 kind: AlertRule
 metadata:
-  namespace: crossplane-system
-  name: alertrule1
   labels:
     testing.upbound.io/example-name: alertrule_label_1
+  name: alertrule1
+  namespace: crossplane-system
 spec:
   forProvider:
     budgetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: budget_label_1
     threshold: 90.0
-    thresholdType: "PERCENTAGE"
-    type: "ACTUAL"
+    thresholdType: PERCENTAGE
+    type: ACTUAL

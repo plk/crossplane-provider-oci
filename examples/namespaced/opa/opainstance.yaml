@@ -1,12 +1,13 @@
+---
 apiVersion: opa.oci.m.upbound.io/v1alpha1
 kind: OpaInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opa/v1alpha1/opainstance
   labels:
     testing.upbound.io/example-name: test_opa_instance
   name: test-opa-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

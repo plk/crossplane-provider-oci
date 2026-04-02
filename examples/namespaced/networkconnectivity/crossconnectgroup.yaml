@@ -1,12 +1,13 @@
+---
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnectGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/crossconnectgroup
   labels:
     testing.upbound.io/example-name: cross_connect_group
   name: cross-connect-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

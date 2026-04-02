@@ -1,16 +1,17 @@
+---
 apiVersion: dataintegration.oci.m.upbound.io/v1alpha1
 kind: WorkspaceApplication
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: workspaceapplication_label_1
   name: workspaceapplication1
+  namespace: crossplane-system
 spec:
   forProvider:
-    description: "Test Workspace Application"
+    description: Test Workspace Application
     displayName: workspaceapplication1
     identifier: WORKSPACEAPPLICATION1
-    modelType: "INTEGRATION_APPLICATION"
+    modelType: INTEGRATION_APPLICATION
     name: workspaceapplication1
     workspaceIdSelector:
       matchLabels:

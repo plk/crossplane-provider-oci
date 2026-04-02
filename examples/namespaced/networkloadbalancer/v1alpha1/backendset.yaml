@@ -1,16 +1,17 @@
+---
 apiVersion: networkloadbalancer.oci.m.upbound.io/v1alpha1
 kind: BackendSet
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: backendset_label_1
   name: backendset1
+  namespace: crossplane-system
 spec:
   forProvider:
     healthChecker:
-      - protocol: "TCP"
+    - protocol: TCP
+    name: backendset1
     networkLoadBalancerIdSelector:
       matchLabels:
         testing.upbound.io/example-name: networkloadbalancer_label_1
-    name: "backendset1"
-    policy: "FIVE_TUPLE"
+    policy: FIVE_TUPLE

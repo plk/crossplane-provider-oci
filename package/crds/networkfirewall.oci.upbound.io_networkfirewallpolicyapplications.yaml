@@ -75,17 +75,13 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  description:
-                    description: (Updatable) The description of the application. This
-                      field can be used to add additional info.
-                    type: string
                   icmpCode:
                     description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      code (subtype) field as defined by RFC 4443.
+                      Code (subtype) field as defined by RFC 4443.
                     type: number
                   icmpType:
-                    description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      type field as defined by RFC 4443.
+                    description: (Updatable) The value of the ICMP/IMCP_V6 message
+                      Type field as defined by RFC 4443.
                     type: number
                   name:
                     description: Name of the application
@@ -187,17 +183,13 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
-                  description:
-                    description: (Updatable) The description of the application. This
-                      field can be used to add additional info.
-                    type: string
                   icmpCode:
                     description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      code (subtype) field as defined by RFC 4443.
+                      Code (subtype) field as defined by RFC 4443.
                     type: number
                   icmpType:
-                    description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      type field as defined by RFC 4443.
+                    description: (Updatable) The value of the ICMP/IMCP_V6 message
+                      Type field as defined by RFC 4443.
                     type: number
                   name:
                     description: Name of the application
@@ -391,17 +383,13 @@ spec:
             properties:
               atProvider:
                 properties:
-                  description:
-                    description: (Updatable) The description of the application. This
-                      field can be used to add additional info.
-                    type: string
                   icmpCode:
                     description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      code (subtype) field as defined by RFC 4443.
+                      Code (subtype) field as defined by RFC 4443.
                     type: number
                   icmpType:
-                    description: (Updatable) The value of the ICMP/ICMP_V6 message
-                      type field as defined by RFC 4443.
+                    description: (Updatable) The value of the ICMP/IMCP_V6 message
+                      Type field as defined by RFC 4443.
                     type: number
                   id:
                     type: string

@@ -1,12 +1,13 @@
+---
 apiVersion: iot.oci.m.upbound.io/v1alpha1
 kind: IotDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: iot/v1alpha1/iotdomain
   labels:
     testing.upbound.io/example-name: test_iot_domain
   name: test-iot-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

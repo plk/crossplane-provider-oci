@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: Connection
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/connection
   labels:
     testing.upbound.io/example-name: test_github_connection
   name: test-github-connection
+  namespace: crossplane-system
 spec:
   forProvider:
     accessToken: ${var.access_token_vault_secret_id}
@@ -16,18 +17,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/connection
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

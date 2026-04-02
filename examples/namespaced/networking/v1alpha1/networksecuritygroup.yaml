@@ -1,10 +1,11 @@
+---
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: networksecuritygroup_label_1
   name: networksecuritygroup1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

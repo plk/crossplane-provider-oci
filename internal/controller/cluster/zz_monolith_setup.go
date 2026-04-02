@@ -60,10 +60,6 @@ import (
 	autoscalingconfiguration "github.com/oracle/provider-oci/internal/controller/cluster/autoscaling/autoscalingconfiguration"
 	bastion "github.com/oracle/provider-oci/internal/controller/cluster/bastion/bastion"
 	session "github.com/oracle/provider-oci/internal/controller/cluster/bastion/session"
-	batchcontext "github.com/oracle/provider-oci/internal/controller/cluster/batch/batchcontext"
-	batchjobpool "github.com/oracle/provider-oci/internal/controller/cluster/batch/batchjobpool"
-	batchtaskenvironment "github.com/oracle/provider-oci/internal/controller/cluster/batch/batchtaskenvironment"
-	batchtaskprofile "github.com/oracle/provider-oci/internal/controller/cluster/batch/batchtaskprofile"
 	autoscalingconfigurationbds "github.com/oracle/provider-oci/internal/controller/cluster/bds/autoscalingconfiguration"
 	bdscapacityreport "github.com/oracle/provider-oci/internal/controller/cluster/bds/bdscapacityreport"
 	bdsinstance "github.com/oracle/provider-oci/internal/controller/cluster/bds/bdsinstance"
@@ -93,10 +89,6 @@ import (
 	volumegroupbackup "github.com/oracle/provider-oci/internal/controller/cluster/blockstorage/volumegroupbackup"
 	alertrule "github.com/oracle/provider-oci/internal/controller/cluster/budget/alertrule"
 	budget "github.com/oracle/provider-oci/internal/controller/cluster/budget/budget"
-	costalertsubscription "github.com/oracle/provider-oci/internal/controller/cluster/budget/costalertsubscription"
-	costanomalyevent "github.com/oracle/provider-oci/internal/controller/cluster/budget/costanomalyevent"
-	costanomalymonitor "github.com/oracle/provider-oci/internal/controller/cluster/budget/costanomalymonitor"
-	costanomalymonitorcostanomalymonitorenabletogglesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/budget/costanomalymonitorcostanomalymonitorenabletogglesmanagement"
 	internaloccmdemandsignal "github.com/oracle/provider-oci/internal/controller/cluster/capacitymanagement/internaloccmdemandsignal"
 	internaloccmdemandsignaldelivery "github.com/oracle/provider-oci/internal/controller/cluster/capacitymanagement/internaloccmdemandsignaldelivery"
 	occavailabilitycatalog "github.com/oracle/provider-oci/internal/controller/cluster/capacitymanagement/occavailabilitycatalog"
@@ -161,7 +153,6 @@ import (
 	addon "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/addon"
 	cluster "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/cluster"
 	clustercompletecredentialrotationmanagement "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/clustercompletecredentialrotationmanagement"
-	clusterpublicapiendpointdecommissionmanager "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/clusterpublicapiendpointdecommissionmanager"
 	clusterstartcredentialrotationmanagement "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/clusterstartcredentialrotationmanagement"
 	clusterworkloadmapping "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/clusterworkloadmapping"
 	nodepool "github.com/oracle/provider-oci/internal/controller/cluster/containerengine/nodepool"
@@ -170,9 +161,6 @@ import (
 	byoasn "github.com/oracle/provider-oci/internal/controller/cluster/core/byoasn"
 	listingresourceversionagreement "github.com/oracle/provider-oci/internal/controller/cluster/core/listingresourceversionagreement"
 	virtualnetwork "github.com/oracle/provider-oci/internal/controller/cluster/core/virtualnetwork"
-	advancedclusterfilesystem "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystem"
-	advancedclusterfilesystemmount "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystemmount"
-	advancedclusterfilesystemunmount "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystemunmount"
 	applicationvip "github.com/oracle/provider-oci/internal/controller/cluster/database/applicationvip"
 	autonomouscontainerdatabase "github.com/oracle/provider-oci/internal/controller/cluster/database/autonomouscontainerdatabase"
 	autonomouscontainerdatabaseaddstandby "github.com/oracle/provider-oci/internal/controller/cluster/database/autonomouscontainerdatabaseaddstandby"
@@ -205,7 +193,6 @@ import (
 	databasesoftwareimage "github.com/oracle/provider-oci/internal/controller/cluster/database/databasesoftwareimage"
 	databaseupgrade "github.com/oracle/provider-oci/internal/controller/cluster/database/databaseupgrade"
 	dataguardassociation "github.com/oracle/provider-oci/internal/controller/cluster/database/dataguardassociation"
-	datapatch "github.com/oracle/provider-oci/internal/controller/cluster/database/datapatch"
 	dbhome "github.com/oracle/provider-oci/internal/controller/cluster/database/dbhome"
 	dbnode "github.com/oracle/provider-oci/internal/controller/cluster/database/dbnode"
 	dbnodeconsoleconnection "github.com/oracle/provider-oci/internal/controller/cluster/database/dbnodeconsoleconnection"
@@ -249,11 +236,6 @@ import (
 	managementclouddbsystemcloudstackmonitoringsmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemcloudstackmonitoringsmanagement"
 	managementclouddbsystemconnector "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemconnector"
 	managementclouddbsystemdiscovery "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemdiscovery"
-	managementcloudexadatainfrastructure "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatainfrastructure"
-	managementcloudexadatainfrastructuremanagedexadatamanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatainfrastructuremanagedexadatamanagement"
-	managementcloudexadatastorageconnector "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastorageconnector"
-	managementcloudexadatastoragegrid "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastoragegrid"
-	managementcloudexadatastorageserver "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastorageserver"
 	managementcloudlistener "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudlistener"
 	managementdatabasedbmfeaturesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementdatabasedbmfeaturesmanagement"
 	managementdbmanagementprivateendpoint "github.com/oracle/provider-oci/internal/controller/cluster/database/managementdbmanagementprivateendpoint"
@@ -287,11 +269,8 @@ import (
 	managementnamedcredential "github.com/oracle/provider-oci/internal/controller/cluster/database/managementnamedcredential"
 	managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement"
 	migrationdatabase "github.com/oracle/provider-oci/internal/controller/cluster/database/migration"
-	migrationassessment "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationassessment"
-	migrationassessmentassessoraction "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationassessmentassessoraction"
 	migrationconnection "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationconnection"
 	migrationjob "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationjob"
-	migrationjobadvisorreportcheck "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationjobadvisorreportcheck"
 	migrationmigration "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationmigration"
 	oneoffpatch "github.com/oracle/provider-oci/internal/controller/cluster/database/oneoffpatch"
 	pluggabledatabase "github.com/oracle/provider-oci/internal/controller/cluster/database/pluggabledatabase"
@@ -459,9 +438,6 @@ import (
 	drplan "github.com/oracle/provider-oci/internal/controller/cluster/disasterrecovery/drplan"
 	drplanexecution "github.com/oracle/provider-oci/internal/controller/cluster/disasterrecovery/drplanexecution"
 	drprotectiongroup "github.com/oracle/provider-oci/internal/controller/cluster/disasterrecovery/drprotectiongroup"
-	databasedistributedautonomousdatabase "github.com/oracle/provider-oci/internal/controller/cluster/distributed/databasedistributedautonomousdatabase"
-	databasedistributeddatabase "github.com/oracle/provider-oci/internal/controller/cluster/distributed/databasedistributeddatabase"
-	databasedistributeddatabaseprivateendpoint "github.com/oracle/provider-oci/internal/controller/cluster/distributed/databasedistributeddatabaseprivateendpoint"
 	actioncreatezonefromzonefile "github.com/oracle/provider-oci/internal/controller/cluster/dns/actioncreatezonefromzonefile"
 	record "github.com/oracle/provider-oci/internal/controller/cluster/dns/record"
 	resolver "github.com/oracle/provider-oci/internal/controller/cluster/dns/resolver"
@@ -476,7 +452,6 @@ import (
 	zonestagednsseckeyversion "github.com/oracle/provider-oci/internal/controller/cluster/dns/zonestagednsseckeyversion"
 	dkim "github.com/oracle/provider-oci/internal/controller/cluster/email/dkim"
 	emaildomain "github.com/oracle/provider-oci/internal/controller/cluster/email/emaildomain"
-	emailippool "github.com/oracle/provider-oci/internal/controller/cluster/email/emailippool"
 	emailreturnpath "github.com/oracle/provider-oci/internal/controller/cluster/email/emailreturnpath"
 	sender "github.com/oracle/provider-oci/internal/controller/cluster/email/sender"
 	suppression "github.com/oracle/provider-oci/internal/controller/cluster/email/suppression"
@@ -508,7 +483,6 @@ import (
 	taskrecord "github.com/oracle/provider-oci/internal/controller/cluster/fleetappsmanagement/taskrecord"
 	fsucollection "github.com/oracle/provider-oci/internal/controller/cluster/fleetsoftwareupdate/fsucollection"
 	fsucycle "github.com/oracle/provider-oci/internal/controller/cluster/fleetsoftwareupdate/fsucycle"
-	fsureadinesscheck "github.com/oracle/provider-oci/internal/controller/cluster/fleetsoftwareupdate/fsureadinesscheck"
 	applicationfunctions "github.com/oracle/provider-oci/internal/controller/cluster/functions/application"
 	function "github.com/oracle/provider-oci/internal/controller/cluster/functions/function"
 	invokefunction "github.com/oracle/provider-oci/internal/controller/cluster/functions/invokefunction"
@@ -523,14 +497,14 @@ import (
 	agentdataingestionjob "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/agentdataingestionjob"
 	agentdatasource "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/agentdatasource"
 	agentknowledgebase "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/agentknowledgebase"
-	agentprovisionedcapacity "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/agentprovisionedcapacity"
 	agenttool "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/agenttool"
 	dedicatedaicluster "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/dedicatedaicluster"
 	endpointgenerativeai "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/endpoint"
 	generativeaiprivateendpoint "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/generativeaiprivateendpoint"
-	importedmodel "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/importedmodel"
 	modelgenerativeai "github.com/oracle/provider-oci/internal/controller/cluster/generativeai/model"
 	artifactbypath "github.com/oracle/provider-oci/internal/controller/cluster/genericartifactscontent/artifactbypath"
+	privateendpointgloballydistributeddatabase "github.com/oracle/provider-oci/internal/controller/cluster/globallydistributeddatabase/privateendpoint"
+	shardeddatabase "github.com/oracle/provider-oci/internal/controller/cluster/globallydistributeddatabase/shardeddatabase"
 	connectiongoldengate "github.com/oracle/provider-oci/internal/controller/cluster/goldengate/connection"
 	connectionassignment "github.com/oracle/provider-oci/internal/controller/cluster/goldengate/connectionassignment"
 	databaseregistration "github.com/oracle/provider-oci/internal/controller/cluster/goldengate/databaseregistration"
@@ -583,13 +557,10 @@ import (
 	dynamicresourcegroup "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/dynamicresourcegroup"
 	grant "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/grant"
 	groupidentitydomains "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/group"
-	identityproofingprovider "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/identityproofingprovider"
-	identityproofingprovidertemplate "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/identityproofingprovidertemplate"
 	identitypropagationtrust "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/identitypropagationtrust"
 	identityprovideridentitydomains "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/identityprovider"
 	identitysetting "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/identitysetting"
 	kmsisetting "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/kmsisetting"
-	mappedattribute "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/mappedattribute"
 	myapikey "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/myapikey"
 	myauthtoken "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/myauthtoken"
 	mycustomersecretkey "github.com/oracle/provider-oci/internal/controller/cluster/identitydomains/mycustomersecretkey"
@@ -661,8 +632,6 @@ import (
 	ruleset "github.com/oracle/provider-oci/internal/controller/cluster/loadbalancer/ruleset"
 	sslciphersuite "github.com/oracle/provider-oci/internal/controller/cluster/loadbalancer/sslciphersuite"
 	loganalyticsentity "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsentity"
-	loganalyticsentityassociationsadd "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsentityassociationsadd"
-	loganalyticsentityassociationsremove "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsentityassociationsremove"
 	loganalyticsentitytype "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsentitytype"
 	loganalyticsimportcustomcontent "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsimportcustomcontent"
 	loganalyticsloggroup "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsloggroup"
@@ -671,7 +640,6 @@ import (
 	loganalyticsresourcecategoriesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsresourcecategoriesmanagement"
 	loganalyticsunprocesseddatabucketmanagement "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/loganalyticsunprocesseddatabucketmanagement"
 	namespace "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/namespace"
-	namespaceassociation "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/namespaceassociation"
 	namespaceingesttimerule "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/namespaceingesttimerule"
 	namespaceingesttimerulesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/namespaceingesttimerulesmanagement"
 	namespacelookup "github.com/oracle/provider-oci/internal/controller/cluster/loganalytics/namespacelookup"
@@ -792,7 +760,6 @@ import (
 	datastore "github.com/oracle/provider-oci/internal/controller/cluster/ocvp/datastore"
 	datastorecluster "github.com/oracle/provider-oci/internal/controller/cluster/ocvp/datastorecluster"
 	esxihost "github.com/oracle/provider-oci/internal/controller/cluster/ocvp/esxihost"
-	managementappliance "github.com/oracle/provider-oci/internal/controller/cluster/ocvp/managementappliance"
 	sddc "github.com/oracle/provider-oci/internal/controller/cluster/ocvp/sddc"
 	odainstance "github.com/oracle/provider-oci/internal/controller/cluster/oda/odainstance"
 	odaprivateendpoint "github.com/oracle/provider-oci/internal/controller/cluster/oda/odaprivateendpoint"
@@ -808,7 +775,6 @@ import (
 	awrhub "github.com/oracle/provider-oci/internal/controller/cluster/opsi/awrhub"
 	awrhubsource "github.com/oracle/provider-oci/internal/controller/cluster/opsi/awrhubsource"
 	awrhubsourceawrhubsourcesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/opsi/awrhubsourceawrhubsourcesmanagement"
-	chargebackplan "github.com/oracle/provider-oci/internal/controller/cluster/opsi/chargebackplan"
 	databaseinsight "github.com/oracle/provider-oci/internal/controller/cluster/opsi/databaseinsight"
 	enterprisemanagerbridge "github.com/oracle/provider-oci/internal/controller/cluster/opsi/enterprisemanagerbridge"
 	exadatainsight "github.com/oracle/provider-oci/internal/controller/cluster/opsi/exadatainsight"
@@ -874,7 +840,6 @@ import (
 	psqlbackup "github.com/oracle/provider-oci/internal/controller/cluster/psql/psqlbackup"
 	psqlconfiguration "github.com/oracle/provider-oci/internal/controller/cluster/psql/psqlconfiguration"
 	psqldbsystem "github.com/oracle/provider-oci/internal/controller/cluster/psql/psqldbsystem"
-	consumergroup "github.com/oracle/provider-oci/internal/controller/cluster/queue/consumergroup"
 	queue "github.com/oracle/provider-oci/internal/controller/cluster/queue/queue"
 	protecteddatabase "github.com/oracle/provider-oci/internal/controller/cluster/recovery/protecteddatabase"
 	protectionpolicy "github.com/oracle/provider-oci/internal/controller/cluster/recovery/protectionpolicy"
@@ -1003,10 +968,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		autoscalingconfiguration.Setup,
 		bastion.Setup,
 		session.Setup,
-		batchcontext.Setup,
-		batchjobpool.Setup,
-		batchtaskenvironment.Setup,
-		batchtaskprofile.Setup,
 		autoscalingconfigurationbds.Setup,
 		bdscapacityreport.Setup,
 		bdsinstance.Setup,
@@ -1036,10 +997,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		volumegroupbackup.Setup,
 		alertrule.Setup,
 		budget.Setup,
-		costalertsubscription.Setup,
-		costanomalyevent.Setup,
-		costanomalymonitor.Setup,
-		costanomalymonitorcostanomalymonitorenabletogglesmanagement.Setup,
 		internaloccmdemandsignal.Setup,
 		internaloccmdemandsignaldelivery.Setup,
 		occavailabilitycatalog.Setup,
@@ -1104,7 +1061,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		addon.Setup,
 		cluster.Setup,
 		clustercompletecredentialrotationmanagement.Setup,
-		clusterpublicapiendpointdecommissionmanager.Setup,
 		clusterstartcredentialrotationmanagement.Setup,
 		clusterworkloadmapping.Setup,
 		nodepool.Setup,
@@ -1113,9 +1069,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		byoasn.Setup,
 		listingresourceversionagreement.Setup,
 		virtualnetwork.Setup,
-		advancedclusterfilesystem.Setup,
-		advancedclusterfilesystemmount.Setup,
-		advancedclusterfilesystemunmount.Setup,
 		applicationvip.Setup,
 		autonomouscontainerdatabase.Setup,
 		autonomouscontainerdatabaseaddstandby.Setup,
@@ -1148,7 +1101,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		databasesoftwareimage.Setup,
 		databaseupgrade.Setup,
 		dataguardassociation.Setup,
-		datapatch.Setup,
 		dbhome.Setup,
 		dbnode.Setup,
 		dbnodeconsoleconnection.Setup,
@@ -1192,11 +1144,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		managementclouddbsystemcloudstackmonitoringsmanagement.Setup,
 		managementclouddbsystemconnector.Setup,
 		managementclouddbsystemdiscovery.Setup,
-		managementcloudexadatainfrastructure.Setup,
-		managementcloudexadatainfrastructuremanagedexadatamanagement.Setup,
-		managementcloudexadatastorageconnector.Setup,
-		managementcloudexadatastoragegrid.Setup,
-		managementcloudexadatastorageserver.Setup,
 		managementcloudlistener.Setup,
 		managementdatabasedbmfeaturesmanagement.Setup,
 		managementdbmanagementprivateendpoint.Setup,
@@ -1230,11 +1177,8 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		managementnamedcredential.Setup,
 		managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement.Setup,
 		migrationdatabase.Setup,
-		migrationassessment.Setup,
-		migrationassessmentassessoraction.Setup,
 		migrationconnection.Setup,
 		migrationjob.Setup,
-		migrationjobadvisorreportcheck.Setup,
 		migrationmigration.Setup,
 		oneoffpatch.Setup,
 		pluggabledatabase.Setup,
@@ -1402,9 +1346,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		drplan.Setup,
 		drplanexecution.Setup,
 		drprotectiongroup.Setup,
-		databasedistributedautonomousdatabase.Setup,
-		databasedistributeddatabase.Setup,
-		databasedistributeddatabaseprivateendpoint.Setup,
 		actioncreatezonefromzonefile.Setup,
 		record.Setup,
 		resolver.Setup,
@@ -1419,7 +1360,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		zonestagednsseckeyversion.Setup,
 		dkim.Setup,
 		emaildomain.Setup,
-		emailippool.Setup,
 		emailreturnpath.Setup,
 		sender.Setup,
 		suppression.Setup,
@@ -1451,7 +1391,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		taskrecord.Setup,
 		fsucollection.Setup,
 		fsucycle.Setup,
-		fsureadinesscheck.Setup,
 		applicationfunctions.Setup,
 		function.Setup,
 		invokefunction.Setup,
@@ -1466,14 +1405,14 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		agentdataingestionjob.Setup,
 		agentdatasource.Setup,
 		agentknowledgebase.Setup,
-		agentprovisionedcapacity.Setup,
 		agenttool.Setup,
 		dedicatedaicluster.Setup,
 		endpointgenerativeai.Setup,
 		generativeaiprivateendpoint.Setup,
-		importedmodel.Setup,
 		modelgenerativeai.Setup,
 		artifactbypath.Setup,
+		privateendpointgloballydistributeddatabase.Setup,
+		shardeddatabase.Setup,
 		connectiongoldengate.Setup,
 		connectionassignment.Setup,
 		databaseregistration.Setup,
@@ -1526,13 +1465,10 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		dynamicresourcegroup.Setup,
 		grant.Setup,
 		groupidentitydomains.Setup,
-		identityproofingprovider.Setup,
-		identityproofingprovidertemplate.Setup,
 		identitypropagationtrust.Setup,
 		identityprovideridentitydomains.Setup,
 		identitysetting.Setup,
 		kmsisetting.Setup,
-		mappedattribute.Setup,
 		myapikey.Setup,
 		myauthtoken.Setup,
 		mycustomersecretkey.Setup,
@@ -1604,8 +1540,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		ruleset.Setup,
 		sslciphersuite.Setup,
 		loganalyticsentity.Setup,
-		loganalyticsentityassociationsadd.Setup,
-		loganalyticsentityassociationsremove.Setup,
 		loganalyticsentitytype.Setup,
 		loganalyticsimportcustomcontent.Setup,
 		loganalyticsloggroup.Setup,
@@ -1614,7 +1548,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		loganalyticsresourcecategoriesmanagement.Setup,
 		loganalyticsunprocesseddatabucketmanagement.Setup,
 		namespace.Setup,
-		namespaceassociation.Setup,
 		namespaceingesttimerule.Setup,
 		namespaceingesttimerulesmanagement.Setup,
 		namespacelookup.Setup,
@@ -1735,7 +1668,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		datastore.Setup,
 		datastorecluster.Setup,
 		esxihost.Setup,
-		managementappliance.Setup,
 		sddc.Setup,
 		odainstance.Setup,
 		odaprivateendpoint.Setup,
@@ -1751,7 +1683,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		awrhub.Setup,
 		awrhubsource.Setup,
 		awrhubsourceawrhubsourcesmanagement.Setup,
-		chargebackplan.Setup,
 		databaseinsight.Setup,
 		enterprisemanagerbridge.Setup,
 		exadatainsight.Setup,
@@ -1817,7 +1748,6 @@ func Setup_monolith(mgr ctrl.Manager, o controller.Options) error {
 		psqlbackup.Setup,
 		psqlconfiguration.Setup,
 		psqldbsystem.Setup,
-		consumergroup.Setup,
 		queue.Setup,
 		protecteddatabase.Setup,
 		protectionpolicy.Setup,
@@ -1952,10 +1882,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		autoscalingconfiguration.SetupGated,
 		bastion.SetupGated,
 		session.SetupGated,
-		batchcontext.SetupGated,
-		batchjobpool.SetupGated,
-		batchtaskenvironment.SetupGated,
-		batchtaskprofile.SetupGated,
 		autoscalingconfigurationbds.SetupGated,
 		bdscapacityreport.SetupGated,
 		bdsinstance.SetupGated,
@@ -1985,10 +1911,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		volumegroupbackup.SetupGated,
 		alertrule.SetupGated,
 		budget.SetupGated,
-		costalertsubscription.SetupGated,
-		costanomalyevent.SetupGated,
-		costanomalymonitor.SetupGated,
-		costanomalymonitorcostanomalymonitorenabletogglesmanagement.SetupGated,
 		internaloccmdemandsignal.SetupGated,
 		internaloccmdemandsignaldelivery.SetupGated,
 		occavailabilitycatalog.SetupGated,
@@ -2053,7 +1975,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		addon.SetupGated,
 		cluster.SetupGated,
 		clustercompletecredentialrotationmanagement.SetupGated,
-		clusterpublicapiendpointdecommissionmanager.SetupGated,
 		clusterstartcredentialrotationmanagement.SetupGated,
 		clusterworkloadmapping.SetupGated,
 		nodepool.SetupGated,
@@ -2062,9 +1983,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		byoasn.SetupGated,
 		listingresourceversionagreement.SetupGated,
 		virtualnetwork.SetupGated,
-		advancedclusterfilesystem.SetupGated,
-		advancedclusterfilesystemmount.SetupGated,
-		advancedclusterfilesystemunmount.SetupGated,
 		applicationvip.SetupGated,
 		autonomouscontainerdatabase.SetupGated,
 		autonomouscontainerdatabaseaddstandby.SetupGated,
@@ -2097,7 +2015,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		databasesoftwareimage.SetupGated,
 		databaseupgrade.SetupGated,
 		dataguardassociation.SetupGated,
-		datapatch.SetupGated,
 		dbhome.SetupGated,
 		dbnode.SetupGated,
 		dbnodeconsoleconnection.SetupGated,
@@ -2141,11 +2058,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		managementclouddbsystemcloudstackmonitoringsmanagement.SetupGated,
 		managementclouddbsystemconnector.SetupGated,
 		managementclouddbsystemdiscovery.SetupGated,
-		managementcloudexadatainfrastructure.SetupGated,
-		managementcloudexadatainfrastructuremanagedexadatamanagement.SetupGated,
-		managementcloudexadatastorageconnector.SetupGated,
-		managementcloudexadatastoragegrid.SetupGated,
-		managementcloudexadatastorageserver.SetupGated,
 		managementcloudlistener.SetupGated,
 		managementdatabasedbmfeaturesmanagement.SetupGated,
 		managementdbmanagementprivateendpoint.SetupGated,
@@ -2179,11 +2091,8 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		managementnamedcredential.SetupGated,
 		managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement.SetupGated,
 		migrationdatabase.SetupGated,
-		migrationassessment.SetupGated,
-		migrationassessmentassessoraction.SetupGated,
 		migrationconnection.SetupGated,
 		migrationjob.SetupGated,
-		migrationjobadvisorreportcheck.SetupGated,
 		migrationmigration.SetupGated,
 		oneoffpatch.SetupGated,
 		pluggabledatabase.SetupGated,
@@ -2351,9 +2260,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		drplan.SetupGated,
 		drplanexecution.SetupGated,
 		drprotectiongroup.SetupGated,
-		databasedistributedautonomousdatabase.SetupGated,
-		databasedistributeddatabase.SetupGated,
-		databasedistributeddatabaseprivateendpoint.SetupGated,
 		actioncreatezonefromzonefile.SetupGated,
 		record.SetupGated,
 		resolver.SetupGated,
@@ -2368,7 +2274,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		zonestagednsseckeyversion.SetupGated,
 		dkim.SetupGated,
 		emaildomain.SetupGated,
-		emailippool.SetupGated,
 		emailreturnpath.SetupGated,
 		sender.SetupGated,
 		suppression.SetupGated,
@@ -2400,7 +2305,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		taskrecord.SetupGated,
 		fsucollection.SetupGated,
 		fsucycle.SetupGated,
-		fsureadinesscheck.SetupGated,
 		applicationfunctions.SetupGated,
 		function.SetupGated,
 		invokefunction.SetupGated,
@@ -2415,14 +2319,14 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		agentdataingestionjob.SetupGated,
 		agentdatasource.SetupGated,
 		agentknowledgebase.SetupGated,
-		agentprovisionedcapacity.SetupGated,
 		agenttool.SetupGated,
 		dedicatedaicluster.SetupGated,
 		endpointgenerativeai.SetupGated,
 		generativeaiprivateendpoint.SetupGated,
-		importedmodel.SetupGated,
 		modelgenerativeai.SetupGated,
 		artifactbypath.SetupGated,
+		privateendpointgloballydistributeddatabase.SetupGated,
+		shardeddatabase.SetupGated,
 		connectiongoldengate.SetupGated,
 		connectionassignment.SetupGated,
 		databaseregistration.SetupGated,
@@ -2475,13 +2379,10 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		dynamicresourcegroup.SetupGated,
 		grant.SetupGated,
 		groupidentitydomains.SetupGated,
-		identityproofingprovider.SetupGated,
-		identityproofingprovidertemplate.SetupGated,
 		identitypropagationtrust.SetupGated,
 		identityprovideridentitydomains.SetupGated,
 		identitysetting.SetupGated,
 		kmsisetting.SetupGated,
-		mappedattribute.SetupGated,
 		myapikey.SetupGated,
 		myauthtoken.SetupGated,
 		mycustomersecretkey.SetupGated,
@@ -2553,8 +2454,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		ruleset.SetupGated,
 		sslciphersuite.SetupGated,
 		loganalyticsentity.SetupGated,
-		loganalyticsentityassociationsadd.SetupGated,
-		loganalyticsentityassociationsremove.SetupGated,
 		loganalyticsentitytype.SetupGated,
 		loganalyticsimportcustomcontent.SetupGated,
 		loganalyticsloggroup.SetupGated,
@@ -2563,7 +2462,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		loganalyticsresourcecategoriesmanagement.SetupGated,
 		loganalyticsunprocesseddatabucketmanagement.SetupGated,
 		namespace.SetupGated,
-		namespaceassociation.SetupGated,
 		namespaceingesttimerule.SetupGated,
 		namespaceingesttimerulesmanagement.SetupGated,
 		namespacelookup.SetupGated,
@@ -2684,7 +2582,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		datastore.SetupGated,
 		datastorecluster.SetupGated,
 		esxihost.SetupGated,
-		managementappliance.SetupGated,
 		sddc.SetupGated,
 		odainstance.SetupGated,
 		odaprivateendpoint.SetupGated,
@@ -2700,7 +2597,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		awrhub.SetupGated,
 		awrhubsource.SetupGated,
 		awrhubsourceawrhubsourcesmanagement.SetupGated,
-		chargebackplan.SetupGated,
 		databaseinsight.SetupGated,
 		enterprisemanagerbridge.SetupGated,
 		exadatainsight.SetupGated,
@@ -2766,7 +2662,6 @@ func SetupGated_monolith(mgr ctrl.Manager, o controller.Options) error {
 		psqlbackup.SetupGated,
 		psqlconfiguration.SetupGated,
 		psqldbsystem.SetupGated,
-		consumergroup.SetupGated,
 		queue.SetupGated,
 		protecteddatabase.SetupGated,
 		protectionpolicy.SetupGated,

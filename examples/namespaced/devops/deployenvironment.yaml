@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: DeployEnvironment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployenvironment
   labels:
     testing.upbound.io/example-name: test_deploy_environment
   name: test-deploy-environment
+  namespace: crossplane-system
 spec:
   forProvider:
     clusterId: DummyCluster
@@ -15,18 +16,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployenvironment
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

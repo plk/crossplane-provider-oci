@@ -1,12 +1,13 @@
+---
 apiVersion: cloudguard.oci.m.upbound.io/v1alpha1
 kind: DetectorRecipe
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudguard/v1alpha1/detectorrecipe
   labels:
     testing.upbound.io/example-name: test_detector_recipe
   name: test-detector-recipe
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

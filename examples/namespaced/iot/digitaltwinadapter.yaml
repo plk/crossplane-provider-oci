@@ -1,12 +1,13 @@
+---
 apiVersion: iot.oci.m.upbound.io/v1alpha1
 kind: DigitalTwinAdapter
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: iot/v1alpha1/digitaltwinadapter
   labels:
     testing.upbound.io/example-name: test_digital_twin_adapter
   name: test-digital-twin-adapter
+  namespace: crossplane-system
 spec:
   forProvider:
     description: ${var.digital_twin_adapter_description}

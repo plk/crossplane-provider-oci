@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ToolsDatabaseToolsConnection
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/toolsdatabasetoolsconnection
   labels:
     testing.upbound.io/example-name: dbtools_connection_postgresql
   name: dbtools-connection-postgresql
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

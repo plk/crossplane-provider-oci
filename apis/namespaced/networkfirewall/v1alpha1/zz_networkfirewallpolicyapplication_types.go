@@ -16,13 +16,10 @@ import (
 
 type NetworkFirewallPolicyApplicationInitParameters struct {
 
-	// (Updatable) The description of the application. This field can be used to add additional info.
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
-	// (Updatable) The value of the ICMP/ICMP_V6 message code (subtype) field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/ICMP_V6 message Code (subtype) field as defined by RFC 4443.
 	IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
 
-	// (Updatable) The value of the ICMP/ICMP_V6 message type field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/IMCP_V6 message Type field as defined by RFC 4443.
 	IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
 
 	// Name of the application
@@ -46,16 +43,12 @@ type NetworkFirewallPolicyApplicationInitParameters struct {
 }
 
 type NetworkFirewallPolicyApplicationObservation struct {
-
-	// (Updatable) The description of the application. This field can be used to add additional info.
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// (Updatable) The value of the ICMP/ICMP_V6 message code (subtype) field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/ICMP_V6 message Code (subtype) field as defined by RFC 4443.
 	IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
 
-	// (Updatable) The value of the ICMP/ICMP_V6 message type field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/IMCP_V6 message Type field as defined by RFC 4443.
 	IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
 
 	// Name of the application
@@ -73,15 +66,11 @@ type NetworkFirewallPolicyApplicationObservation struct {
 
 type NetworkFirewallPolicyApplicationParameters struct {
 
-	// (Updatable) The description of the application. This field can be used to add additional info.
-	// +kubebuilder:validation:Optional
-	Description *string `json:"description,omitempty" tf:"description,omitempty"`
-
-	// (Updatable) The value of the ICMP/ICMP_V6 message code (subtype) field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/ICMP_V6 message Code (subtype) field as defined by RFC 4443.
 	// +kubebuilder:validation:Optional
 	IcmpCode *float64 `json:"icmpCode,omitempty" tf:"icmp_code,omitempty"`
 
-	// (Updatable) The value of the ICMP/ICMP_V6 message type field as defined by RFC 4443.
+	// (Updatable) The value of the ICMP/IMCP_V6 message Type field as defined by RFC 4443.
 	// +kubebuilder:validation:Optional
 	IcmpType *float64 `json:"icmpType,omitempty" tf:"icmp_type,omitempty"`
 

@@ -1,10 +1,11 @@
+---
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: subnet_label_1
   name: subnet1
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.1.0/24

@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: IdentitySetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/identitysetting
   labels:
     testing.upbound.io/example-name: test_identity_setting
   name: test-identity-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.identity_setting_authorization}
     emitLockedMessageWhenUserIsLocked: ${var.identity_setting_emit_locked_message_when_user_is_locked}
     externalId: externalId
@@ -35,10 +36,10 @@ spec:
     - key: ${var.identity_setting_tags_key}
       value: ${var.identity_setting_tags_value}
     tokens:
-    - expiresAfter: "10"
+    - expiresAfter: '10'
       type: emailVerification
-    - expiresAfter: "120"
+    - expiresAfter: '120'
       type: passwordReset
-    - expiresAfter: "2500"
+    - expiresAfter: '2500'
       type: createUser
     userAllowedToSetRecoveryEmail: true

@@ -1,12 +1,13 @@
+---
 apiVersion: cloudbridge.oci.m.upbound.io/v1alpha1
 kind: Asset
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudbridge/v1alpha1/asset
   labels:
     testing.upbound.io/example-name: test_asset
   name: test-asset
+  namespace: crossplane-system
 spec:
   forProvider:
     assetSourceIds: ${var.asset_asset_source_ids}

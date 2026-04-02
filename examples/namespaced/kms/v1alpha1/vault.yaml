@@ -1,15 +1,15 @@
+---
 apiVersion: kms.oci.m.upbound.io/v1alpha1
 kind: Vault
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: vault_label_1
   name: vault1
+  namespace: crossplane-system
 spec:
   forProvider:
-    # ref: https://registry.terraform.io/providers/oracle/oci/7.27.0/docs/resources/kms_vault
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
     displayName: vault1
-    vaultType: "DEFAULT"
+    vaultType: DEFAULT

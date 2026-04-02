@@ -1,12 +1,13 @@
+---
 apiVersion: dataflow.oci.m.upbound.io/v1alpha1
 kind: PrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dataflow/v1alpha1/privateendpoint
   labels:
     testing.upbound.io/example-name: test_private_endpoint
   name: test-private-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -18,27 +19,25 @@ spec:
     - custpvtsubnet.oraclevcn.com
     freeformTags:
       Department: Finance
-    maxHostCount: "256"
+    maxHostCount: '256'
     nsgIdsRefs:
     - name: test_network_security_group
     scanDetails:
     - fqdn: scan.test.com
-      port: "1521"
+      port: '1521'
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_subnet
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dataflow/v1alpha1/privateendpoint
   labels:
     testing.upbound.io/example-name: test_network_security_group
   name: test-network-security-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -47,18 +46,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dataflow/v1alpha1/privateendpoint
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/24
@@ -68,18 +65,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dataflow/v1alpha1/privateendpoint
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

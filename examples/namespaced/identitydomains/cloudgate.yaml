@@ -1,18 +1,19 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGate
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgate
   labels:
     testing.upbound.io/example-name: test_cloud_gate
   name: test-cloud-gate
+  namespace: crossplane-system
 spec:
   forProvider:
     active: ${var.cloud_gate_active}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.cloud_gate_authorization}
     description: ${var.cloud_gate_description}
     displayName: ${var.cloud_gate_display_name}

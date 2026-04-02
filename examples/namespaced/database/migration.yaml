@@ -1,29 +1,28 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: Migration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: test_migration
   name: test-migration
+  namespace: crossplane-system
 spec:
   forProvider:
     dbSystemIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_db_system
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: InternetGateway
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: internet_gateway
   name: internet-gateway
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -33,18 +32,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: test_network_security_group
   name: test-network-security-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -54,18 +51,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: test_network_security_group_backup
   name: test-network-security-group-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -75,18 +70,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: route_table
   name: route-table
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -102,18 +95,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: route_table_backup
   name: route-table-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -129,18 +120,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: SecurityList
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: ExampleSecurityList
   name: examplesecuritylist
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -149,15 +138,15 @@ spec:
     displayName: TFExampleSecurityList
     egressSecurityRules:
     - destination: 0.0.0.0/0
-      protocol: "6"
+      protocol: '6'
     - destination: 0.0.0.0/0
-      protocol: "17"
+      protocol: '17'
       stateless: true
     - destination: 0.0.0.0/0
-      protocol: "1"
+      protocol: '1'
       stateless: true
     ingressSecurityRules:
-    - protocol: "6"
+    - protocol: '6'
       source: 0.0.0.0/0
       stateless: false
     - protocol: 1
@@ -166,18 +155,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: subnet
   name: subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -198,18 +185,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: subnet_backup
   name: subnet-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -230,18 +215,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: vcn
   name: vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16
@@ -250,18 +233,16 @@ spec:
         testing.upbound.io/example-name: example
     displayName: TFExampleVCNDBSystem
     dnsLabel: tfexvcndbsys
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: DbSystem
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migration
   labels:
     testing.upbound.io/example-name: test_db_system
   name: test-db-system
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -279,6 +260,7 @@ spec:
       - adminPasswordSecretRef:
           key: example-key
           name: example-secret
+          namespace: upbound-system
         characterSet: ${var.character_set}
         dbBackupConfig:
         - autoBackupEnabled: false
@@ -298,13 +280,13 @@ spec:
     - daysOfWeek:
       - name: MONDAY
       hoursOfDay:
-      - "4"
+      - '4'
       leadTimeInWeeks: 2
       months:
       - name: APRIL
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     nodeCount: ${data.oci_database_db_system_shapes.test_db_system_shapes.db_system_shapes[0]["minimum_node_count"]}
     nsgIds:
     - ${oci_core_network_security_group.test_network_security_group_backup.id}

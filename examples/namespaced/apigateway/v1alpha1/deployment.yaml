@@ -1,25 +1,26 @@
+---
 apiVersion: apigateway.oci.m.upbound.io/v1alpha1
 kind: Deployment
 metadata:
-  namespace: crossplane-system
-  name: deployment1
   labels:
     testing.upbound.io/example-name: deployment_label_1
+  name: deployment1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: deployment1
     compartmentIdSelector:
       matchLabels:
-        testing.upbound.io/example-name: compartment_label_1    
+        testing.upbound.io/example-name: compartment_label_1
+    displayName: deployment1
     gatewayIdSelector:
       matchLabels:
         testing.upbound.io/example-name: gateway_label_1
-    pathPrefix: "/api"
+    pathPrefix: /api
     specification:
-      - routes:
-        - path: "/"
-          methods:
-            - "GET"
-          backend:
-            - type: HTTP_BACKEND
-              url: "https://example.com"
+    - routes:
+      - backend:
+        - type: HTTP_BACKEND
+          url: https://example.com
+        methods:
+        - GET
+        path: /

@@ -1,12 +1,13 @@
+---
 apiVersion: vbsinst.oci.m.upbound.io/v1alpha1
 kind: VbsInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: vbsinst/v1alpha1/vbsinstance
   labels:
     testing.upbound.io/example-name: test_vbs_instance
   name: test-vbs-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

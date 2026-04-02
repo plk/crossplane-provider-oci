@@ -1,12 +1,13 @@
+---
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: Ipsec
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/ipsec
   labels:
     testing.upbound.io/example-name: test_ipsec_over_fc_connection
   name: test-ipsec-over-fc-connection
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -40,18 +41,16 @@ spec:
         matchLabels:
           testing.upbound.io/example-name: test_drg_ipsec_over_fc_route_table
       oracleTunnelIp: 10.1.7.7
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnect
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/ipsec
   labels:
     testing.upbound.io/example-name: test_ipsec_over_fc_cross_connect
   name: test-ipsec-over-fc-cross-connect
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -61,36 +60,32 @@ spec:
     isActive: true
     locationName: ${data.oci_core_cross_connect_locations.cross_connect_locations.cross_connect_locations[0].name}
     portSpeedShapeName: ${data.oci_core_cross_connect_port_speed_shapes.cross_connect_port_speed_shapes.cross_connect_port_speed_shapes[0].name}
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: Drg
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/ipsec
   labels:
     testing.upbound.io/example-name: test_drg_ipsec_over_fc
   name: test-drg-ipsec-over-fc
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
     displayName: test_drg_ipsec_over_fc
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: VirtualCircuit
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/ipsec
   labels:
     testing.upbound.io/example-name: test_ipsec_over_fc_virtual_circuit
   name: test-ipsec-over-fc-virtual-circuit
+  namespace: crossplane-system
 spec:
   forProvider:
     bandwidthShapeName: 100 Mbps
@@ -104,7 +99,7 @@ spec:
       customerBgpPeeringIp: 10.0.1.22/30
       oracleBgpPeeringIp: 10.0.1.21/30
       vlan: 101
-    customerAsn: "64513"
+    customerAsn: '64513'
     displayName: testIpsecOverFCVirtualCircuit
     gatewayIdSelector:
       matchLabels:

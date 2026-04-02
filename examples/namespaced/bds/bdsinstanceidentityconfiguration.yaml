@@ -1,12 +1,13 @@
+---
 apiVersion: bds.oci.m.upbound.io/v1alpha1
 kind: BdsInstanceIdentityConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: bds/v1alpha1/bdsinstanceidentityconfiguration
   labels:
     testing.upbound.io/example-name: test_bds_instance_identity_configuration
   name: test-bds-instance-identity-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     activateIamUserSyncConfigurationTrigger: ${var.activate_iam_user_sync_configuration_trigger}

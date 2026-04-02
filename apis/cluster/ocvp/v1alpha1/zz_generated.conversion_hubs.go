@@ -19,7 +19,4 @@ func (tr *DatastoreCluster) Hub() {}
 func (tr *EsxiHost) Hub() {}
 
 // Hub marks this type as a conversion hub.
-func (tr *ManagementAppliance) Hub() {}
-
-// Hub marks this type as a conversion hub.
 func (tr *Sddc) Hub() {}

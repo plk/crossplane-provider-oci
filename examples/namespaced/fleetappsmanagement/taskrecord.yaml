@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: TaskRecord
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/taskrecord
   labels:
     testing.upbound.io/example-name: test_task_record
   name: test-task-record
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -24,8 +25,8 @@ spec:
           object: object
           sourceType: OBJECT_STORAGE_BUCKET
         executionType: SCRIPT
-        isExecutableContent: "true"
-        isLocked: "true"
+        isExecutableContent: 'true'
+        isLocked: 'true'
         systemVariables:
         - systemVariables
         variables:
@@ -35,14 +36,14 @@ spec:
             type: OUTPUT_VARIABLE
           outputVariables:
           - outputVariables
-      isApplySubjectTask: "false"
-      isDiscoveryOutputTask: "true"
+      isApplySubjectTask: 'false'
+      isDiscoveryOutputTask: 'true'
       operation: Discovery
       osType: WINDOWS
       platform: test-compatible-product2
       properties:
-      - numRetries: "11"
-        timeoutInSeconds: "11"
+      - numRetries: '11'
+        timeoutInSeconds: '11'
       scope: SHARED
     displayName: displayName2
     freeformTags:

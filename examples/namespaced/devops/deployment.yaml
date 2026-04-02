@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: Deployment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_deployment
   name: test-deployment
+  namespace: crossplane-system
 spec:
   forProvider:
     deployPipelineIdSelector:
@@ -18,21 +19,19 @@ spec:
     deploymentArguments:
     - items:
       - name: PLAN_DRY_RUN
-        value: "true"
+        value: 'true'
     deploymentType: PIPELINE_DEPLOYMENT
     displayName: HelmDiffDeployment
-
 ---
-
 apiVersion: containerengine.oci.m.upbound.io/v1alpha1
 kind: Cluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_cluster
   name: test-cluster
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -43,18 +42,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: DeployArtifact
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_deploy_helm_artifact
   name: test-deploy-helm-artifact
+  namespace: crossplane-system
 spec:
   forProvider:
     argumentSubstitutionMode: NONE
@@ -67,18 +64,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: DeployEnvironment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_deploy_oke_environment
   name: test-deploy-oke-environment
+  namespace: crossplane-system
 spec:
   forProvider:
     clusterId: ${oci_containerengine_cluster.test_cluster.id}
@@ -87,18 +82,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: DeployStage
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_helm_deploy_stage
   name: test-helm-deploy-stage
+  namespace: crossplane-system
 spec:
   forProvider:
     deployPipelineIdSelector:
@@ -114,18 +107,16 @@ spec:
     okeClusterDeployEnvironmentId: ${oci_devops_deploy_environment.test_deploy_oke_environment.id}
     purpose: EXECUTE_HELM_UPGRADE
     releaseName: release-name
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/deployment
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

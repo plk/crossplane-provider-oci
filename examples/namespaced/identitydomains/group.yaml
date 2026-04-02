@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Group
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/group
   labels:
     testing.upbound.io/example-name: test_group
   name: test-group
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.group_authorization}
     displayName: ${var.group_display_name}
     externalId: externalId

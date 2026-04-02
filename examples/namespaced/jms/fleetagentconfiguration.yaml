@@ -1,12 +1,13 @@
+---
 apiVersion: jms.oci.m.upbound.io/v1alpha1
 kind: FleetAgentConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: jms/v1alpha1/fleetagentconfiguration
   labels:
     testing.upbound.io/example-name: test_fleet_agent_configuration
   name: test-fleet-agent-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     agentPollingIntervalInMinutes: 10

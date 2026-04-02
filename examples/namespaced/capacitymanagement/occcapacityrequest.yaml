@@ -1,12 +1,13 @@
+---
 apiVersion: capacitymanagement.oci.m.upbound.io/v1alpha1
 kind: OccCapacityRequest
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: capacitymanagement/v1alpha1/occcapacityrequest
   labels:
     testing.upbound.io/example-name: test_occ_capacity_request
   name: test-occ-capacity-request
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${var.occ_capacity_request_availability_domain}

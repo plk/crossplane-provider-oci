@@ -1,32 +1,31 @@
+---
 apiVersion: ocvp.oci.m.upbound.io/v1alpha1
 kind: EsxiHost
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_esxi_host
   name: test-esxi-host
+  namespace: crossplane-system
 spec:
   forProvider:
     sddcIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_sddc
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NatGateway
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nat_gateway_ocvp
   name: test-nat-gateway-ocvp
+  namespace: crossplane-system
 spec:
   forProvider:
-    blockTraffic: "false"
+    blockTraffic: 'false'
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
@@ -36,18 +35,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nsg_allow_all
   name: test-nsg-allow-all
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -57,18 +54,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: private_rt
   name: private-rt
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -84,18 +79,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_route_table_for_vsphere_vlan
   name: test-route-table-for-vsphere-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -113,18 +106,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: SecurityList
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: private_sl
   name: private-sl
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -135,43 +126,41 @@ spec:
     - destination: 0.0.0.0/0
       destinationType: CIDR_BLOCK
       protocol: all
-      stateless: "false"
+      stateless: 'false'
     ingressSecurityRules:
     - description: 'TCP traffic for ports: 22 SSH Remote Login Protocol'
-      protocol: "6"
+      protocol: '6'
       source: 10.0.0.0/16
       sourceType: CIDR_BLOCK
-      stateless: "false"
+      stateless: 'false'
       tcpOptions:
-      - max: "22"
-        min: "22"
+      - max: '22'
+        min: '22'
     - description: 'ICMP traffic for: 3 Destination Unreachable'
       icmpOptions:
-      - code: "3"
-        type: "3"
-      protocol: "1"
+      - code: '3'
+        type: '3'
+      protocol: '1'
       source: 10.0.0.0/16
       sourceType: CIDR_BLOCK
-      stateless: "false"
+      stateless: 'false'
     - protocol: all
       source: 0.0.0.0/0
       sourceType: CIDR_BLOCK
-      stateless: "false"
+      stateless: 'false'
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: ServiceGateway
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: export_sgw
   name: export-sgw
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -183,18 +172,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_provisioning_subnet
   name: test-provisioning-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.103.128/25
@@ -206,7 +193,7 @@ spec:
         testing.upbound.io/example-name: test_vcn_ocvp
     displayName: provisioning-subnet
     dnsLabel: provisioningsub
-    prohibitPublicIpOnVnic: "true"
+    prohibitPublicIpOnVnic: 'true'
     routeTableIdSelector:
       matchLabels:
         testing.upbound.io/example-name: private_rt
@@ -215,18 +202,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_vcn_ocvp
   name: test-vcn-ocvp
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16
@@ -235,18 +220,16 @@ spec:
         testing.upbound.io/example-name: example
     displayName: VmWareOCVP
     dnsLabel: vmwareocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_hcx_vlan
   name: test-hcx-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -263,18 +246,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nsx_edge_uplink1_vlan
   name: test-nsx-edge-uplink1-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -291,18 +272,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nsx_edge_uplink2_vlan
   name: test-nsx-edge-uplink2-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -319,18 +298,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nsx_edge_vtep_vlan
   name: test-nsx-edge-vtep-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -347,18 +324,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_nsx_vtep_vlan
   name: test-nsx-vtep-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -375,18 +350,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_vmotion_net_vlan
   name: test-vmotion-net-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -403,18 +376,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_vsan_net_vlan
   name: test-vsan-net-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}
@@ -431,18 +402,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn_ocvp
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: ocvp/v1alpha1/esxihost
   labels:
     testing.upbound.io/example-name: test_vsphere_net_vlan
   name: test-vsphere-net-vlan
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains[0]["name"]}

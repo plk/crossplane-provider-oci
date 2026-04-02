@@ -1,18 +1,20 @@
+---
 apiVersion: dif.oci.m.upbound.io/v1alpha1
 kind: Stack
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dif/v1alpha1/stack
   labels:
     testing.upbound.io/example-name: test_stack
   name: test-stack
+  namespace: crossplane-system
 spec:
   forProvider:
     adb:
     - adminPasswordIdSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       dataStorageSizeInTbs: 1
       dbVersion: 19c
       dbWorkload: DW
@@ -35,16 +37,16 @@ spec:
         subnetId: ${var.stack_subnet_id}
       driverShape: VM.Standard.E5.Flex
       driverShapeConfig:
-      - memoryInGbs: "16"
-        ocpus: "1"
+      - memoryInGbs: '16'
+        ocpus: '1'
       execute: ${var.dataflow_file_uri}
       executorShape: VM.Standard.E5.Flex
       executorShapeConfig:
-      - memoryInGbs: "16"
-        ocpus: "1"
+      - memoryInGbs: '16'
+        ocpus: '1'
       instanceId: testApp
       logBucketInstanceId: testLogBucket1
-      numExecutors: "3"
+      numExecutors: '3'
       sparkVersion: 3.5.0
     deployArtifactsTrigger: 1
     displayName: ${var.stack_display_name}

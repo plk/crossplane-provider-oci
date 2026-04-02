@@ -75,9 +75,6 @@ spec:
         matchLabels:
           testing.upbound.io/example-name: test_key_version
       ncharacterSet: ${var.database_database_ncharacter_set}
-      patchOptions:
-      - shouldSkipClosedPdbs: true
-        shouldSkipDataPatch: false
       pdbName: ${var.database_database_pdb_name}
       pluggableDatabases: ${var.database_database_pluggable_databases}
       protectionMode: ${var.database_database_protection_mode}

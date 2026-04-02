@@ -1,12 +1,13 @@
+---
 apiVersion: managementagent.oci.m.upbound.io/v1alpha1
 kind: ManagementAgent
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: managementagent/v1alpha1/managementagent
   labels:
     testing.upbound.io/example-name: test_management_agent
   name: test-management-agent
+  namespace: crossplane-system
 spec:
   forProvider:
     deployPluginsId:

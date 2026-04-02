@@ -1,18 +1,19 @@
+---
 apiVersion: apigateway.oci.m.upbound.io/v1alpha1
 kind: Subscriber
 metadata:
-  namespace: crossplane-system
-  name: subscriber1
   labels:
     testing.upbound.io/example-name: subscriber_label_1
+  name: subscriber1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: subscriber1
+    clients:
+    - name: example-client
+      token: generated_token_value
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: subscriber1
     usagePlans:
-      - ${USAGEPLAN_OCID}
-    clients:
-      - name: "example-client"
-        token: "generated_token_value"
+    - ${USAGEPLAN_OCID}

@@ -8,7 +8,7 @@ export TERRAFORM_VERSION ?= 1.5.7
 
 export TERRAFORM_PROVIDER_SOURCE := oracle/oci
 export TERRAFORM_PROVIDER_REPO := https://github.com/oracle/terraform-provider-oci
-export TERRAFORM_PROVIDER_VERSION := 8.7.0
+export TERRAFORM_PROVIDER_VERSION := 7.27.0
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-oci
 export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-oci_v$(TERRAFORM_PROVIDER_VERSION)
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-oci/$(TERRAFORM_PROVIDER_VERSION)
@@ -95,6 +95,8 @@ endif
 # ====================================================================================
 # Setup Kubernetes tools
 
+UP_VERSION = v0.39.0
+UP_CHANNEL = stable
 KIND_VERSION = v0.31.0
 UPTEST_VERSION = v2.2.0
 CRDDIFF_VERSION = v0.12.1
@@ -119,7 +121,7 @@ XPKG_REG_ORGS ?= xpkg.upbound.io/upbound
 XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/upbound
 XPKGS = $(PROJECT_NAME)
 XPKG_DIR = $(OUTPUT_DIR)/package
-XPKG_IGNORE = kustomization.yaml
+XPKG_IGNORE = kustomization.yaml,auth.yaml
 XPKG_OUTPUT_DIR ?= $(OUTPUT_DIR)/xpkg
 BATCH_PLATFORMS ?= linux_amd64,linux_arm64
 
@@ -138,7 +140,7 @@ CONFIG_DEPENDENCY_REG_ORG ?= $(XPKG_REG_ORGS)
 export CONFIG_CRD_GROUP := $(CONFIG_CRD_GROUP)
 export PROVIDER_AUTH_GROUP := $(PROVIDER_AUTH_GROUP)
 export CONFIG_DEPENDENCY_REG_ORG := $(CONFIG_DEPENDENCY_REG_ORG)
-
+#XPKG_CLEANUP_EXAMPLES_ENABLED = true
 -include build/makelib/xpkg.mk
 
 # NOTE(hasheddan): we force image building to happen prior to xpkg build so that

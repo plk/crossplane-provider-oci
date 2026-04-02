@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: RepositoryRef
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/repositoryref
   labels:
     testing.upbound.io/example-name: test_repository_ref
   name: test-repository-ref
+  namespace: crossplane-system
 spec:
   forProvider:
     commitId: ${lookup(data.oci_devops_repository_commits.test_repository_commits.repository_commit_collection[0].items[0],
@@ -16,18 +17,16 @@ spec:
     repositoryIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_repository
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/repositoryref
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

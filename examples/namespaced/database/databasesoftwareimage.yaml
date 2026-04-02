@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: DatabaseSoftwareImage
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/databasesoftwareimage
   labels:
     testing.upbound.io/example-name: test_database_software_image
   name: test-database-software-image
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

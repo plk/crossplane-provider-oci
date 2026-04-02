@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResourceType
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresourcetype
   labels:
     testing.upbound.io/example-name: test_monitored_resource_type
   name: test-monitored-resource-type
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -17,7 +18,6 @@ spec:
     freeformTags:
       bar-key: test_monitored_resource_type.value
     metadata:
-  namespace: crossplane-system
     - agentProperties:
       - agent_prop1
       - agent_prop2

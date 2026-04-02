@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SetSecurityAssessmentBaselineManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/setsecurityassessmentbaselinemanagement
   labels:
     testing.upbound.io/example-name: test_set_security_assessment_baseline_management
   name: test-set-security-assessment-baseline-management
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

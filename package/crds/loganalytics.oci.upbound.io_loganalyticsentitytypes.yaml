@@ -82,8 +82,7 @@ spec:
                     description: Log analytics entity type name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     description: Log analytics entity type property definition.
@@ -120,8 +119,7 @@ spec:
                     description: Log analytics entity type name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     description: Log analytics entity type property definition.
@@ -257,8 +255,7 @@ spec:
                     description: Log analytics entity type name.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   properties:
                     description: Log analytics entity type property definition.

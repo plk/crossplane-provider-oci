@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: MaskingPoliciesMaskingColumn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/maskingpoliciesmaskingcolumn
   labels:
     testing.upbound.io/example-name: test_masking_policies_masking_column
   name: test-masking-policies-masking-column
+  namespace: crossplane-system
 spec:
   forProvider:
     columnName: ${var.masking_policies_masking_column_column_name_var}
@@ -15,18 +16,16 @@ spec:
         testing.upbound.io/example-name: test_masking_policy
     object: ${var.masking_policies_masking_column_object_var}
     schemaName: ${var.masking_policies_masking_column_schema_name_var}
-
 ---
-
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: MaskingPolicy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/maskingpoliciesmaskingcolumn
   labels:
     testing.upbound.io/example-name: test_masking_policy
   name: test-masking-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     columnSource:

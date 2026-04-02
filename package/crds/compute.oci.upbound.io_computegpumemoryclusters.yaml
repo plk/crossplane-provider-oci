@@ -259,25 +259,6 @@ spec:
                       {"Department": "Finance"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  gpuMemoryClusterScaleConfig:
-                    description: (Updatable) Configuration settings for GPU Memory
-                      Cluster scaling.
-                    items:
-                      properties:
-                        isDownsizeEnabled:
-                          description: (Updatable) Enables downsizing towards the
-                            target size.
-                          type: boolean
-                        isUpsizeEnabled:
-                          description: (Updatable) Enables upsizing towards the target
-                            size.
-                          type: boolean
-                        targetSize:
-                          description: (Updatable) The configured target size for
-                            the GPU Memory cluster.
-                          type: string
-                      type: object
-                    type: array
                   gpuMemoryFabricId:
                     description: The OCID of the GPU memory fabric.
                     type: string
@@ -563,25 +544,6 @@ spec:
                       {"Department": "Finance"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  gpuMemoryClusterScaleConfig:
-                    description: (Updatable) Configuration settings for GPU Memory
-                      Cluster scaling.
-                    items:
-                      properties:
-                        isDownsizeEnabled:
-                          description: (Updatable) Enables downsizing towards the
-                            target size.
-                          type: boolean
-                        isUpsizeEnabled:
-                          description: (Updatable) Enables upsizing towards the target
-                            size.
-                          type: boolean
-                        targetSize:
-                          description: (Updatable) The configured target size for
-                            the GPU Memory cluster.
-                          type: string
-                      type: object
-                    type: array
                   gpuMemoryFabricId:
                     description: The OCID of the GPU memory fabric.
                     type: string
@@ -799,25 +761,6 @@ spec:
                       {"Department": "Finance"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  gpuMemoryClusterScaleConfig:
-                    description: (Updatable) Configuration settings for GPU Memory
-                      Cluster scaling.
-                    items:
-                      properties:
-                        isDownsizeEnabled:
-                          description: (Updatable) Enables downsizing towards the
-                            target size.
-                          type: boolean
-                        isUpsizeEnabled:
-                          description: (Updatable) Enables upsizing towards the target
-                            size.
-                          type: boolean
-                        targetSize:
-                          description: (Updatable) The configured target size for
-                            the GPU Memory cluster.
-                          type: string
-                      type: object
-                    type: array
                   gpuMemoryFabricId:
                     description: The OCID of the GPU memory fabric.
                     type: string

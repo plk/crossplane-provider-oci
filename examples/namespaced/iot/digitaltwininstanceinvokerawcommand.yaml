@@ -1,12 +1,13 @@
+---
 apiVersion: iot.oci.m.upbound.io/v1alpha1
 kind: DigitalTwinInstanceInvokeRawCommand
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: iot/v1alpha1/digitaltwininstanceinvokerawcommand
   labels:
     testing.upbound.io/example-name: test_digital_twin_instance_invoke_raw_command
   name: test-digital-twin-instance-invoke-raw-command
+  namespace: crossplane-system
 spec:
   forProvider:
     digitalTwinInstanceId: ${var.digital_twin_instance_ocid}

@@ -1,12 +1,13 @@
+---
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnect
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/crossconnect
   labels:
     testing.upbound.io/example-name: cross_connect
   name: cross-connect
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -19,18 +20,16 @@ spec:
     isActive: true
     locationName: ${data.oci_core_cross_connect_locations.cross_connect_locations.cross_connect_locations[0].name}
     portSpeedShapeName: ${data.oci_core_cross_connect_port_speed_shapes.cross_connect_port_speed_shapes.cross_connect_port_speed_shapes[1].name}
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnectGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/crossconnect
   labels:
     testing.upbound.io/example-name: cross_connect_group
   name: cross-connect-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

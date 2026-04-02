@@ -1,12 +1,13 @@
+---
 apiVersion: aidataplatform.oci.m.upbound.io/v1alpha1
 kind: AiDataPlatform
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: aidataplatform/v1alpha1/aidataplatform
   labels:
     testing.upbound.io/example-name: test_ai_data_platform
   name: test-ai-data-platform
+  namespace: crossplane-system
 spec:
   forProvider:
     aiDataPlatformType: ${var.ai_data_platform_ai_data_platform_type}

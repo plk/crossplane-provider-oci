@@ -107,10 +107,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  description:
-                    description: (Updatable) The description of the security rule.
-                      This field can be used to add additional info.
-                    type: string
                   inspection:
                     description: ', which may result in rejection.'
                     type: string
@@ -281,10 +277,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  description:
-                    description: (Updatable) The description of the security rule.
-                      This field can be used to add additional info.
-                    type: string
                   inspection:
                     description: ', which may result in rejection.'
                     type: string
@@ -519,10 +511,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  description:
-                    description: (Updatable) The description of the security rule.
-                      This field can be used to add additional info.
-                    type: string
                   id:
                     type: string
                   inspection:

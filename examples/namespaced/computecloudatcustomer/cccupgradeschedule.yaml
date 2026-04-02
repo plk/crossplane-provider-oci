@@ -1,12 +1,13 @@
+---
 apiVersion: computecloudatcustomer.oci.m.upbound.io/v1alpha1
 kind: CccUpgradeSchedule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: computecloudatcustomer/v1alpha1/cccupgradeschedule
   labels:
     testing.upbound.io/example-name: test_ccc_upgrade_schedule
   name: test-ccc-upgrade-schedule
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

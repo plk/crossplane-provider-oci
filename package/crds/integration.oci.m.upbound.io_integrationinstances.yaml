@@ -251,10 +251,6 @@ spec:
                       use for billing purposes. Only required if the account possesses
                       more than one entitlement.
                     type: string
-                  convertInstanceTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Convert Instance. Could be set to any integer value.
-                    type: number
                   customEndpoint:
                     description: (Updatable) Details for a custom endpoint for the
                       integration instance (update).
@@ -361,9 +357,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  dataRetentionPeriod:
-                    description: Data retention period set for given integration instance
-                    type: string
                   definedTags:
                     additionalProperties:
                       type: string
@@ -372,11 +365,6 @@ spec:
                       "value"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  disableProcessAutomationTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Disable Process Automation. Could be set to any integer
-                      value.
-                    type: number
                   displayName:
                     description: (Updatable) Integration Instance Identifier.
                     type: string
@@ -473,6 +461,9 @@ spec:
                       value.
                     type: number
                   extendDataRetentionTrigger:
+                    description: (Updatable) An optional property when incremented
+                      triggers Extend Data Retention. Could be set to any integer
+                      value.
                     type: number
                   failoverTrigger:
                     description: (Updatable) An optional property when incremented
@@ -517,10 +508,6 @@ spec:
                   isVisualBuilderEnabled:
                     description: (Updatable) Visual Builder is enabled or not.
                     type: boolean
-                  logGroupId:
-                    description: OCID of LogAnalytics LogGroup, enabled for given
-                      integration instance
-                    type: string
                   messagePacks:
                     description: (Updatable) The number of configured message packs
                     type: number
@@ -555,40 +542,6 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        designTime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                         isIntegrationVcnAllowlisted:
                           description: The Integration service's VCN is allow-listed
                             to allow integrations to call back into other integrations
@@ -596,40 +549,6 @@ spec:
                         networkEndpointType:
                           description: The type of network endpoint.
                           type: string
-                        runtime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                       type: object
                     type: array
                   securityAttributes:
@@ -637,8 +556,8 @@ spec:
                       type: string
                     description: '(Updatable) Security attributes for this resource.
                       Each key is predefined and scoped to a namespace. For more information,
-                      see Resource Tags.  Example: {"Oracle-ZPR": {"MaxEgressCount":
-                      {"value": "42", "mode": "enforce"}}}'
+                      see Resource Tags.  Example: { "oracle-zpr.sensitivity.value"
+                      = "low" "oracle-zpr.sensitivity.mode" = "enforce" }'
                     type: object
                     x-kubernetes-map-type: granular
                   shape:
@@ -853,10 +772,6 @@ spec:
                       use for billing purposes. Only required if the account possesses
                       more than one entitlement.
                     type: string
-                  convertInstanceTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Convert Instance. Could be set to any integer value.
-                    type: number
                   customEndpoint:
                     description: (Updatable) Details for a custom endpoint for the
                       integration instance (update).
@@ -963,9 +878,6 @@ spec:
                           type: string
                       type: object
                     type: array
-                  dataRetentionPeriod:
-                    description: Data retention period set for given integration instance
-                    type: string
                   definedTags:
                     additionalProperties:
                       type: string
@@ -974,11 +886,6 @@ spec:
                       "value"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  disableProcessAutomationTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Disable Process Automation. Could be set to any integer
-                      value.
-                    type: number
                   displayName:
                     description: (Updatable) Integration Instance Identifier.
                     type: string
@@ -1075,6 +982,9 @@ spec:
                       value.
                     type: number
                   extendDataRetentionTrigger:
+                    description: (Updatable) An optional property when incremented
+                      triggers Extend Data Retention. Could be set to any integer
+                      value.
                     type: number
                   failoverTrigger:
                     description: (Updatable) An optional property when incremented
@@ -1119,10 +1029,6 @@ spec:
                   isVisualBuilderEnabled:
                     description: (Updatable) Visual Builder is enabled or not.
                     type: boolean
-                  logGroupId:
-                    description: OCID of LogAnalytics LogGroup, enabled for given
-                      integration instance
-                    type: string
                   messagePacks:
                     description: (Updatable) The number of configured message packs
                     type: number
@@ -1157,40 +1063,6 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        designTime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                         isIntegrationVcnAllowlisted:
                           description: The Integration service's VCN is allow-listed
                             to allow integrations to call back into other integrations
@@ -1198,40 +1070,6 @@ spec:
                         networkEndpointType:
                           description: The type of network endpoint.
                           type: string
-                        runtime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                       type: object
                     type: array
                   securityAttributes:
@@ -1239,8 +1077,8 @@ spec:
                       type: string
                     description: '(Updatable) Security attributes for this resource.
                       Each key is predefined and scoped to a namespace. For more information,
-                      see Resource Tags.  Example: {"Oracle-ZPR": {"MaxEgressCount":
-                      {"value": "42", "mode": "enforce"}}}'
+                      see Resource Tags.  Example: { "oracle-zpr.sensitivity.value"
+                      = "low" "oracle-zpr.sensitivity.mode" = "enforce" }'
                     type: object
                     x-kubernetes-map-type: granular
                   shape:
@@ -1399,10 +1237,6 @@ spec:
                       use for billing purposes. Only required if the account possesses
                       more than one entitlement.
                     type: string
-                  convertInstanceTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Convert Instance. Could be set to any integer value.
-                    type: number
                   customEndpoint:
                     description: (Updatable) Details for a custom endpoint for the
                       integration instance (update).
@@ -1450,11 +1284,6 @@ spec:
                       "value"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  disableProcessAutomationTrigger:
-                    description: (Updatable) An optional property when incremented
-                      triggers Disable Process Automation. Could be set to any integer
-                      value.
-                    type: number
                   disasterRecoveryDetails:
                     description: Disaster recovery details for the integration instance
                       created in the region.
@@ -1507,6 +1336,9 @@ spec:
                       value.
                     type: number
                   extendDataRetentionTrigger:
+                    description: (Updatable) An optional property when incremented
+                      triggers Extend Data Retention. Could be set to any integer
+                      value.
                     type: number
                   failoverTrigger:
                     description: (Updatable) An optional property when incremented
@@ -1575,10 +1407,6 @@ spec:
                   lifecycleDetails:
                     description: Additional details of lifecycleState or substates
                     type: string
-                  logGroupId:
-                    description: OCID of LogAnalytics LogGroup, enabled for given
-                      integration instance
-                    type: string
                   messagePacks:
                     description: (Updatable) The number of configured message packs
                     type: number
@@ -1613,40 +1441,6 @@ spec:
                                 type: string
                             type: object
                           type: array
-                        designTime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                         isIntegrationVcnAllowlisted:
                           description: The Integration service's VCN is allow-listed
                             to allow integrations to call back into other integrations
@@ -1654,40 +1448,6 @@ spec:
                         networkEndpointType:
                           description: The type of network endpoint.
                           type: string
-                        runtime:
-                          description: 'A collection of AllowListedIps and AllowListedVcns
-                            for a specific OIC component: global, RT, or DT'
-                          items:
-                            properties:
-                              allowlistedHttpIps:
-                                description: 'Source IP addresses or IP address ranges
-                                  ingress rules. (ex: "168.122.59.5", "10.20.30.0/26")
-                                  An invalid IP or CIDR block will result in a 400
-                                  response.'
-                                items:
-                                  type: string
-                                type: array
-                              allowlistedHttpVcns:
-                                description: Virtual Cloud Networks allowed to access
-                                  this network endpoint.
-                                items:
-                                  properties:
-                                    allowlistedIps:
-                                      description: 'Source IP addresses or IP address
-                                        ranges ingress rules. (ex: "168.122.59.5",
-                                        "10.20.30.0/26") An invalid IP or CIDR block
-                                        will result in a 400 response.'
-                                      items:
-                                        type: string
-                                      type: array
-                                      x-kubernetes-list-type: set
-                                    id:
-                                      description: The Virtual Cloud Network OCID.
-                                      type: string
-                                  type: object
-                                type: array
-                            type: object
-                          type: array
                       type: object
                     type: array
                   privateEndpointOutboundConnection:
@@ -1695,8 +1455,6 @@ spec:
                       Connection).
                     items:
                       properties:
-                        isAllOutboundTrafficPrivate:
-                          type: boolean
                         nsgIds:
                           description: One or more Network security group Ids. This
                             is an optional argument.
@@ -1718,8 +1476,8 @@ spec:
                       type: string
                     description: '(Updatable) Security attributes for this resource.
                       Each key is predefined and scoped to a namespace. For more information,
-                      see Resource Tags.  Example: {"Oracle-ZPR": {"MaxEgressCount":
-                      {"value": "42", "mode": "enforce"}}}'
+                      see Resource Tags.  Example: { "oracle-zpr.sensitivity.value"
+                      = "low" "oracle-zpr.sensitivity.mode" = "enforce" }'
                     type: object
                     x-kubernetes-map-type: granular
                   shape:

@@ -1,12 +1,13 @@
+---
 apiVersion: meteringcomputation.oci.m.upbound.io/v1alpha1
 kind: Usage
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: meteringcomputation/v1alpha1/usage
   labels:
     testing.upbound.io/example-name: test_usage
   name: test-usage
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentDepth: 1

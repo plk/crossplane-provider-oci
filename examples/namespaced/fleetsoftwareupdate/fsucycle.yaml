@@ -1,12 +1,13 @@
+---
 apiVersion: fleetsoftwareupdate.oci.m.upbound.io/v1alpha1
 kind: FsuCycle
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetsoftwareupdate/v1alpha1/fsucycle
   labels:
     testing.upbound.io/example-name: test_fsu_cycle_upgrade_23
   name: test-fsu-cycle-upgrade-23
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -20,18 +21,16 @@ spec:
     - type: VERSION
       version: 23.6.0.24.10
     type: UPGRADE
-
 ---
-
 apiVersion: fleetsoftwareupdate.oci.m.upbound.io/v1alpha1
 kind: FsuCollection
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetsoftwareupdate/v1alpha1/fsucycle
   labels:
     testing.upbound.io/example-name: test_fsu_collection_db19
   name: test-fsu-collection-db19
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

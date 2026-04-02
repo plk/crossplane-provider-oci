@@ -1,12 +1,13 @@
+---
 apiVersion: identitydataplane.oci.m.upbound.io/v1alpha1
 kind: GenerateScopedAccessToken
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydataplane/v1alpha1/generatescopedaccesstoken
   labels:
     testing.upbound.io/example-name: test_scoped_access_token
   name: test-scoped-access-token
+  namespace: crossplane-system
 spec:
   forProvider:
     publicKey: ${var.public_key}

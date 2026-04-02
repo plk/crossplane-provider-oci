@@ -1,10 +1,11 @@
+---
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   name: notification-via-crossplane
+  namespace: crossplane-system
 spec:
   forProvider:
-    compartmentId: "ocid1.compartment.oc1..ssss"
-    description: "Compartment created via crossplane"
-    name: "notification-via-crossplane"
+    compartmentId: ocid1.compartment.oc1..ssss
+    description: Compartment created via crossplane
+    name: notification-via-crossplane

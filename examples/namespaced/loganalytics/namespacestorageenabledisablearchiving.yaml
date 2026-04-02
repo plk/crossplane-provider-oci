@@ -1,12 +1,13 @@
+---
 apiVersion: loganalytics.oci.m.upbound.io/v1alpha1
 kind: NamespaceStorageEnableDisableArchiving
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: loganalytics/v1alpha1/namespacestorageenabledisablearchiving
   labels:
     testing.upbound.io/example-name: test_namespace_storage_enable_archiving
   name: test-namespace-storage-enable-archiving
+  namespace: crossplane-system
 spec:
   forProvider:
     enableArchivingTenant: true

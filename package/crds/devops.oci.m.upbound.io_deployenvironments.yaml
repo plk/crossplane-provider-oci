@@ -481,13 +481,6 @@ spec:
                             type: string
                         type: object
                     type: object
-                  securityAttributes:
-                    additionalProperties:
-                      type: string
-                    description: (Updatable) Security attributes to be added in to
-                      the deployment environment
-                    type: object
-                    x-kubernetes-map-type: granular
                 type: object
               initProvider:
                 description: |-
@@ -923,13 +916,6 @@ spec:
                             type: string
                         type: object
                     type: object
-                  securityAttributes:
-                    additionalProperties:
-                      type: string
-                    description: (Updatable) Security attributes to be added in to
-                      the deployment environment
-                    type: object
-                    x-kubernetes-map-type: granular
                 type: object
               managementPolicies:
                 default:
@@ -1105,13 +1091,6 @@ spec:
                   projectId:
                     description: The OCID of a project.
                     type: string
-                  securityAttributes:
-                    additionalProperties:
-                      type: string
-                    description: (Updatable) Security attributes to be added in to
-                      the deployment environment
-                    type: object
-                    x-kubernetes-map-type: granular
                   state:
                     description: The current state of the deployment environment.
                     type: string

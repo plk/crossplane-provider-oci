@@ -15,7 +15,7 @@ import (
 
 type LogAnalyticsResourceCategoriesManagementInitParameters struct {
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
 	// The list of categories to be assigned to the resource.
@@ -32,7 +32,7 @@ type LogAnalyticsResourceCategoriesManagementInitParameters struct {
 type LogAnalyticsResourceCategoriesManagementObservation struct {
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 
 	// The list of categories to be assigned to the resource.
@@ -48,7 +48,7 @@ type LogAnalyticsResourceCategoriesManagementObservation struct {
 
 type LogAnalyticsResourceCategoriesManagementParameters struct {
 
-	// The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
+	// The Logging Analytics namespace used for the request.
 	// +kubebuilder:validation:Optional
 	Namespace *string `json:"namespace,omitempty" tf:"namespace,omitempty"`
 

@@ -1,12 +1,13 @@
+---
 apiVersion: osmanagementhub.oci.m.upbound.io/v1alpha1
 kind: SoftwareSourceAddPackagesManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: osmanagementhub/v1alpha1/softwaresourceaddpackagesmanagement
   labels:
     testing.upbound.io/example-name: test_software_source_add_packages_management
   name: test-software-source-add-packages-management
+  namespace: crossplane-system
 spec:
   forProvider:
     packages:

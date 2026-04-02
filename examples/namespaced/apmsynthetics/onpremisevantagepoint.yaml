@@ -1,30 +1,29 @@
+---
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: OnPremiseVantagePoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/onpremisevantagepoint
   labels:
     testing.upbound.io/example-name: test_on_premise_vantage_point
   name: test-on-premise-vantage-point
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_apm_domain
     name: ${var.on_premise_vantage_point_name}
-
 ---
-
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/onpremisevantagepoint
   labels:
     testing.upbound.io/example-name: test_apm_domain
   name: test-apm-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: SelfRegistrationProfile
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/selfregistrationprofile
   labels:
     testing.upbound.io/example-name: test_self_registration_profile
   name: test-self-registration-profile
+  namespace: crossplane-system
 spec:
   forProvider:
     activationEmailRequired: ${var.self_registration_profile_activation_email_required}
@@ -18,7 +19,7 @@ spec:
     allowedEmailDomains: ${var.self_registration_profile_allowed_email_domains}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.self_registration_profile_authorization}
     consentText:
     - default: ${var.self_registration_profile_consent_text_default}
@@ -60,18 +61,16 @@ spec:
     - fullyQualifiedAttributeName: ${var.self_registration_profile_user_attributes_fully_qualified_attribute_name}
       seqNumber: ${var.self_registration_profile_user_attributes_seq_number}
       value: ${var.self_registration_profile_user_attributes_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Group
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/selfregistrationprofile
   labels:
     testing.upbound.io/example-name: test_self_registration_profile_group
   name: test-self-registration-profile-group
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: groupDisplayName

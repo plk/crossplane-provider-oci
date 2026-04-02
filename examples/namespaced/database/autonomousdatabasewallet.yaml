@@ -1,33 +1,32 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: AutonomousDatabaseWallet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousdatabasewallet
   labels:
     testing.upbound.io/example-name: autonomous_database_wallet
   name: autonomous-database-wallet
+  namespace: crossplane-system
 spec:
   forProvider:
     autonomousDatabaseIdSelector:
       matchLabels:
         testing.upbound.io/example-name: autonomous_database
-    base64EncodeContent: "true"
+    base64EncodeContent: 'true'
     passwordSecretRef:
       key: attribute.result
       name: example-string
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: AutonomousDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousdatabasewallet
   labels:
     testing.upbound.io/example-name: autonomous_database
   name: autonomous-database
+  namespace: crossplane-system
 spec:
   forProvider:
     adminPasswordSecretRef:
@@ -36,22 +35,22 @@ spec:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    cpuCoreCount: "6"
+    cpuCoreCount: '6'
     customerContacts:
     - email: test1@oracle.com
     - email: test2@oracle.com
-    dataStorageSizeInTbs: "1"
+    dataStorageSizeInTbs: '1'
     dbName: testdbScheduledOperations
     scheduledOperations:
     - dayOfWeek:
       - name: MONDAY
-      scheduledStartTime: "10:00"
-      scheduledStopTime: "18:00"
+      scheduledStartTime: 10:00
+      scheduledStopTime: 18:00
     - dayOfWeek:
       - name: TUESDAY
-      scheduledStartTime: "10:00"
-      scheduledStopTime: "18:00"
+      scheduledStartTime: 10:00
+      scheduledStopTime: 18:00
     - dayOfWeek:
       - name: FRIDAY
-      scheduledStartTime: "10:00"
-      scheduledStopTime: "18:00"
+      scheduledStartTime: 10:00
+      scheduledStopTime: 18:00

@@ -1,12 +1,13 @@
+---
 apiVersion: computecloudatcustomer.oci.m.upbound.io/v1alpha1
 kind: CccInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: computecloudatcustomer/v1alpha1/cccinfrastructure
   labels:
     testing.upbound.io/example-name: test_ccc_infrastructure
   name: test-ccc-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     cccUpgradeScheduleIdSelector:
@@ -25,18 +26,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_subnet
-
 ---
-
 apiVersion: computecloudatcustomer.oci.m.upbound.io/v1alpha1
 kind: CccUpgradeSchedule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: computecloudatcustomer/v1alpha1/cccinfrastructure
   labels:
     testing.upbound.io/example-name: test_ccc_upgrade_schedule
   name: test-ccc-upgrade-schedule
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -47,19 +46,17 @@ spec:
     - description: description
       scheduleEventDuration: PT49H
       scheduleEventRecurrences: FREQ=MONTHLY;INTERVAL=3;
-      timeStart: "2023-09-09T16:10:25Z"
-
+      timeStart: 2023-09-09T16:10:25Z
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: computecloudatcustomer/v1alpha1/cccinfrastructure
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/24
@@ -69,18 +66,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: computecloudatcustomer/v1alpha1/cccinfrastructure
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

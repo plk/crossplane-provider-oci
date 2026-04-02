@@ -1,12 +1,13 @@
+---
 apiVersion: capacitymanagement.oci.m.upbound.io/v1alpha1
 kind: OccAvailabilityCatalog
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: capacitymanagement/v1alpha1/occavailabilitycatalog
   labels:
     testing.upbound.io/example-name: test_occ_availability_catalog
   name: test-occ-availability-catalog
+  namespace: crossplane-system
 spec:
   forProvider:
     base64encodedCatalogDetails: ${var.occ_availability_catalog_base64encoded_catalog_details}

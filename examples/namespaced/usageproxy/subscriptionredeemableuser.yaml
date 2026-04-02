@@ -1,12 +1,13 @@
+---
 apiVersion: usageproxy.oci.m.upbound.io/v1alpha1
 kind: SubscriptionRedeemableUser
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: usageproxy/v1alpha1/subscriptionredeemableuser
   labels:
     testing.upbound.io/example-name: test_subscription_redeemable_user
   name: test-subscription-redeemable-user
+  namespace: crossplane-system
 spec:
   forProvider:
     items:

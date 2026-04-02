@@ -1,18 +1,20 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: PluggableDatabasePluggabledatabasemanagementsManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/pluggabledatabasepluggabledatabasemanagementsmanagement
   labels:
     testing.upbound.io/example-name: test_pluggable_database_pluggabledatabasemanagements_management
   name: test-pluggable-database-pluggabledatabasemanagements-management
+  namespace: crossplane-system
 spec:
   forProvider:
     credentialDetails:
     - passwordSecretIdSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       userName: ${var.ssl_user_name}
     enablePluggabledatabasemanagement: ${var.enable_pluggabledatabasemanagement}
     pluggableDatabaseIdSelector:
@@ -27,18 +29,16 @@ spec:
     serviceName: ${join("", [data.oci_database_databases.t.databases.0.db_unique_name,
       oci_core_subnet.t.subnet_domain_name])}
     sslSecretId: ${var.ssl_secret_id}
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ManagementDbManagementPrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/pluggabledatabasepluggabledatabasemanagementsmanagement
   labels:
     testing.upbound.io/example-name: test_db_management_private_endpoint
   name: test-db-management-private-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -48,18 +48,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: t
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: PluggableDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/pluggabledatabasepluggabledatabasemanagementsmanagement
   labels:
     testing.upbound.io/example-name: test_pluggable_database
   name: test-pluggable-database
+  namespace: crossplane-system
 spec:
   forProvider:
     containerDatabaseIdSelector:

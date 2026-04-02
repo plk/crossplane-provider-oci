@@ -1,16 +1,17 @@
+---
 apiVersion: resourcemanager.oci.m.upbound.io/v1alpha1
 kind: PrivateEndpoint
 metadata:
-  namespace: crossplane-system
-  name: privateendpoint1
   labels:
     testing.upbound.io/example-name: privateendpoint_label_1
+  name: privateendpoint1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
-    displayName: "privateendpoint1"
+    displayName: privateendpoint1
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: subnet_label_2

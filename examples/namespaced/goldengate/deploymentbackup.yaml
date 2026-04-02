@@ -1,12 +1,13 @@
+---
 apiVersion: goldengate.oci.m.upbound.io/v1alpha1
 kind: DeploymentBackup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: goldengate/v1alpha1/deploymentbackup
   labels:
     testing.upbound.io/example-name: test_deployment_backup
   name: test-deployment-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     bucket: ${var.objectstorage_bucket_name}

@@ -155,10 +155,6 @@ type ClusterObservation struct {
 	// The current state of the Cluster.
 	State *string `json:"state,omitempty" tf:"state,omitempty"`
 
-	// Usage of system tag keys. These predefined keys are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain: true}}
-	// +mapType=granular
-	SystemTags map[string]*string `json:"systemTags,omitempty" tf:"system_tags,omitempty"`
-
 	// The date and time the Cluster was created, in the format defined by RFC3339.  Example: 2016-08-25T21:10:29.600Z
 	TimeCreated *string `json:"timeCreated,omitempty" tf:"time_created,omitempty"`
 

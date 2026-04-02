@@ -2852,9 +2852,6 @@ spec:
                   systemTags:
                     additionalProperties:
                       type: string
-                    description: 'Usage of system tag keys. These predefined keys
-                      are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain:
-                      true}}'
                     type: object
                     x-kubernetes-map-type: granular
                   timeCreated:

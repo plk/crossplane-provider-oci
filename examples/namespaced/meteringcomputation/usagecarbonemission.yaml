@@ -1,12 +1,13 @@
+---
 apiVersion: meteringcomputation.oci.m.upbound.io/v1alpha1
 kind: UsageCarbonEmission
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: meteringcomputation/v1alpha1/usagecarbonemission
   labels:
     testing.upbound.io/example-name: test_usage_carbon_emission
   name: test-usage-carbon-emission
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentDepth: 1

@@ -290,9 +290,6 @@ type VmClusterInitParameters struct {
 	// The time zone to use for the VM cluster. For details, see DB System Time Zones.
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The OCID of the VM cluster network.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/database/v1alpha1.VmClusterNetwork
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
@@ -308,9 +305,6 @@ type VmClusterInitParameters struct {
 
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
 }
 
 type VmClusterObservation struct {
@@ -423,17 +417,11 @@ type VmClusterObservation struct {
 	// The time zone to use for the VM cluster. For details, see DB System Time Zones.
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The OCID of the VM cluster network.
 	VMClusterNetworkID *string `json:"vmClusterNetworkId,omitempty" tf:"vm_cluster_network_id,omitempty"`
 
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
 }
 
 type VmClusterParameters struct {
@@ -561,10 +549,6 @@ type VmClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	// +kubebuilder:validation:Optional
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The OCID of the VM cluster network.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/database/v1alpha1.VmClusterNetwork
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
@@ -582,10 +566,6 @@ type VmClusterParameters struct {
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	// +kubebuilder:validation:Optional
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	// +kubebuilder:validation:Optional
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
 }
 
 // VmClusterSpec defines the desired state of VmCluster

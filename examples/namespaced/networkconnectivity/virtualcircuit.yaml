@@ -1,12 +1,13 @@
+---
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: VirtualCircuit
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/virtualcircuit
   labels:
     testing.upbound.io/example-name: virtual_circuit_private
   name: virtual-circuit-private
+  namespace: crossplane-system
 spec:
   forProvider:
     bandwidthShapeName: ${var.virtual_circuit_bandwidth_shape_name}
@@ -27,18 +28,16 @@ spec:
         testing.upbound.io/example-name: drg_private
     region: ${var.virtual_circuit_region}
     type: ${var.virtual_circuit_type_private}
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnect
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/virtualcircuit
   labels:
     testing.upbound.io/example-name: cross_connect
   name: cross-connect
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -51,36 +50,32 @@ spec:
     isActive: true
     locationName: ${data.oci_core_cross_connect_locations.cross_connect_locations.cross_connect_locations[0].name}
     portSpeedShapeName: ${data.oci_core_cross_connect_port_speed_shapes.cross_connect_port_speed_shapes.cross_connect_port_speed_shapes[1].name}
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: CrossConnectGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/virtualcircuit
   labels:
     testing.upbound.io/example-name: cross_connect_group
   name: cross-connect-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
     displayName: ${var.cross_connect_group_display_name}
-
 ---
-
 apiVersion: networkconnectivity.oci.m.upbound.io/v1alpha1
 kind: Drg
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: networkconnectivity/v1alpha1/virtualcircuit
   labels:
     testing.upbound.io/example-name: drg_private
   name: drg-private
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

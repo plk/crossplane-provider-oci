@@ -1,12 +1,13 @@
+---
 apiVersion: meteringcomputation.oci.m.upbound.io/v1alpha1
 kind: Query
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: meteringcomputation/v1alpha1/query
   labels:
     testing.upbound.io/example-name: test_query
   name: test-query
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,10 +1,11 @@
+---
 apiVersion: mediaservices.oci.m.upbound.io/v1alpha1
 kind: MediaWorkflowJob
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: mediaworkflowjob_label_1
   name: mediaworkflowjob1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,12 +1,13 @@
+---
 apiVersion: blockchain.oci.m.upbound.io/v1alpha1
 kind: Osn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: blockchain/v1alpha1/osn
   labels:
     testing.upbound.io/example-name: test_osn
   name: test-osn
+  namespace: crossplane-system
 spec:
   forProvider:
     ad: AD1
@@ -14,4 +15,4 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: test_blockchain_platform
     ocpuAllocationParam:
-    - ocpuAllocationNumber: "0.0"
+    - ocpuAllocationNumber: '0.0'

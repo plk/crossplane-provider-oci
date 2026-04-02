@@ -76,7 +76,7 @@ spec:
                       type: object
                     type: array
                   cidrBlock:
-                    description: 'Deprecated. Do not set this value. Use cidrBlocks
+                    description: 'Deprecated. Do not set this value. Use cidr_blocks
                       instead. Example: 10.0.0.0/16'
                     type: string
                   cidrBlocks:
@@ -258,7 +258,7 @@ spec:
                       type: object
                     type: array
                   cidrBlock:
-                    description: 'Deprecated. Do not set this value. Use cidrBlocks
+                    description: 'Deprecated. Do not set this value. Use cidr_blocks
                       instead. Example: 10.0.0.0/16'
                     type: string
                   cidrBlocks:
@@ -496,7 +496,7 @@ spec:
                       type: object
                     type: array
                   cidrBlock:
-                    description: 'Deprecated. Do not set this value. Use cidrBlocks
+                    description: 'Deprecated. Do not set this value. Use cidr_blocks
                       instead. Example: 10.0.0.0/16'
                     type: string
                   cidrBlocks:

@@ -1,21 +1,22 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: CatalogItem
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/catalogitem
   labels:
     testing.upbound.io/example-name: test_catalog_item
   name: test-catalog-item
+  namespace: crossplane-system
 spec:
   forProvider:
     catalogSourcePayload:
-    - accessUri: ""
+    - accessUri: ''
       bucket: test-catalog-bucket
       configSourceType: PAR_CATALOG_SOURCE
       namespace: namespace
       object: ObjectStorageCatalog.zip
-      timeExpires: "2029-12-31T00:00:00Z"
+      timeExpires: 2029-12-31T00:00:00Z
       workingDirectory: workingDirectory
     compartmentIdSelector:
       matchLabels:
@@ -28,5 +29,5 @@ spec:
       Department: Accounting
     packageType: TF_PACKAGE
     shortDescription: shortDescription2
-    timeReleased: "2025-10-27T00:00:00.000Z"
+    timeReleased: 2025-10-27T00:00:00.000Z
     versionDescription: V2

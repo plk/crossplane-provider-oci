@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ToolsDatabaseToolsIdentity
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/toolsdatabasetoolsidentity
   labels:
     testing.upbound.io/example-name: example_identity
   name: example-identity
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -18,18 +19,16 @@ spec:
         testing.upbound.io/example-name: example_connection
     displayName: My Identity
     type: ORACLE_DATABASE_RESOURCE_PRINCIPAL
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ToolsDatabaseToolsConnection
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/toolsdatabasetoolsidentity
   labels:
     testing.upbound.io/example-name: example_connection
   name: example-connection
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

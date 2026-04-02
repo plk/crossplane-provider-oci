@@ -1,12 +1,13 @@
+---
 apiVersion: fusionapps.oci.m.upbound.io/v1alpha1
 kind: FusionEnvironment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fusionapps/v1alpha1/fusionenvironment
   labels:
     testing.upbound.io/example-name: test_fusion_environment
   name: test-fusion-environment
+  namespace: crossplane-system
 spec:
   forProvider:
     additionalLanguagePacks: ${var.fusion_environment_additional_language_packs}
@@ -20,6 +21,7 @@ spec:
       passwordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       username: ${var.fusion_environment_create_fusion_environment_admin_user_details_username}
     definedTags: ${map(oci_identity_tag_namespace.tag-namespace1.name.oci_identity_tag.tag1.name,
       var.fusion_environment_defined_tags_value)}

@@ -1,12 +1,13 @@
+---
 apiVersion: datalabelingservice.oci.m.upbound.io/v1alpha1
 kind: Dataset
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datalabelingservice/v1alpha1/dataset
   labels:
     testing.upbound.io/example-name: test_dataset
   name: test-dataset
+  namespace: crossplane-system
 spec:
   forProvider:
     annotationFormat: BOUNDING_BOX
@@ -20,7 +21,7 @@ spec:
         matchLabels:
           testing.upbound.io/example-name: test_bucket
       namespace: ${data.oci_objectstorage_namespace.ns.namespace}
-      prefix: ""
+      prefix: ''
       sourceType: OBJECT_STORAGE
     description: Example Dataset
     displayName: Example Dataset
@@ -28,18 +29,16 @@ spec:
     - items:
       - name: label1
       - name: label2
-
 ---
-
 apiVersion: objectstorage.oci.m.upbound.io/v1alpha1
 kind: Bucket
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datalabelingservice/v1alpha1/dataset
   labels:
     testing.upbound.io/example-name: test_bucket
   name: test-bucket
+  namespace: crossplane-system
 spec:
   forProvider:
     accessType: NoPublicAccess

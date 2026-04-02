@@ -1,12 +1,13 @@
+---
 apiVersion: clusterplacementgroups.oci.m.upbound.io/v1alpha1
 kind: ClusterPlacementGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: clusterplacementgroups/v1alpha1/clusterplacementgroup
   labels:
     testing.upbound.io/example-name: test_cpg
   name: test-cpg
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}

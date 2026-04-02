@@ -1,19 +1,21 @@
+---
 apiVersion: globallydistributeddatabase.oci.m.upbound.io/v1alpha1
 kind: ShardedDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: globallydistributeddatabase/v1alpha1/shardeddatabase
   labels:
     testing.upbound.io/example-name: this
   name: this
+  namespace: crossplane-system
 spec:
   forProvider:
-    caSignedCertificate: null
+    caSignedCertificate: ~
     catalogDetails:
     - adminPasswordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       cloudAutonomousVmClusterId: ${var.ogdd_sharded_database_catalog_details_cloud_autonomous_vm_cluster_id}
       computeCount: ${var.ogdd_sharded_database_catalog_details_compute_count}
       dataStorageSizeInGbs: ${var.ogdd_sharded_database_catalog_details_data_storage_size_in_gbs}
@@ -53,6 +55,7 @@ spec:
     - adminPasswordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       cloudAutonomousVmClusterId: ${var.ogdd_sharded_database_shard_details_cloud_autonomous_vm_cluster_id}
       computeCount: ${var.ogdd_sharded_database_shard_details_compute_count}
       dataStorageSizeInGbs: ${var.ogdd_sharded_database_shard_details_data_storage_size_in_gbs}
@@ -66,6 +69,7 @@ spec:
     - adminPasswordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       cloudAutonomousVmClusterId: ocid of the cluster id
       computeCount: ${var.ogdd_sharded_database_shard_details_compute_count}
       dataStorageSizeInGbs: ${var.ogdd_sharded_database_shard_details_data_storage_size_in_gbs}
@@ -79,6 +83,7 @@ spec:
     - adminPasswordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       cloudAutonomousVmClusterId: ocid of the cluster id
       computeCount: ${var.ogdd_sharded_database_shard_details_compute_count}
       dataStorageSizeInGbs: ${var.ogdd_sharded_database_shard_details_data_storage_size_in_gbs}

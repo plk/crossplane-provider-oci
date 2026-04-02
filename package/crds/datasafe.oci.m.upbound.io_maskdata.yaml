@@ -60,27 +60,6 @@ spec:
                 properties:
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        passwordSecretRef:
-                          description: |-
-                            A LocalSecretKeySelector is a reference to a secret key
-                            in the same namespace with the referencing object.
-                          properties:
-                            key:
-                              type: string
-                            name:
-                              description: Name of the secret.
-                              type: string
-                          required:
-                          - key
-                          - name
-                          type: object
-                        userName:
-                          type: string
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object
@@ -99,29 +78,6 @@ spec:
                 properties:
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        passwordSecretRef:
-                          description: |-
-                            A LocalSecretKeySelector is a reference to a secret key
-                            in the same namespace with the referencing object.
-                          properties:
-                            key:
-                              type: string
-                            name:
-                              description: Name of the secret.
-                              type: string
-                          required:
-                          - key
-                          - name
-                          type: object
-                        userName:
-                          type: string
-                      required:
-                      - passwordSecretRef
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object
@@ -201,13 +157,6 @@ spec:
                     type: string
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        userName:
-                          type: string
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object

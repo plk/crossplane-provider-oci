@@ -1,29 +1,30 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmCluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/vmcluster
   labels:
     testing.upbound.io/example-name: test_vm_cluster
   name: test-vm-cluster
+  namespace: crossplane-system
 spec:
   forProvider:
     cloudAutomationUpdateDetails:
     - applyUpdateTimePreference:
-      - applyUpdatePreferredEndTime: "08:00"
-        applyUpdatePreferredStartTime: "02:00"
-      isEarlyAdoptionEnabled: "true"
+      - applyUpdatePreferredEndTime: 08:00
+        applyUpdatePreferredStartTime: 02:00
+      isEarlyAdoptionEnabled: 'true'
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    cpuCoreCount: "16"
+    cpuCoreCount: '16'
     dataCollectionOptions:
-    - isDiagnosticsEventsEnabled: "true"
-      isHealthMonitoringEnabled: "true"
-      isIncidentLogsEnabled: "true"
-    dataStorageSizeInTbs: "84"
-    dbNodeStorageSizeInGbs: "120"
+    - isDiagnosticsEventsEnabled: 'true'
+      isHealthMonitoringEnabled: 'true'
+      isIncidentLogsEnabled: 'true'
+    dataStorageSizeInTbs: '84'
+    dbNodeStorageSizeInGbs: '120'
     dbServers:
     - ${data.oci_database_db_servers.test_db_servers.db_servers.0.id}
     - ${data.oci_database_db_servers.test_db_servers.db_servers.1.id}
@@ -36,28 +37,26 @@ spec:
     freeformTags:
       Department: Accounting
     giVersion: ${data.oci_database_gi_versions.gi_version.gi_versions.0.version}
-    isLocalBackupEnabled: "false"
-    isSparseDiskgroupEnabled: "false"
+    isLocalBackupEnabled: 'false'
+    isSparseDiskgroupEnabled: 'false'
     licenseModel: LICENSE_INCLUDED
-    memorySizeInGbs: "60"
+    memorySizeInGbs: '60'
     sshPublicKeys:
     - ${var.ssh_public_key}
     vmClusterNetworkIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vm_cluster_network
     vmClusterType: REGULAR
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/vmcluster
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -70,9 +69,9 @@ spec:
     computeCount: 2
     contacts:
     - email: testuser2@testdomain.com
-      isPrimary: "true"
+      isPrimary: 'true'
       name: name
-      phoneNumber: "1234567891"
+      phoneNumber: '1234567891'
     corporateProxy: http://192.168.19.1:80
     databaseServerType: X11M
     definedTags:
@@ -91,7 +90,7 @@ spec:
       daysOfWeek:
       - name: TUESDAY
       hoursOfDay:
-      - "4"
+      - '4'
       isCustomActionTimeoutEnabled: true
       leadTimeInWeeks: 2
       months:
@@ -102,7 +101,7 @@ spec:
       patchingMode: ROLLING
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     netmask: 255.255.255.0
     networkBondingModeDetails:
     - backupNetworkBondingMode: ACTIVE_BACKUP
@@ -113,18 +112,16 @@ spec:
     storageCount: 3
     storageServerType: X11M-HC
     timeZone: US/Pacific
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmClusterNetwork
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/vmcluster
   labels:
     testing.upbound.io/example-name: test_vm_cluster_network
   name: test-vm-cluster-network
+  namespace: crossplane-system
 spec:
   forProvider:
     action: ADD_DBSERVER_NETWORK
@@ -165,7 +162,7 @@ spec:
       - dbServerId: ${data.oci_database_db_servers.test_db_servers.db_servers.1.id}
         hostname: myprefix2-cghdm2
         ip: 192.169.19.20
-      vlanId: "11"
+      vlanId: '11'
     - domainName: oracle.com
       gateway: 192.168.20.1
       netmask: 255.255.0.0
@@ -181,4 +178,4 @@ spec:
         ip: 192.168.19.14
         vip: 192.168.19.15
         vipHostname: myprefix1-r64zc2-vip
-      vlanId: "10"
+      vlanId: '10'

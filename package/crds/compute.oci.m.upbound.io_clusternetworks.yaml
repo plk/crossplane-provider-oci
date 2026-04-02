@@ -1288,10 +1288,6 @@ spec:
                                 description: 'The availability domain to place instances.  Example:
                                   Uocm:PHX-AD-1'
                                 type: string
-                              computeClusterId:
-                                description: The OCID of the compute cluster that
-                                  the instance will be created in.
-                                type: string
                               faultDomains:
                                 description: The fault domains to place instances.
                                 items:

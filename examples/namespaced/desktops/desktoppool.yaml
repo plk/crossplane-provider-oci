@@ -1,12 +1,13 @@
+---
 apiVersion: desktops.oci.m.upbound.io/v1alpha1
 kind: DesktopPool
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: desktops/v1alpha1/desktoppool
   labels:
     testing.upbound.io/example-name: test_desktop_pool
   name: test-desktop-pool
+  namespace: crossplane-system
 spec:
   forProvider:
     arePrivilegedUsers: ${var.desktop_pool_are_privileged_users}

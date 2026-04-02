@@ -1,12 +1,13 @@
+---
 apiVersion: capacitymanagement.oci.m.upbound.io/v1alpha1
 kind: OccmDemandSignal
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: capacitymanagement/v1alpha1/occmdemandsignal
   labels:
     testing.upbound.io/example-name: test_occm_demand_signal
   name: test-occm-demand-signal
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

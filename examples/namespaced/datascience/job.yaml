@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: Job
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/job
   labels:
     testing.upbound.io/example-name: job
   name: job
+  namespace: crossplane-system
 spec:
   forProvider:
     artifactContentDisposition: attachment; filename=job_artifact.py

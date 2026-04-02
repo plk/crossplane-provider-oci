@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: DataSafePrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/datasafeprivateendpoint
   labels:
     testing.upbound.io/example-name: test_data_safe_private_endpoint
   name: test-data-safe-private-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -19,18 +20,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/datasafeprivateendpoint
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.1.0/24
@@ -42,18 +41,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/datasafeprivateendpoint
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

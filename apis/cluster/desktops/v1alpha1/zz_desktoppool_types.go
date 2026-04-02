@@ -56,9 +56,6 @@ type DesktopPoolInitParameters struct {
 	// (Updatable) Provides the start and stop schedule information for desktop availability of the desktop pool. Use availability_policy { } to not set a schedule.
 	AvailabilityPolicy []AvailabilityPolicyInitParameters `json:"availabilityPolicy,omitempty" tf:"availability_policy,omitempty"`
 
-	// (Updatable) The size in GBs of the boot volume for the desktop pool.
-	BootVolumeSizeInGbs *float64 `json:"bootVolumeSizeInGbs,omitempty" tf:"boot_volume_size_in_gbs,omitempty"`
-
 	// (Updatable) The OCID of the compartment which will contain the desktop pool.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/identity/v1alpha1.Compartment
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
@@ -91,7 +88,7 @@ type DesktopPoolInitParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// (Updatable) Provides information about the desktop image.
+	// Provides information about the desktop image.
 	Image []ImageInitParameters `json:"image,omitempty" tf:"image,omitempty"`
 
 	// Indicates whether storage is enabled for the desktop pool.
@@ -155,9 +152,6 @@ type DesktopPoolObservation struct {
 	// (Updatable) Provides the start and stop schedule information for desktop availability of the desktop pool. Use availability_policy { } to not set a schedule.
 	AvailabilityPolicy []AvailabilityPolicyObservation `json:"availabilityPolicy,omitempty" tf:"availability_policy,omitempty"`
 
-	// (Updatable) The size in GBs of the boot volume for the desktop pool.
-	BootVolumeSizeInGbs *float64 `json:"bootVolumeSizeInGbs,omitempty" tf:"boot_volume_size_in_gbs,omitempty"`
-
 	// (Updatable) The OCID of the compartment which will contain the desktop pool.
 	CompartmentID *string `json:"compartmentId,omitempty" tf:"compartment_id,omitempty"`
 
@@ -184,7 +178,7 @@ type DesktopPoolObservation struct {
 	// The OCID of the desktop pool.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// (Updatable) Provides information about the desktop image.
+	// Provides information about the desktop image.
 	Image []ImageObservation `json:"image,omitempty" tf:"image,omitempty"`
 
 	// Indicates whether storage is enabled for the desktop pool.
@@ -255,10 +249,6 @@ type DesktopPoolParameters struct {
 	// +kubebuilder:validation:Optional
 	AvailabilityPolicy []AvailabilityPolicyParameters `json:"availabilityPolicy,omitempty" tf:"availability_policy,omitempty"`
 
-	// (Updatable) The size in GBs of the boot volume for the desktop pool.
-	// +kubebuilder:validation:Optional
-	BootVolumeSizeInGbs *float64 `json:"bootVolumeSizeInGbs,omitempty" tf:"boot_volume_size_in_gbs,omitempty"`
-
 	// (Updatable) The OCID of the compartment which will contain the desktop pool.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/identity/v1alpha1.Compartment
 	// +kubebuilder:validation:Optional
@@ -298,7 +288,7 @@ type DesktopPoolParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// (Updatable) Provides information about the desktop image.
+	// Provides information about the desktop image.
 	// +kubebuilder:validation:Optional
 	Image []ImageParameters `json:"image,omitempty" tf:"image,omitempty"`
 
@@ -382,9 +372,6 @@ type DevicePolicyInitParameters struct {
 
 	// (Updatable) Indicates whether printing is enabled.
 	IsPrintingEnabled *bool `json:"isPrintingEnabled,omitempty" tf:"is_printing_enabled,omitempty"`
-
-	// (Updatable) Indicates whether video input is enabled.
-	IsVideoInputEnabled *bool `json:"isVideoInputEnabled,omitempty" tf:"is_video_input_enabled,omitempty"`
 }
 
 type DevicePolicyObservation struct {
@@ -409,9 +396,6 @@ type DevicePolicyObservation struct {
 
 	// (Updatable) Indicates whether printing is enabled.
 	IsPrintingEnabled *bool `json:"isPrintingEnabled,omitempty" tf:"is_printing_enabled,omitempty"`
-
-	// (Updatable) Indicates whether video input is enabled.
-	IsVideoInputEnabled *bool `json:"isVideoInputEnabled,omitempty" tf:"is_video_input_enabled,omitempty"`
 }
 
 type DevicePolicyParameters struct {
@@ -443,10 +427,6 @@ type DevicePolicyParameters struct {
 	// (Updatable) Indicates whether printing is enabled.
 	// +kubebuilder:validation:Optional
 	IsPrintingEnabled *bool `json:"isPrintingEnabled" tf:"is_printing_enabled,omitempty"`
-
-	// (Updatable) Indicates whether video input is enabled.
-	// +kubebuilder:validation:Optional
-	IsVideoInputEnabled *bool `json:"isVideoInputEnabled,omitempty" tf:"is_video_input_enabled,omitempty"`
 }
 
 type DisconnectInitParameters struct {
@@ -480,7 +460,7 @@ type DisconnectParameters struct {
 
 type ImageInitParameters struct {
 
-	// (Updatable) The OCID of the desktop image.
+	// The OCID of the desktop image.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/compute/v1alpha1.Image
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
 	ImageID *string `json:"imageId,omitempty" tf:"image_id,omitempty"`
@@ -502,7 +482,7 @@ type ImageInitParameters struct {
 
 type ImageObservation struct {
 
-	// (Updatable) The OCID of the desktop image.
+	// The OCID of the desktop image.
 	ImageID *string `json:"imageId,omitempty" tf:"image_id,omitempty"`
 
 	// The name of the desktop image.
@@ -514,7 +494,7 @@ type ImageObservation struct {
 
 type ImageParameters struct {
 
-	// (Updatable) The OCID of the desktop image.
+	// The OCID of the desktop image.
 	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/cluster/compute/v1alpha1.Image
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
 	// +kubebuilder:validation:Optional

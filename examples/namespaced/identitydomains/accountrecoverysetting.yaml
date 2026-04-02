@@ -1,18 +1,19 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: AccountRecoverySetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/accountrecoverysetting
   labels:
     testing.upbound.io/example-name: test_account_recovery_setting
   name: test-account-recovery-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     accountRecoverySettingId: ${var.account_recovery_setting_id}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.account_recovery_setting_authorization}
     externalId: externalId
     factors: ${var.account_recovery_setting_factors}

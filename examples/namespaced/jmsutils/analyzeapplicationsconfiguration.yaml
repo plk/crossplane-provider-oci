@@ -1,12 +1,13 @@
+---
 apiVersion: jmsutils.oci.m.upbound.io/v1alpha1
 kind: AnalyzeApplicationsConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: jmsutils/v1alpha1/analyzeapplicationsconfiguration
   labels:
     testing.upbound.io/example-name: test_analyze_applications_configuration
   name: test-analyze-applications-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     bucket: ${var.analyze_applications_configuration_bucket}

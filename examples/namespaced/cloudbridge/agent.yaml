@@ -1,12 +1,13 @@
+---
 apiVersion: cloudbridge.oci.m.upbound.io/v1alpha1
 kind: Agent
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudbridge/v1alpha1/agent
   labels:
     testing.upbound.io/example-name: test_agent
   name: test-agent
+  namespace: crossplane-system
 spec:
   forProvider:
     agentType: ${var.agent_agent_type}

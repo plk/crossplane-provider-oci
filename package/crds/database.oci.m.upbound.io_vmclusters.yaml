@@ -518,13 +518,6 @@ spec:
                     description: The time zone to use for the VM cluster. For details,
                       see DB System Time Zones.
                     type: string
-                  vmBackupStorageType:
-                    description: (Updatable) Specifies the type of VM Backups Storage
-                      and supported values are LOCAL and EXASCALE. - LOCAL if selected
-                      then VM Backups storage will be on DB Servers. - EXASCALE if
-                      selected then VM Backups storage will be on Exascale Storage
-                      Servers. Default Value is LOCAL
-                    type: string
                   vmClusterNetworkId:
                     description: The OCID of the VM cluster network.
                     type: string
@@ -612,13 +605,6 @@ spec:
                     type: object
                   vmClusterType:
                     description: The vmcluster type for the VM cluster/Cloud VM cluster.
-                    type: string
-                  vmFileSystemStorageType:
-                    description: Specifies the type of file system storage and supported
-                      values are LOCAL and EXASCALE. - LOCAL if selected then file
-                      system storage will be on DB Servers. - EXASCALE if selected
-                      then file system storage will be on Exascale Storage Servers.
-                      Default Value is LOCAL
                     type: string
                 type: object
               initProvider:
@@ -1093,13 +1079,6 @@ spec:
                     description: The time zone to use for the VM cluster. For details,
                       see DB System Time Zones.
                     type: string
-                  vmBackupStorageType:
-                    description: (Updatable) Specifies the type of VM Backups Storage
-                      and supported values are LOCAL and EXASCALE. - LOCAL if selected
-                      then VM Backups storage will be on DB Servers. - EXASCALE if
-                      selected then VM Backups storage will be on Exascale Storage
-                      Servers. Default Value is LOCAL
-                    type: string
                   vmClusterNetworkId:
                     description: The OCID of the VM cluster network.
                     type: string
@@ -1187,13 +1166,6 @@ spec:
                     type: object
                   vmClusterType:
                     description: The vmcluster type for the VM cluster/Cloud VM cluster.
-                    type: string
-                  vmFileSystemStorageType:
-                    description: Specifies the type of file system storage and supported
-                      values are LOCAL and EXASCALE. - LOCAL if selected then file
-                      system storage will be on DB Servers. - EXASCALE if selected
-                      then file system storage will be on Exascale Storage Servers.
-                      Default Value is LOCAL
                     type: string
                 type: object
               managementPolicies:
@@ -1540,25 +1512,11 @@ spec:
                     description: The time zone to use for the VM cluster. For details,
                       see DB System Time Zones.
                     type: string
-                  vmBackupStorageType:
-                    description: (Updatable) Specifies the type of VM Backups Storage
-                      and supported values are LOCAL and EXASCALE. - LOCAL if selected
-                      then VM Backups storage will be on DB Servers. - EXASCALE if
-                      selected then VM Backups storage will be on Exascale Storage
-                      Servers. Default Value is LOCAL
-                    type: string
                   vmClusterNetworkId:
                     description: The OCID of the VM cluster network.
                     type: string
                   vmClusterType:
                     description: The vmcluster type for the VM cluster/Cloud VM cluster.
-                    type: string
-                  vmFileSystemStorageType:
-                    description: Specifies the type of file system storage and supported
-                      values are LOCAL and EXASCALE. - LOCAL if selected then file
-                      system storage will be on DB Servers. - EXASCALE if selected
-                      then file system storage will be on Exascale Storage Servers.
-                      Default Value is LOCAL
                     type: string
                 type: object
               conditions:

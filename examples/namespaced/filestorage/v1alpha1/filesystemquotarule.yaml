@@ -1,10 +1,11 @@
+---
 apiVersion: filestorage.oci.m.upbound.io/v1alpha1
 kind: FileSystemQuotaRule
 metadata:
-  namespace: crossplane-system
-  name: filesystemquotarule1
   labels:
     testing.upbound.io/example-name: filesystemquotarule_label_1
+  name: filesystemquotarule1
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: filesystemquotarule1
@@ -12,5 +13,5 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: filesystem_label_1
     isHardQuota: true
-    principalType: "DEFAULT_USER"
+    principalType: DEFAULT_USER
     quotaLimitInGigabytes: 0

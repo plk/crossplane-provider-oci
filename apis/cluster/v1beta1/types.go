@@ -7,7 +7,6 @@ package v1beta1
 import (
 	xpv2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
 // A ProviderConfigSpec defines the desired state of a ProviderConfig.
@@ -81,26 +80,6 @@ func (pc *ProviderConfigUsage) SetProviderConfigReference(r xpv2.Reference) {
 // SetResourceReference of this ProviderConfigUsage.
 func (pc *ProviderConfigUsage) SetResourceReference(r xpv2.TypedReference) {
 	pc.ResourceReference = r
-}
-
-// ProviderConfigGroupKind is the GroupKind for ProviderConfig
-var ProviderConfigGroupKind = schema.GroupKind{
-	Group: Group,
-	Kind:  "ProviderConfig",
-}.String()
-
-// ProviderConfigGroupVersionKind is the GroupVersionKind for ProviderConfig
-var ProviderConfigGroupVersionKind = schema.GroupVersionKind{
-	Group:   Group,
-	Version: Version,
-	Kind:    "ProviderConfig",
-}
-
-// ProviderConfigUsageListGroupVersionKind is the GroupVersionKind for ProviderConfigUsageList
-var ProviderConfigUsageListGroupVersionKind = schema.GroupVersionKind{
-	Group:   Group,
-	Version: Version,
-	Kind:    "ProviderConfigUsageList",
 }
 
 // +kubebuilder:object:root=true

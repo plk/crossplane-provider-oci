@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResourcesListMember
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresourceslistmember
   labels:
     testing.upbound.io/example-name: test_monitored_resources_list_member
   name: test-monitored-resources-list-member
+  namespace: crossplane-system
 spec:
   forProvider:
     destinationResourceId: ${var.stack_mon_destination_resource_id}

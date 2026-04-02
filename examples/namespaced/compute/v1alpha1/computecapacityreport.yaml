@@ -1,10 +1,11 @@
+---
 apiVersion: compute.oci.m.upbound.io/v1alpha1
 kind: ComputeCapacityReport
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: computecapacityreport_label_1
   name: computecapacityreport1
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${AVAILABILITY_DOMAIN}
@@ -12,7 +13,7 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
     shapeAvailabilities:
-    - instanceShape: "VM.Standard.E4.Flex"
+    - instanceShape: VM.Standard.E4.Flex
       instanceShapeConfig:
-        - memoryInGbs: 2
-          ocpus: 1
+      - memoryInGbs: 2
+        ocpus: 1

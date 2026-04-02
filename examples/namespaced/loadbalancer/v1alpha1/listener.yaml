@@ -1,18 +1,19 @@
+---
 apiVersion: loadbalancer.oci.m.upbound.io/v1alpha1
 kind: Listener
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: listener_label_1
   name: listener1
+  namespace: crossplane-system
 spec:
   forProvider:
-    loadBalancerIdSelector:
-      matchLabels:
-        testing.upbound.io/example-name: loadbalancer_label_1
     defaultBackendSetNameSelector:
       matchLabels:
         testing.upbound.io/example-name: backendset_label_1
-    name: "listener1"
+    loadBalancerIdSelector:
+      matchLabels:
+        testing.upbound.io/example-name: loadbalancer_label_1
+    name: listener1
     port: 10
-    protocol: "HTTP"
+    protocol: HTTP

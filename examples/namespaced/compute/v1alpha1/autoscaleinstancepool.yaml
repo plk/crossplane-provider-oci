@@ -1,12 +1,13 @@
+---
 apiVersion: compute.oci.m.upbound.io/v1alpha1
 kind: InstancePool
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: compute/v1alpha1/instancepool
   labels:
     testing.upbound.io/example-name: instancepool_label_2
   name: instancepool2
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -17,8 +18,8 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: instanceconfiguration_label_2
     placementConfigurations:
-      - availabilityDomain: ${AVAILABILITY_DOMAIN}
-        primarySubnetIdSelector:
-          matchLabels:
-            testing.upbound.io/example-name: subnet_label_1
+    - availabilityDomain: ${AVAILABILITY_DOMAIN}
+      primarySubnetIdSelector:
+        matchLabels:
+          testing.upbound.io/example-name: subnet_label_1
     size: 1

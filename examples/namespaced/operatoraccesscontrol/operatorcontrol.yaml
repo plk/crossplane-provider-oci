@@ -1,12 +1,13 @@
+---
 apiVersion: operatoraccesscontrol.oci.m.upbound.io/v1alpha1
 kind: OperatorControl
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: operatoraccesscontrol/v1alpha1/operatorcontrol
   labels:
     testing.upbound.io/example-name: test_operator_control
   name: test-operator-control
+  namespace: crossplane-system
 spec:
   forProvider:
     approverGroupsList:

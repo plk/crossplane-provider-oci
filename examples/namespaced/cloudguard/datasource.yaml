@@ -1,12 +1,13 @@
+---
 apiVersion: cloudguard.oci.m.upbound.io/v1alpha1
 kind: DataSource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudguard/v1alpha1/datasource
   labels:
     testing.upbound.io/example-name: test_data_source
   name: test-data-source
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

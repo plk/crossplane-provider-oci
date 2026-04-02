@@ -10,8 +10,6 @@ import (
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
 	loganalyticsentity "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsentity"
-	loganalyticsentityassociationsadd "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsentityassociationsadd"
-	loganalyticsentityassociationsremove "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsentityassociationsremove"
 	loganalyticsentitytype "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsentitytype"
 	loganalyticsimportcustomcontent "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsimportcustomcontent"
 	loganalyticsloggroup "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsloggroup"
@@ -20,7 +18,6 @@ import (
 	loganalyticsresourcecategoriesmanagement "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsresourcecategoriesmanagement"
 	loganalyticsunprocesseddatabucketmanagement "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/loganalyticsunprocesseddatabucketmanagement"
 	namespace "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/namespace"
-	namespaceassociation "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/namespaceassociation"
 	namespaceingesttimerule "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/namespaceingesttimerule"
 	namespaceingesttimerulesmanagement "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/namespaceingesttimerulesmanagement"
 	namespacelookup "github.com/oracle/provider-oci/internal/controller/namespaced/loganalytics/namespacelookup"
@@ -36,8 +33,6 @@ import (
 func Setup_loganalytics(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		loganalyticsentity.Setup,
-		loganalyticsentityassociationsadd.Setup,
-		loganalyticsentityassociationsremove.Setup,
 		loganalyticsentitytype.Setup,
 		loganalyticsimportcustomcontent.Setup,
 		loganalyticsloggroup.Setup,
@@ -46,7 +41,6 @@ func Setup_loganalytics(mgr ctrl.Manager, o controller.Options) error {
 		loganalyticsresourcecategoriesmanagement.Setup,
 		loganalyticsunprocesseddatabucketmanagement.Setup,
 		namespace.Setup,
-		namespaceassociation.Setup,
 		namespaceingesttimerule.Setup,
 		namespaceingesttimerulesmanagement.Setup,
 		namespacelookup.Setup,
@@ -68,8 +62,6 @@ func Setup_loganalytics(mgr ctrl.Manager, o controller.Options) error {
 func SetupGated_loganalytics(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		loganalyticsentity.SetupGated,
-		loganalyticsentityassociationsadd.SetupGated,
-		loganalyticsentityassociationsremove.SetupGated,
 		loganalyticsentitytype.SetupGated,
 		loganalyticsimportcustomcontent.SetupGated,
 		loganalyticsloggroup.SetupGated,
@@ -78,7 +70,6 @@ func SetupGated_loganalytics(mgr ctrl.Manager, o controller.Options) error {
 		loganalyticsresourcecategoriesmanagement.SetupGated,
 		loganalyticsunprocesseddatabucketmanagement.SetupGated,
 		namespace.SetupGated,
-		namespaceassociation.SetupGated,
 		namespaceingesttimerule.SetupGated,
 		namespaceingesttimerulesmanagement.SetupGated,
 		namespacelookup.SetupGated,

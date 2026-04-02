@@ -1,10 +1,11 @@
+---
 apiVersion: datacatalog.oci.m.upbound.io/v1alpha1
 kind: CatalogPrivateEndpoint
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: catalogprivateendpoint_label_1
   name: catalogprivateendpoint1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -12,8 +13,8 @@ spec:
         testing.upbound.io/example-name: compartment_label_1
     displayName: catalogprivateendpoint1
     dnsZones:
-      - example.internal
-      - datacatalog.example.internal
+    - example.internal
+    - datacatalog.example.internal
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: subnet_label_1

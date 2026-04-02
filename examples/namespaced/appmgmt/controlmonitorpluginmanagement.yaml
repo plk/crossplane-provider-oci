@@ -1,12 +1,13 @@
+---
 apiVersion: appmgmt.oci.m.upbound.io/v1alpha1
 kind: ControlMonitorPluginManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: appmgmt/v1alpha1/controlmonitorpluginmanagement
   labels:
     testing.upbound.io/example-name: test_monitor_plugin_management
   name: test-monitor-plugin-management
+  namespace: crossplane-system
 spec:
   forProvider:
     monitoredInstanceId: ${var.monitored_instance_id}

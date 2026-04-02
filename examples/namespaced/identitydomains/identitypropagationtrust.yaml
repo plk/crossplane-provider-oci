@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: IdentityPropagationTrust
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/identitypropagationtrust
   labels:
     testing.upbound.io/example-name: test_identity_propagation_trust
   name: test-identity-propagation-trust
+  namespace: crossplane-system
 spec:
   forProvider:
     accountId: accountId
@@ -14,7 +15,7 @@ spec:
     allowImpersonation: ${var.identity_propagation_trust_allow_impersonation}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.identity_propagation_trust_authorization}
     clientClaimName: ${var.identity_propagation_trust_client_claim_name}
     clientClaimValues:
@@ -47,18 +48,16 @@ spec:
     - key: ${var.identity_propagation_trust_tags_key}
       value: ${var.identity_propagation_trust_tags_value}
     type: ${var.identity_propagation_trust_type}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: User
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/identitypropagationtrust
   labels:
     testing.upbound.io/example-name: test_identity_propagation_trust_user
   name: test-identity-propagation-trust-user
+  namespace: crossplane-system
 spec:
   forProvider:
     emails:

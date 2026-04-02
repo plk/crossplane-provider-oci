@@ -1,10 +1,11 @@
+---
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: routetable_label_1
   name: routetable1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

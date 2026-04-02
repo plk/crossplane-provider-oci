@@ -1,12 +1,13 @@
+---
 apiVersion: globallydistributeddatabase.oci.m.upbound.io/v1alpha1
 kind: PrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: globallydistributeddatabase/v1alpha1/privateendpoint
   labels:
     testing.upbound.io/example-name: this
   name: this
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

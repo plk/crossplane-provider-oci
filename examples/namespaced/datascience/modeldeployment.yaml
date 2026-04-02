@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: ModelDeployment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/modeldeployment
   labels:
     testing.upbound.io/example-name: tf_model_deployment
   name: tf-model-deployment
+  namespace: crossplane-system
 spec:
   forProvider:
     categoryLogDetails:

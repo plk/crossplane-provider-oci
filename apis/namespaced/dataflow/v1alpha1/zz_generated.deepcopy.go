@@ -4598,46 +4598,6 @@ func (in *SqlEndpointInitParameters) DeepCopyInto(out *SqlEndpointInitParameters
 			(*out)[key] = outVal
 		}
 	}
-	if in.LogCompartmentID != nil {
-		in, out := &in.LogCompartmentID, &out.LogCompartmentID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogCompartmentIDRef != nil {
-		in, out := &in.LogCompartmentIDRef, &out.LogCompartmentIDRef
-		*out = new(v1.NamespacedReference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogCompartmentIDSelector != nil {
-		in, out := &in.LogCompartmentIDSelector, &out.LogCompartmentIDSelector
-		*out = new(v1.NamespacedSelector)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogDisplayName != nil {
-		in, out := &in.LogDisplayName, &out.LogDisplayName
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogGroupID != nil {
-		in, out := &in.LogGroupID, &out.LogGroupID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogGroupIDRef != nil {
-		in, out := &in.LogGroupIDRef, &out.LogGroupIDRef
-		*out = new(v1.NamespacedReference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogGroupIDSelector != nil {
-		in, out := &in.LogGroupIDSelector, &out.LogGroupIDSelector
-		*out = new(v1.NamespacedSelector)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogRetentionDuration != nil {
-		in, out := &in.LogRetentionDuration, &out.LogRetentionDuration
-		*out = new(float64)
-		**out = **in
-	}
 	if in.MaxExecutorCount != nil {
 		in, out := &in.MaxExecutorCount, &out.MaxExecutorCount
 		*out = new(float64)
@@ -4829,26 +4789,6 @@ func (in *SqlEndpointObservation) DeepCopyInto(out *SqlEndpointObservation) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.LogCompartmentID != nil {
-		in, out := &in.LogCompartmentID, &out.LogCompartmentID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogDisplayName != nil {
-		in, out := &in.LogDisplayName, &out.LogDisplayName
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogGroupID != nil {
-		in, out := &in.LogGroupID, &out.LogGroupID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogRetentionDuration != nil {
-		in, out := &in.LogRetentionDuration, &out.LogRetentionDuration
-		*out = new(float64)
-		**out = **in
-	}
 	if in.MaxExecutorCount != nil {
 		in, out := &in.MaxExecutorCount, &out.MaxExecutorCount
 		*out = new(float64)
@@ -5028,46 +4968,6 @@ func (in *SqlEndpointParameters) DeepCopyInto(out *SqlEndpointParameters) {
 			}
 			(*out)[key] = outVal
 		}
-	}
-	if in.LogCompartmentID != nil {
-		in, out := &in.LogCompartmentID, &out.LogCompartmentID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogCompartmentIDRef != nil {
-		in, out := &in.LogCompartmentIDRef, &out.LogCompartmentIDRef
-		*out = new(v1.NamespacedReference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogCompartmentIDSelector != nil {
-		in, out := &in.LogCompartmentIDSelector, &out.LogCompartmentIDSelector
-		*out = new(v1.NamespacedSelector)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogDisplayName != nil {
-		in, out := &in.LogDisplayName, &out.LogDisplayName
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogGroupID != nil {
-		in, out := &in.LogGroupID, &out.LogGroupID
-		*out = new(string)
-		**out = **in
-	}
-	if in.LogGroupIDRef != nil {
-		in, out := &in.LogGroupIDRef, &out.LogGroupIDRef
-		*out = new(v1.NamespacedReference)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogGroupIDSelector != nil {
-		in, out := &in.LogGroupIDSelector, &out.LogGroupIDSelector
-		*out = new(v1.NamespacedSelector)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.LogRetentionDuration != nil {
-		in, out := &in.LogRetentionDuration, &out.LogRetentionDuration
-		*out = new(float64)
-		**out = **in
 	}
 	if in.MaxExecutorCount != nil {
 		in, out := &in.MaxExecutorCount, &out.MaxExecutorCount

@@ -122,10 +122,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  bootVolumeSizeInGbs:
-                    description: (Updatable) The size in GBs of the boot volume for
-                      the desktop pool.
-                    type: number
                   compartmentId:
                     description: (Updatable) The OCID of the compartment which will
                       contain the desktop pool.
@@ -266,10 +262,6 @@ spec:
                         isPrintingEnabled:
                           description: (Updatable) Indicates whether printing is enabled.
                           type: boolean
-                        isVideoInputEnabled:
-                          description: (Updatable) Indicates whether video input is
-                            enabled.
-                          type: boolean
                       type: object
                     type: array
                   displayName:
@@ -286,12 +278,11 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   image:
-                    description: (Updatable) Provides information about the desktop
-                      image.
+                    description: Provides information about the desktop image.
                     items:
                       properties:
                         imageId:
-                          description: (Updatable) The OCID of the desktop image.
+                          description: The OCID of the desktop image.
                           type: string
                         imageIdRef:
                           description: Reference to a Image in compute to populate
@@ -806,10 +797,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  bootVolumeSizeInGbs:
-                    description: (Updatable) The size in GBs of the boot volume for
-                      the desktop pool.
-                    type: number
                   compartmentId:
                     description: (Updatable) The OCID of the compartment which will
                       contain the desktop pool.
@@ -950,10 +937,6 @@ spec:
                         isPrintingEnabled:
                           description: (Updatable) Indicates whether printing is enabled.
                           type: boolean
-                        isVideoInputEnabled:
-                          description: (Updatable) Indicates whether video input is
-                            enabled.
-                          type: boolean
                       type: object
                     type: array
                   displayName:
@@ -970,12 +953,11 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   image:
-                    description: (Updatable) Provides information about the desktop
-                      image.
+                    description: Provides information about the desktop image.
                     items:
                       properties:
                         imageId:
-                          description: (Updatable) The OCID of the desktop image.
+                          description: The OCID of the desktop image.
                           type: string
                         imageIdRef:
                           description: Reference to a Image in compute to populate
@@ -1628,10 +1610,6 @@ spec:
                           type: array
                       type: object
                     type: array
-                  bootVolumeSizeInGbs:
-                    description: (Updatable) The size in GBs of the boot volume for
-                      the desktop pool.
-                    type: number
                   compartmentId:
                     description: (Updatable) The OCID of the compartment which will
                       contain the desktop pool.
@@ -1696,10 +1674,6 @@ spec:
                         isPrintingEnabled:
                           description: (Updatable) Indicates whether printing is enabled.
                           type: boolean
-                        isVideoInputEnabled:
-                          description: (Updatable) Indicates whether video input is
-                            enabled.
-                          type: boolean
                       type: object
                     type: array
                   displayName:
@@ -1719,12 +1693,11 @@ spec:
                     description: The OCID of the desktop pool.
                     type: string
                   image:
-                    description: (Updatable) Provides information about the desktop
-                      image.
+                    description: Provides information about the desktop image.
                     items:
                       properties:
                         imageId:
-                          description: (Updatable) The OCID of the desktop image.
+                          description: The OCID of the desktop image.
                           type: string
                         imageName:
                           description: The name of the desktop image.

@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: TargetAlertPolicyAssociation
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/targetalertpolicyassociation
   labels:
     testing.upbound.io/example-name: test_target_alert_policy_association
   name: test-target-alert-policy-association
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

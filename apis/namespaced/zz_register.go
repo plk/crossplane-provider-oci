@@ -29,7 +29,6 @@ import (
 	v1alpha1audit "github.com/oracle/provider-oci/apis/namespaced/audit/v1alpha1"
 	v1alpha1autoscaling "github.com/oracle/provider-oci/apis/namespaced/autoscaling/v1alpha1"
 	v1alpha1bastion "github.com/oracle/provider-oci/apis/namespaced/bastion/v1alpha1"
-	v1alpha1batch "github.com/oracle/provider-oci/apis/namespaced/batch/v1alpha1"
 	v1alpha1bds "github.com/oracle/provider-oci/apis/namespaced/bds/v1alpha1"
 	v1alpha1blockchain "github.com/oracle/provider-oci/apis/namespaced/blockchain/v1alpha1"
 	v1alpha1blockstorage "github.com/oracle/provider-oci/apis/namespaced/blockstorage/v1alpha1"
@@ -60,7 +59,6 @@ import (
 	v1alpha1devops "github.com/oracle/provider-oci/apis/namespaced/devops/v1alpha1"
 	v1alpha1dif "github.com/oracle/provider-oci/apis/namespaced/dif/v1alpha1"
 	v1alpha1disasterrecovery "github.com/oracle/provider-oci/apis/namespaced/disasterrecovery/v1alpha1"
-	v1alpha1distributed "github.com/oracle/provider-oci/apis/namespaced/distributed/v1alpha1"
 	v1alpha1dns "github.com/oracle/provider-oci/apis/namespaced/dns/v1alpha1"
 	v1alpha1email "github.com/oracle/provider-oci/apis/namespaced/email/v1alpha1"
 	v1alpha1events "github.com/oracle/provider-oci/apis/namespaced/events/v1alpha1"
@@ -71,6 +69,7 @@ import (
 	v1alpha1fusionapps "github.com/oracle/provider-oci/apis/namespaced/fusionapps/v1alpha1"
 	v1alpha1generativeai "github.com/oracle/provider-oci/apis/namespaced/generativeai/v1alpha1"
 	v1alpha1genericartifactscontent "github.com/oracle/provider-oci/apis/namespaced/genericartifactscontent/v1alpha1"
+	v1alpha1globallydistributeddatabase "github.com/oracle/provider-oci/apis/namespaced/globallydistributeddatabase/v1alpha1"
 	v1alpha1goldengate "github.com/oracle/provider-oci/apis/namespaced/goldengate/v1alpha1"
 	v1alpha1healthchecks "github.com/oracle/provider-oci/apis/namespaced/healthchecks/v1alpha1"
 	v1alpha1identity "github.com/oracle/provider-oci/apis/namespaced/identity/v1alpha1"
@@ -163,7 +162,6 @@ func init() {
 		v1alpha1audit.SchemeBuilder.AddToScheme,
 		v1alpha1autoscaling.SchemeBuilder.AddToScheme,
 		v1alpha1bastion.SchemeBuilder.AddToScheme,
-		v1alpha1batch.SchemeBuilder.AddToScheme,
 		v1alpha1bds.SchemeBuilder.AddToScheme,
 		v1alpha1blockchain.SchemeBuilder.AddToScheme,
 		v1alpha1blockstorage.SchemeBuilder.AddToScheme,
@@ -194,7 +192,6 @@ func init() {
 		v1alpha1devops.SchemeBuilder.AddToScheme,
 		v1alpha1dif.SchemeBuilder.AddToScheme,
 		v1alpha1disasterrecovery.SchemeBuilder.AddToScheme,
-		v1alpha1distributed.SchemeBuilder.AddToScheme,
 		v1alpha1dns.SchemeBuilder.AddToScheme,
 		v1alpha1email.SchemeBuilder.AddToScheme,
 		v1alpha1events.SchemeBuilder.AddToScheme,
@@ -205,6 +202,7 @@ func init() {
 		v1alpha1fusionapps.SchemeBuilder.AddToScheme,
 		v1alpha1generativeai.SchemeBuilder.AddToScheme,
 		v1alpha1genericartifactscontent.SchemeBuilder.AddToScheme,
+		v1alpha1globallydistributeddatabase.SchemeBuilder.AddToScheme,
 		v1alpha1goldengate.SchemeBuilder.AddToScheme,
 		v1alpha1healthchecks.SchemeBuilder.AddToScheme,
 		v1alpha1identity.SchemeBuilder.AddToScheme,

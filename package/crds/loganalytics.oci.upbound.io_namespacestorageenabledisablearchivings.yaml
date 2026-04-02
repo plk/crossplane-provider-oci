@@ -81,8 +81,7 @@ spec:
                       enable action and when set to false calls disable action.
                     type: boolean
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               initProvider:
@@ -103,8 +102,7 @@ spec:
                       enable action and when set to false calls disable action.
                     type: boolean
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               managementPolicies:
@@ -218,8 +216,7 @@ spec:
                     description: A human-readable success string.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               conditions:

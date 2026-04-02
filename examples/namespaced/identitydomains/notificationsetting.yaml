@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: NotificationSetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/notificationsetting
   labels:
     testing.upbound.io/example-name: test_notification_setting
   name: test-notification-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.notification_setting_authorization}
     dynamic:
       event_settings:

@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: CloudAutonomousVmCluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/cloudautonomousvmcluster
   labels:
     testing.upbound.io/example-name: test_cloud_autonomous_vm_cluster
   name: test-cloud-autonomous-vm-cluster
+  namespace: crossplane-system
 spec:
   forProvider:
     cloudExadataInfrastructureIdSelector:
@@ -22,18 +23,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: exadata_subnet
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: SecurityList
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/cloudautonomousvmcluster
   labels:
     testing.upbound.io/example-name: exadata_shapes_security_list
   name: exadata-shapes-security-list
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -42,29 +41,27 @@ spec:
     displayName: ExadataSecurityList
     egressSecurityRules:
     - destination: 10.1.22.0/24
-      protocol: "6"
+      protocol: '6'
     - destination: 10.1.22.0/24
-      protocol: "1"
+      protocol: '1'
     ingressSecurityRules:
-    - protocol: "6"
+    - protocol: '6'
       source: 10.1.22.0/24
-    - protocol: "1"
+    - protocol: '1'
       source: 10.1.22.0/24
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/cloudautonomousvmcluster
   labels:
     testing.upbound.io/example-name: exadata_subnet
   name: exadata-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -86,18 +83,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/cloudautonomousvmcluster
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16

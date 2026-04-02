@@ -1,12 +1,13 @@
+---
 apiVersion: servicecatalog.oci.m.upbound.io/v1alpha1
 kind: ServiceCatalogAssociation
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: servicecatalog/v1alpha1/servicecatalogassociation
   labels:
     testing.upbound.io/example-name: test_service_catalog_association
   name: test-service-catalog-association
+  namespace: crossplane-system
 spec:
   forProvider:
     entityIdSelector:
@@ -16,18 +17,16 @@ spec:
     serviceCatalogIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_service_catalog
-
 ---
-
 apiVersion: servicecatalog.oci.m.upbound.io/v1alpha1
 kind: PrivateApplication
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: servicecatalog/v1alpha1/servicecatalogassociation
   labels:
     testing.upbound.io/example-name: test_private_application
   name: test-private-application
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -42,18 +41,16 @@ spec:
       version: ${var.private_application_package_details_version}
       zipFileBase64Encoded: ${var.private_application_package_details_zip_file_base64encoded}
     shortDescription: ${var.private_application_short_description}
-
 ---
-
 apiVersion: servicecatalog.oci.m.upbound.io/v1alpha1
 kind: ServiceCatalog
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: servicecatalog/v1alpha1/servicecatalogassociation
   labels:
     testing.upbound.io/example-name: test_service_catalog
   name: test-service-catalog
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

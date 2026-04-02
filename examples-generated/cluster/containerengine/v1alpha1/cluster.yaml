@@ -68,8 +68,7 @@ spec:
         freeformTags:
           Department: Finance
       serviceLbConfig:
-      - backendNsgIds: ${var.cluster_options_service_lb_config_backend_nsg_ids}
-        definedTags:
+      - definedTags:
           Operations.CostCenter: "42"
         freeformTags:
           Department: Finance

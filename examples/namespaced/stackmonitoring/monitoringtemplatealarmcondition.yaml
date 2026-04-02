@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoringTemplateAlarmCondition
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoringtemplatealarmcondition
   labels:
     testing.upbound.io/example-name: test_monitoring_template_alarm_condition_example
   name: test-monitoring-template-alarm-condition-example
+  namespace: crossplane-system
 spec:
   forProvider:
     conditionType: FIXED
@@ -20,36 +21,32 @@ spec:
         testing.upbound.io/example-name: test_monitoring_template_example
     namespace: oracle_appmgmt
     resourceType: ocid1.stackmonitoringresourcetype.apache_tomcat
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoringtemplatealarmcondition
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
     name: ${random_string.topicname.result}
-
 ---
-
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoringTemplate
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoringtemplatealarmcondition
   labels:
     testing.upbound.io/example-name: test_monitoring_template_example
   name: test-monitoring-template-example
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1142,9 +1142,6 @@ spec:
                                   type: string
                               type: object
                           type: object
-                        vmClusterId:
-                          description: The OCID of the VM cluster.
-                          type: string
                       type: object
                     type: array
                   databaseSoftwareImageId:
@@ -2675,9 +2672,6 @@ spec:
                                   type: string
                               type: object
                           type: object
-                        vmClusterId:
-                          description: The OCID of the VM cluster.
-                          type: string
                       required:
                       - adminPasswordSecretRef
                       type: object
@@ -3556,9 +3550,6 @@ spec:
                             The OCID of the Oracle Cloud Infrastructure vault. This
                             parameter and secretId are required for Customer Managed
                             Keys.
-                          type: string
-                        vmClusterId:
-                          description: The OCID of the VM cluster.
                           type: string
                       type: object
                     type: array

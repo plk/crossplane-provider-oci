@@ -1,12 +1,13 @@
+---
 apiVersion: apiaccesscontrol.oci.m.upbound.io/v1alpha1
 kind: PrivilegedApiRequest
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apiaccesscontrol/v1alpha1/privilegedapirequest
   labels:
     testing.upbound.io/example-name: test_privileged_api_request
   name: test-privileged-api-request
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

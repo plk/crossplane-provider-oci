@@ -65,8 +65,7 @@ func Setup(mgr ctrl.Manager, o tjcontroller.Options) error {
 	// register webhooks for the kind v1alpha1.UserAssessment
 	// if they're enabled.
 	if o.StartWebhooks {
-		if err := ctrl.NewWebhookManagedBy(mgr).
-			For(&v1alpha1.UserAssessment{}).
+		if err := ctrl.NewWebhookManagedBy(mgr, &v1alpha1.UserAssessment{}).
 			Complete(); err != nil {
 			return errors.Wrap(err, "cannot register webhook for the kind v1alpha1.UserAssessment")
 		}

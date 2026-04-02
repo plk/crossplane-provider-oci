@@ -1,18 +1,20 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: Database
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: primary_database
   name: primary-database
+  namespace: crossplane-system
 spec:
   forProvider:
     database:
     - adminPasswordSecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       characterSet: AL32UTF8
       dbName: PrimDb
       dbWorkload: OLTP
@@ -21,18 +23,16 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: test_db_home
     source: NONE
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: InternetGateway
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: t
   name: t
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -42,18 +42,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: t
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: t
   name: t
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -67,18 +65,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: t
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: t
   name: t
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.ADs.availability_domains.0.name}
@@ -99,18 +95,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: t
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: test_subnet_backup
   name: test-subnet-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -131,18 +125,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: t
-
 ---
-
 apiVersion: core.oci.m.upbound.io/v1alpha1
 kind: VirtualNetwork
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: t
   name: t
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16
@@ -151,18 +143,16 @@ spec:
         testing.upbound.io/example-name: example
     displayName: -tf-vcn
     dnsLabel: tfvcn
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: DbHome
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/database
   labels:
     testing.upbound.io/example-name: test_db_home
   name: test-db-home
+  namespace: crossplane-system
 spec:
   forProvider:
     dbSystemId: ${oci_database_cloud_vm_cluster.test_cloud_vm_cluster.id}

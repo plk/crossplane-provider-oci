@@ -101,10 +101,6 @@ type EsxiHostInitParameters struct {
 
 	// (Deprecated)  The OCID of the SDDC to add the ESXi host to. This field has been deprecated. Please use cluster_id instead. Either sddc_id or cluster_id must be configured for oci_ocvp_esxi_host resource.  Deprecated. Please use cluster_id instead.
 	SddcID *string `json:"sddcId,omitempty" tf:"sddc_id,omitempty"`
-
-	// Usage of system tag keys. These predefined keys are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain: true}}
-	// +mapType=granular
-	SystemTags map[string]*string `json:"systemTags,omitempty" tf:"system_tags,omitempty"`
 }
 
 type EsxiHostObservation struct {
@@ -204,10 +200,6 @@ type EsxiHostObservation struct {
 	// The OCID of the active ESXi Host to swap billing with current host.
 	SwapBillingHostID *string `json:"swapBillingHostId,omitempty" tf:"swap_billing_host_id,omitempty"`
 
-	// Usage of system tag keys. These predefined keys are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain: true}}
-	// +mapType=granular
-	SystemTags map[string]*string `json:"systemTags,omitempty" tf:"system_tags,omitempty"`
-
 	// The date and time the ESXi host was created, in the format defined by RFC3339.  Example: 2016-08-25T21:10:29.600Z
 	TimeCreated *string `json:"timeCreated,omitempty" tf:"time_created,omitempty"`
 
@@ -302,11 +294,6 @@ type EsxiHostParameters struct {
 	// (Deprecated)  The OCID of the SDDC to add the ESXi host to. This field has been deprecated. Please use cluster_id instead. Either sddc_id or cluster_id must be configured for oci_ocvp_esxi_host resource.  Deprecated. Please use cluster_id instead.
 	// +kubebuilder:validation:Optional
 	SddcID *string `json:"sddcId,omitempty" tf:"sddc_id,omitempty"`
-
-	// Usage of system tag keys. These predefined keys are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain: true}}
-	// +kubebuilder:validation:Optional
-	// +mapType=granular
-	SystemTags map[string]*string `json:"systemTags,omitempty" tf:"system_tags,omitempty"`
 }
 
 // EsxiHostSpec defines the desired state of EsxiHost

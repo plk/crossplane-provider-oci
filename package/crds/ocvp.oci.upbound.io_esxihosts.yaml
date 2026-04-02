@@ -245,14 +245,6 @@ spec:
                       oci_ocvp_esxi_host resource.  Deprecated. Please use cluster_id
                       instead.
                     type: string
-                  systemTags:
-                    additionalProperties:
-                      type: string
-                    description: 'Usage of system tag keys. These predefined keys
-                      are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain:
-                      true}}'
-                    type: object
-                    x-kubernetes-map-type: granular
                 type: object
               initProvider:
                 description: |-
@@ -438,14 +430,6 @@ spec:
                       oci_ocvp_esxi_host resource.  Deprecated. Please use cluster_id
                       instead.
                     type: string
-                  systemTags:
-                    additionalProperties:
-                      type: string
-                    description: 'Usage of system tag keys. These predefined keys
-                      are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain:
-                      true}}'
-                    type: object
-                    x-kubernetes-map-type: granular
                 type: object
               managementPolicies:
                 default:
@@ -714,14 +698,6 @@ spec:
                     description: The OCID of the active ESXi Host to swap billing
                       with current host.
                     type: string
-                  systemTags:
-                    additionalProperties:
-                      type: string
-                    description: 'Usage of system tag keys. These predefined keys
-                      are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain:
-                      true}}'
-                    type: object
-                    x-kubernetes-map-type: granular
                   timeCreated:
                     description: 'The date and time the ESXi host was created, in
                       the format defined by RFC3339.  Example: 2016-08-25T21:10:29.600Z'

@@ -1,19 +1,20 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: AutonomousVmCluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousvmcluster
   labels:
     testing.upbound.io/example-name: test_autonomous_vm_cluster
   name: test-autonomous-vm-cluster
+  namespace: crossplane-system
 spec:
   forProvider:
-    autonomousDataStorageSizeInTbs: "2.0"
+    autonomousDataStorageSizeInTbs: '2.0'
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    cpuCoreCountPerNode: "20"
+    cpuCoreCountPerNode: '20'
     definedTags:
       ${oci_identity_tag_namespace.tag-namespace1.name}.${oci_identity_tag.tag1.name}: value
     displayName: autonomousVmCluster
@@ -22,26 +23,24 @@ spec:
         testing.upbound.io/example-name: test_exadata_infrastructure
     freeformTags:
       Department: Finance
-    isLocalBackupEnabled: "false"
+    isLocalBackupEnabled: 'false'
     licenseModel: LICENSE_INCLUDED
-    memoryPerOracleComputeUnitInGbs: "5"
+    memoryPerOracleComputeUnitInGbs: '5'
     timeZone: US/Pacific
-    totalContainerDatabases: "2"
+    totalContainerDatabases: '2'
     vmClusterNetworkIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vm_cluster_network2
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousvmcluster
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -54,9 +53,9 @@ spec:
     computeCount: 2
     contacts:
     - email: testuser2@testdomain.com
-      isPrimary: "true"
+      isPrimary: 'true'
       name: name
-      phoneNumber: "1234567891"
+      phoneNumber: '1234567891'
     corporateProxy: http://192.168.19.1:80
     databaseServerType: X11M
     definedTags:
@@ -75,7 +74,7 @@ spec:
       daysOfWeek:
       - name: TUESDAY
       hoursOfDay:
-      - "4"
+      - '4'
       isCustomActionTimeoutEnabled: true
       leadTimeInWeeks: 2
       months:
@@ -86,7 +85,7 @@ spec:
       patchingMode: ROLLING
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     netmask: 255.255.255.0
     networkBondingModeDetails:
     - backupNetworkBondingMode: ACTIVE_BACKUP
@@ -97,18 +96,16 @@ spec:
     storageCount: 3
     storageServerType: X11M-HC
     timeZone: US/Pacific
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmClusterNetwork
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousvmcluster
   labels:
     testing.upbound.io/example-name: test_vm_cluster_network2
   name: test-vm-cluster-network2
+  namespace: crossplane-system
 spec:
   forProvider:
     action: ADD_DBSERVER_NETWORK
@@ -149,7 +146,7 @@ spec:
       - dbServerId: ${data.oci_database_db_servers.test_db_servers.db_servers.1.id}
         hostname: myprefix4-cghdm2
         ip: 192.179.19.20
-      vlanId: "31"
+      vlanId: '31'
     - domainName: oracle.com
       gateway: 192.178.20.1
       netmask: 255.255.0.0
@@ -165,4 +162,4 @@ spec:
         ip: 192.178.19.14
         vip: 192.178.19.15
         vipHostname: myprefix5-r64zc2-vip
-      vlanId: "41"
+      vlanId: '41'

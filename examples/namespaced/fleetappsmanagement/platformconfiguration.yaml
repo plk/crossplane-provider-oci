@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: PlatformConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/platformconfiguration
   labels:
     testing.upbound.io/example-name: test_platform_configuration
   name: test-platform-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -23,7 +24,7 @@ spec:
       patchTypes:
       - id: ocid1.famsplatformconfiguration.oc1.
       versions:
-      - "2"
+      - '2'
     definedTags: ${map("Oracle-Tags.CreatedBy", "updatedValue")}
     description: description2
     displayName: displayName2

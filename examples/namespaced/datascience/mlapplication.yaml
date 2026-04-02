@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: MlApplication
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/mlapplication
   labels:
     testing.upbound.io/example-name: test_ml_application
   name: test-ml-application
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

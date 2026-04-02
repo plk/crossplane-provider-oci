@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: AuditProfileManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/auditprofilemanagement
   labels:
     testing.upbound.io/example-name: test_audit_profile_management
   name: test-audit-profile-management
+  namespace: crossplane-system
 spec:
   forProvider:
     changeRetentionTrigger: 1

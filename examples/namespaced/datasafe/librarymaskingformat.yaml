@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: LibraryMaskingFormat
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/librarymaskingformat
   labels:
     testing.upbound.io/example-name: test_library_masking_format
   name: test-library-masking-format
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,12 +1,13 @@
+---
 apiVersion: cloudmigrations.oci.m.upbound.io/v1alpha1
 kind: MigrationPlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudmigrations/v1alpha1/migrationplan
   labels:
     testing.upbound.io/example-name: test_migration_plan
   name: test-migration-plan
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

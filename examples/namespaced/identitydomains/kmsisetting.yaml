@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: KmsiSetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/kmsisetting
   labels:
     testing.upbound.io/example-name: test_kmsi_setting
   name: test-kmsi-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.kmsi_setting_authorization}
     externalId: externalId
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}

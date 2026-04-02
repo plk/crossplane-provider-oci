@@ -1,12 +1,13 @@
+---
 apiVersion: osmanagementhub.oci.m.upbound.io/v1alpha1
 kind: ScheduledJob
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: osmanagementhub/v1alpha1/scheduledjob
   labels:
     testing.upbound.io/example-name: test_scheduled_job_windows_update
   name: test-scheduled-job-windows-update
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -17,4 +18,4 @@ spec:
     operations:
     - operationType: INSTALL_OTHER_WINDOWS_UPDATES
     scheduleType: ONETIME
-    timeNextExecution: "2024-03-27T23:00:49.382Z"
+    timeNextExecution: 2024-03-27T23:00:49.382Z

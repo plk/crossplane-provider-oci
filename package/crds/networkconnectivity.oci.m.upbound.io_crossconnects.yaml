@@ -346,11 +346,6 @@ spec:
                       {"Department": "Finance"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  interfaceName:
-                    description: The name of the FastConnect interface where this
-                      cross-connect is installed. Option will be provided only on
-                      request for select tenancies.
-                    type: string
                   isActive:
                     description: (Updatable) Set to true to activate the cross-connect.
                       You activate it after the physical cabling is complete, and
@@ -662,11 +657,6 @@ spec:
                             type: string
                         type: object
                     type: object
-                  ociPhysicalDeviceName:
-                    description: The name of the FastConnect device where this cross-connect
-                      is installed. Option will be provided only on request for select
-                      tenancies.
-                    type: string
                   portSpeedShapeName:
                     description: 'The port speed for this cross-connect. To get a
                       list of the available port speeds, see ListCrossConnectPortSpeedShapes.  Example:
@@ -973,11 +963,6 @@ spec:
                       {"Department": "Finance"}'
                     type: object
                     x-kubernetes-map-type: granular
-                  interfaceName:
-                    description: The name of the FastConnect interface where this
-                      cross-connect is installed. Option will be provided only on
-                      request for select tenancies.
-                    type: string
                   isActive:
                     description: (Updatable) Set to true to activate the cross-connect.
                       You activate it after the physical cabling is complete, and
@@ -1289,11 +1274,6 @@ spec:
                             type: string
                         type: object
                     type: object
-                  ociPhysicalDeviceName:
-                    description: The name of the FastConnect device where this cross-connect
-                      is installed. Option will be provided only on request for select
-                      tenancies.
-                    type: string
                   portSpeedShapeName:
                     description: 'The port speed for this cross-connect. To get a
                       list of the available port speeds, see ListCrossConnectPortSpeedShapes.  Example:
@@ -1416,11 +1396,6 @@ spec:
                   id:
                     description: The cross-connect's Oracle ID (OCID).
                     type: string
-                  interfaceName:
-                    description: The name of the FastConnect interface where this
-                      cross-connect is installed. Option will be provided only on
-                      request for select tenancies.
-                    type: string
                   isActive:
                     description: (Updatable) Set to true to activate the cross-connect.
                       You activate it after the physical cabling is complete, and
@@ -1492,9 +1467,8 @@ spec:
                       terminates the physical connection.
                     type: string
                   ociPhysicalDeviceName:
-                    description: The name of the FastConnect device where this cross-connect
-                      is installed. Option will be provided only on request for select
-                      tenancies.
+                    description: The FastConnect device that terminates the physical
+                      connection.
                     type: string
                   portName:
                     description: A string identifying the meet-me room port for this

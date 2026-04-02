@@ -1,12 +1,13 @@
+---
 apiVersion: disasterrecovery.oci.m.upbound.io/v1alpha1
 kind: AutomaticDrConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: disasterrecovery/v1alpha1/automaticdrconfiguration
   labels:
     testing.upbound.io/example-name: example_automatic_dr_configuration
   name: example-automatic-dr-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     defaultFailoverDrPlanId: ${data.oci_disaster_recovery_dr_plans.test_failover_plan.dr_plan_collection.0.items.0.id}

@@ -1,12 +1,13 @@
+---
 apiVersion: datascience.oci.m.upbound.io/v1alpha1
 kind: Schedule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datascience/v1alpha1/schedule
   labels:
     testing.upbound.io/example-name: cron_schedule_example
   name: cron-schedule-example
+  namespace: crossplane-system
 spec:
   forProvider:
     action:
@@ -29,6 +30,6 @@ spec:
     projectId: ${var.data_science_project_id}
     trigger:
     - cronExpression: 11 11 * * *
-      timeEnd: "2065-01-01T05:00:00.000Z"
-      timeStart: "2055-01-01T05:00:00.000Z"
+      timeEnd: 2065-01-01T05:00:00.000Z
+      timeStart: 2055-01-01T05:00:00.000Z
       triggerType: CRON

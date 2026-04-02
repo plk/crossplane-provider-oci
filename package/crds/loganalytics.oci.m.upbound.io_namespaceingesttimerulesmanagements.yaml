@@ -66,10 +66,7 @@ spec:
                       enable action and when set to false calls disable action.
                     type: boolean
                   ingestTimeRuleId:
-                    description: Unique ocid of the ingest time rule. Ingest time
-                      rule ID can be obtained by running 'oci log-analytics ingest-time-rule
-                      list --namespace-name  --compartment-id '. The json output 'id'
-                      parameter value contains the rule ID.
+                    description: Unique ocid of the ingest time rule.
                     type: string
                   ingestTimeRuleIdRef:
                     description: Reference to a Rule in events to populate ingestTimeRuleId.
@@ -152,8 +149,7 @@ spec:
                         type: object
                     type: object
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               initProvider:
@@ -174,10 +170,7 @@ spec:
                       enable action and when set to false calls disable action.
                     type: boolean
                   ingestTimeRuleId:
-                    description: Unique ocid of the ingest time rule. Ingest time
-                      rule ID can be obtained by running 'oci log-analytics ingest-time-rule
-                      list --namespace-name  --compartment-id '. The json output 'id'
-                      parameter value contains the rule ID.
+                    description: Unique ocid of the ingest time rule.
                     type: string
                   ingestTimeRuleIdRef:
                     description: Reference to a Rule in events to populate ingestTimeRuleId.
@@ -260,8 +253,7 @@ spec:
                         type: object
                     type: object
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               managementPolicies:
@@ -344,14 +336,10 @@ spec:
                   id:
                     type: string
                   ingestTimeRuleId:
-                    description: Unique ocid of the ingest time rule. Ingest time
-                      rule ID can be obtained by running 'oci log-analytics ingest-time-rule
-                      list --namespace-name  --compartment-id '. The json output 'id'
-                      parameter value contains the rule ID.
+                    description: Unique ocid of the ingest time rule.
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               conditions:

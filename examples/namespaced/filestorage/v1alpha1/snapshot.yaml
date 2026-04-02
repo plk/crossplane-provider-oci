@@ -1,13 +1,14 @@
+---
 apiVersion: filestorage.oci.m.upbound.io/v1alpha1
 kind: Snapshot
 metadata:
-  namespace: crossplane-system
-  name: snapshot1
   labels:
     testing.upbound.io/example-name: snapshot_label_1
+  name: snapshot1
+  namespace: crossplane-system
 spec:
   forProvider:
     fileSystemIdSelector:
       matchLabels:
         testing.upbound.io/example-name: filesystem_label_1
-    name: "snapshot1"
+    name: snapshot1

@@ -524,9 +524,6 @@ type PlacementConfigurationsObservation struct {
 	// The availability domain to place instances.  Example: Uocm:PHX-AD-1
 	AvailabilityDomain *string `json:"availabilityDomain,omitempty" tf:"availability_domain,omitempty"`
 
-	// The OCID of the compute cluster that the instance will be created in.
-	ComputeClusterID *string `json:"computeClusterId,omitempty" tf:"compute_cluster_id,omitempty"`
-
 	// The fault domains to place instances.
 	FaultDomains []*string `json:"faultDomains,omitempty" tf:"fault_domains,omitempty"`
 

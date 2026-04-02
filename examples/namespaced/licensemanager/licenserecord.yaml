@@ -1,12 +1,13 @@
+---
 apiVersion: licensemanager.oci.m.upbound.io/v1alpha1
 kind: LicenseRecord
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: licensemanager/v1alpha1/licenserecord
   labels:
     testing.upbound.io/example-name: test_license_record
   name: test-license-record
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: ${var.license_record_display_name}
@@ -20,18 +21,16 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: test_product_license
     supportEndDate: ${var.license_record_support_end_date}
-
 ---
-
 apiVersion: licensemanager.oci.m.upbound.io/v1alpha1
 kind: ProductLicense
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: licensemanager/v1alpha1/licenserecord
   labels:
     testing.upbound.io/example-name: test_product_license
   name: test-product-license
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

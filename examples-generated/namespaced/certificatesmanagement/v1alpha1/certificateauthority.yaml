@@ -10,8 +10,7 @@ metadata:
 spec:
   forProvider:
     certificateAuthorityConfig:
-    - certificatePem: ${var.certificate_authority_certificate_authority_config_certificate_pem}
-      configType: ${var.certificate_authority_certificate_authority_config_config_type}
+    - configType: ${var.certificate_authority_certificate_authority_config_config_type}
       issuerCertificateAuthorityIdSelector:
         matchLabels:
           testing.upbound.io/example-name: test_certificate_authority
@@ -33,7 +32,9 @@ spec:
         street: ${var.certificate_authority_certificate_authority_config_subject_street}
         surname: ${var.certificate_authority_certificate_authority_config_subject_surname}
         title: ${var.certificate_authority_certificate_authority_config_subject_title}
-        userId: ${var.certificate_authority_certificate_authority_config_subject_user_id}
+        userIdSelector:
+          matchLabels:
+            testing.upbound.io/example-name: test_user
       validity:
       - timeOfValidityNotAfter: ${var.certificate_authority_certificate_authority_config_validity_time_of_validity_not_after}
         timeOfValidityNotBefore: ${var.certificate_authority_certificate_authority_config_validity_time_of_validity_not_before}
@@ -41,14 +42,6 @@ spec:
     certificateAuthorityRules:
     - certificateAuthorityMaxValidityDuration: ${var.certificate_authority_certificate_authority_rules_certificate_authority_max_validity_duration}
       leafCertificateMaxValidityDuration: ${var.certificate_authority_certificate_authority_rules_leaf_certificate_max_validity_duration}
-      nameConstraint:
-      - excludedSubtree:
-        - type: ${var.certificate_authority_certificate_authority_rules_name_constraint_excluded_subtree_type}
-          value: ${var.certificate_authority_certificate_authority_rules_name_constraint_excluded_subtree_value}
-        permittedSubtree:
-        - type: ${var.certificate_authority_certificate_authority_rules_name_constraint_permitted_subtree_type}
-          value: ${var.certificate_authority_certificate_authority_rules_name_constraint_permitted_subtree_value}
-      pathLengthConstraint: ${var.certificate_authority_certificate_authority_rules_path_length_constraint}
       ruleType: ${var.certificate_authority_certificate_authority_rules_rule_type}
     certificateRevocationListDetails:
     - customFormattedUrls: ${var.certificate_authority_certificate_revocation_list_details_custom_formatted_urls}
@@ -64,7 +57,6 @@ spec:
     definedTags:
       foo-namespace.bar-key: value
     description: ${var.certificate_authority_description}
-    externalKeyDescription: ${var.certificate_authority_external_key_description}
     freeformTags:
       bar-key: value
     kmsKeyIdSelector:

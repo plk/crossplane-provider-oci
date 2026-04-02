@@ -1,10 +1,11 @@
+---
 apiVersion: dns.oci.m.upbound.io/v1alpha1
 kind: Zone
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: zone_label_1
   name: zone1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

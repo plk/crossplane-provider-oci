@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: DiscoveryJob
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/discoveryjob
   labels:
     testing.upbound.io/example-name: test_discovery_job
   name: test-discovery-job
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -27,7 +28,7 @@ spec:
       properties:
       - propertiesMap:
           admin_server_host: somehost.us.oracle.com
-          admin_server_port: "7001"
+          admin_server_port: '7001'
           admin_server_protocol: t3
       resourceName: terraformExample
       resourceType: WEBLOGIC_DOMAIN

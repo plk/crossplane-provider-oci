@@ -1,12 +1,13 @@
+---
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: OperationsInsightsWarehouseUser
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/operationsinsightswarehouseuser
   labels:
     testing.upbound.io/example-name: test_operations_insights_warehouse_user
   name: test-operations-insights-warehouse-user
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -25,18 +26,16 @@ spec:
     operationsInsightsWarehouseIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_operations_insights_warehouse
-
 ---
-
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: OperationsInsightsWarehouse
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/operationsinsightswarehouseuser
   labels:
     testing.upbound.io/example-name: test_operations_insights_warehouse
   name: test-operations-insights-warehouse
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

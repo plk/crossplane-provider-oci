@@ -1,20 +1,21 @@
+---
 apiVersion: dns.oci.m.upbound.io/v1alpha1
 kind: SteeringPolicy
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: steeringpolicy_label_1
   name: steeringpolicy1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
     displayName: steeringpolicy1
-    template: FAILOVER
     healthCheckMonitorIdRef:
       name: httpmonitor1
     rules:
-      - ruleType: HEALTH
-      - ruleType: LIMIT
-        defaultCount: 1
+    - ruleType: HEALTH
+    - defaultCount: 1
+      ruleType: LIMIT
+    template: FAILOVER

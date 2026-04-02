@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: User
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/user
   labels:
     testing.upbound.io/example-name: test_user
   name: test-user
+  namespace: crossplane-system
 spec:
   forProvider:
     active: ${var.user_active}
@@ -21,7 +22,7 @@ spec:
       type: ${var.user_addresses_type}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.user_authorization}
     description: ${var.user_description}
     displayName: ${var.user_display_name}

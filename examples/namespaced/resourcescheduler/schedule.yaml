@@ -1,12 +1,13 @@
+---
 apiVersion: resourcescheduler.oci.m.upbound.io/v1alpha1
 kind: Schedule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: resourcescheduler/v1alpha1/schedule
   labels:
     testing.upbound.io/example-name: test_schedule
   name: test-schedule
+  namespace: crossplane-system
 spec:
   forProvider:
     action: ${var.schedule_action}

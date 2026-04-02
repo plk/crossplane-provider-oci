@@ -1,16 +1,17 @@
+---
 apiVersion: budget.oci.m.upbound.io/v1alpha1
 kind: Budget
 metadata:
-  namespace: crossplane-system
-  name: budget1
   labels:
     testing.upbound.io/example-name: budget_label_1
+  name: budget1
+  namespace: crossplane-system
 spec:
   forProvider:
     amount: 100.0
-    compartmentId: "${TENANCY_OCID}"
-    resetPeriod: "MONTHLY"
+    compartmentId: ${TENANCY_OCID}
     displayName: budget1
+    resetPeriod: MONTHLY
     targetType: COMPARTMENT
     targets:
-      - "${COMPARTMENT_OCID}"
+    - ${COMPARTMENT_OCID}

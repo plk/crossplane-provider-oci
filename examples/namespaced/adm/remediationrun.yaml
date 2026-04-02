@@ -1,12 +1,13 @@
+---
 apiVersion: adm.oci.m.upbound.io/v1alpha1
 kind: RemediationRun
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: adm/v1alpha1/remediationrun
   labels:
     testing.upbound.io/example-name: example_remediation_run
   name: example-remediation-run
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: example_remediation_run

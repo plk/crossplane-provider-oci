@@ -1,12 +1,13 @@
+---
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: Monitor
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/monitor
   labels:
     testing.upbound.io/example-name: test_monitor
   name: test-monitor
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:
@@ -22,9 +23,11 @@ spec:
         - passwordSecretRef:
             key: example-key
             name: example-secret
+            namespace: upbound-system
           passwordTypeSecretRef:
             key: example-key
             name: example-secret
+            namespace: upbound-system
         username: ${var.monitor_configuration_database_authentication_details_username}
       databaseConnectionType: ${var.monitor_configuration_database_connection_type}
       databaseRole: ${var.monitor_configuration_database_role}
@@ -49,18 +52,16 @@ spec:
     timeoutInSeconds: ${var.monitor_timeout_in_seconds}
     vantagePoints:
     - name: ${var.monitor_vantage_points_name}
-
 ---
-
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/monitor
   labels:
     testing.upbound.io/example-name: test_apm_domain
   name: test-apm-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

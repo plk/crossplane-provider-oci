@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: MyAuthToken
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/myauthtoken
   labels:
     testing.upbound.io/example-name: test_my_auth_token
   name: test-my-auth-token
+  namespace: crossplane-system
 spec:
   forProvider:
     authorization: ${var.my_auth_token_authorization}

@@ -1,19 +1,20 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: MigrationMigration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/migrationmigration
   labels:
     testing.upbound.io/example-name: test_oracle_rds_migration
   name: test-oracle-rds-migration
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
     dataTransferMediumDetails:
-    - accessKeyId: "12345"
+    - accessKeyId: '12345'
       name: rdsbucket
       objectStorageBucket:
       - bucket: ${var.bucket_oracle_id}
@@ -22,13 +23,14 @@ spec:
       secretAccessKeySecretRef:
         key: example-key
         name: example-secret
+        namespace: upbound-system
       type: AWS_S3
     databaseCombination: ORACLE
     displayName: displayName
     initialLoadSettings:
     - dataPumpParameters:
       - estimate: BLOCKS
-        isCluster: "false"
+        isCluster: 'false'
         tableExistsAction: TRUNCATE
       exportDirectoryObject:
       - name: name

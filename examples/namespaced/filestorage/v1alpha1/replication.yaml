@@ -1,16 +1,17 @@
+---
 apiVersion: filestorage.oci.m.upbound.io/v1alpha1
 kind: Replication
 metadata:
-  namespace: crossplane-system
-  name: replication1
   labels:
     testing.upbound.io/example-name: replication_label_1
+  name: replication1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: replication1
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: replication1
     sourceIdSelector:
       matchLabels:
         testing.upbound.io/example-name: filesystem_label_1

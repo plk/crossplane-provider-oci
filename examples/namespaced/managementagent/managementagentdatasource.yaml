@@ -1,12 +1,13 @@
+---
 apiVersion: managementagent.oci.m.upbound.io/v1alpha1
 kind: ManagementAgentDataSource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: managementagent/v1alpha1/managementagentdatasource
   labels:
     testing.upbound.io/example-name: add_datasource
   name: add-datasource
+  namespace: crossplane-system
 spec:
   forProvider:
     allowMetrics: '*'

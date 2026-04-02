@@ -1,12 +1,13 @@
+---
 apiVersion: waa.oci.m.upbound.io/v1alpha1
 kind: WebAppAcceleration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: waa/v1alpha1/webappacceleration
   labels:
     testing.upbound.io/example-name: test_web_app_acceleration
   name: test-web-app-acceleration
+  namespace: crossplane-system
 spec:
   forProvider:
     backendType: LOAD_BALANCER
@@ -20,18 +21,16 @@ spec:
     webAppAccelerationPolicyIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_web_app_acceleration_policy
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: waa/v1alpha1/webappacceleration
   labels:
     testing.upbound.io/example-name: test_network_security_group
   name: test-network-security-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -40,18 +39,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: waa/v1alpha1/webappacceleration
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.20.0/24
@@ -75,18 +72,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: waa/v1alpha1/webappacceleration
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.1.0.0/16

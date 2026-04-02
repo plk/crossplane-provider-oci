@@ -1,22 +1,23 @@
+---
 apiVersion: logging.oci.m.upbound.io/v1alpha1
 kind: Log
 metadata:
-  namespace: crossplane-system
-  name: log1
   labels:
     testing.upbound.io/example-name: log_label_1
+  name: log1
+  namespace: crossplane-system
 spec:
   forProvider:
     configuration:
-      - compartmentId: ${COMPARTMENT_OCID}
-        source:
-          - category: "write"              
-            resource: "bucket1"
-            service: "objectstorage"
-            sourceType: "OCISERVICE"
-    displayName: "log1"
+    - compartmentId: ${COMPARTMENT_OCID}
+      source:
+      - category: write
+        resource: bucket1
+        service: objectstorage
+        sourceType: OCISERVICE
+    displayName: log1
     isEnabled: true
     logGroupIdSelector:
       matchLabels:
         testing.upbound.io/example-name: loggroup_label_1
-    logType: "SERVICE"
+    logType: SERVICE

@@ -1,12 +1,13 @@
+---
 apiVersion: tenantmanagercontrolplane.oci.m.upbound.io/v1alpha1
 kind: SubscriptionMapping
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: tenantmanagercontrolplane/v1alpha1/subscriptionmapping
   labels:
     testing.upbound.io/example-name: test_subscription_mapping
   name: test-subscription-mapping
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

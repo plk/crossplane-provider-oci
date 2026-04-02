@@ -1,15 +1,16 @@
+---
 apiVersion: apigateway.oci.m.upbound.io/v1alpha1
 kind: UsagePlan
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: usageplan_label_1
   name: usageplan1
+  namespace: crossplane-system
 spec:
   forProvider:
-    displayName: usageplan1
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: usageplan1
     entitlements:
-      - name: "basicentitlement"
+    - name: basicentitlement

@@ -1,12 +1,13 @@
+---
 apiVersion: dataflow.oci.m.upbound.io/v1alpha1
 kind: SqlEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: dataflow/v1alpha1/sqlendpoint
   labels:
     testing.upbound.io/example-name: test_sql_endpoint
   name: test-sql-endpoint
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

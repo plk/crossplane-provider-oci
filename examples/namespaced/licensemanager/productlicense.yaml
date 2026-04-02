@@ -1,12 +1,13 @@
+---
 apiVersion: licensemanager.oci.m.upbound.io/v1alpha1
 kind: ProductLicense
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: licensemanager/v1alpha1/productlicense
   labels:
     testing.upbound.io/example-name: test_product_license
   name: test-product-license
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -334,8 +334,7 @@ spec:
                     type: object
                   rules:
                     description: (Updatable) Rules for the resolver. Rules are evaluated
-                      in order, and only the first matching rule will have its action
-                      applied.
+                      in order.
                     items:
                       properties:
                         action:
@@ -345,9 +344,9 @@ spec:
                             rule, all queries are subject to the specified action.
                           type: string
                         clientAddressConditions:
-                          description: (Updatable) A list of CIDR blocks. In order
-                            for the rule action to apply, the query must come from
-                            a client within one of the CIDR blocks.
+                          description: (Updatable) A list of CIDR blocks. The query
+                            must come from a client within one of the blocks in order
+                            for the rule action to apply.
                           items:
                             type: string
                           type: array
@@ -358,9 +357,9 @@ spec:
                             type: string
                           type: array
                         qnameCoverConditions:
-                          description: (Updatable) A list of domain names. In order
-                            for the rule action to apply, the query must either match
-                            or be a subdomain of one of the listed domains.
+                          description: (Updatable) A list of domain names. The query
+                            must be covered by one of the domains in order for the
+                            rule action to apply.
                           items:
                             type: string
                           type: array
@@ -651,8 +650,7 @@ spec:
                     type: object
                   rules:
                     description: (Updatable) Rules for the resolver. Rules are evaluated
-                      in order, and only the first matching rule will have its action
-                      applied.
+                      in order.
                     items:
                       properties:
                         action:
@@ -662,9 +660,9 @@ spec:
                             rule, all queries are subject to the specified action.
                           type: string
                         clientAddressConditions:
-                          description: (Updatable) A list of CIDR blocks. In order
-                            for the rule action to apply, the query must come from
-                            a client within one of the CIDR blocks.
+                          description: (Updatable) A list of CIDR blocks. The query
+                            must come from a client within one of the blocks in order
+                            for the rule action to apply.
                           items:
                             type: string
                           type: array
@@ -675,9 +673,9 @@ spec:
                             type: string
                           type: array
                         qnameCoverConditions:
-                          description: (Updatable) A list of domain names. In order
-                            for the rule action to apply, the query must either match
-                            or be a subdomain of one of the listed domains.
+                          description: (Updatable) A list of domain names. The query
+                            must be covered by one of the domains in order for the
+                            rule action to apply.
                           items:
                             type: string
                           type: array
@@ -892,8 +890,7 @@ spec:
                     type: string
                   rules:
                     description: (Updatable) Rules for the resolver. Rules are evaluated
-                      in order, and only the first matching rule will have its action
-                      applied.
+                      in order.
                     items:
                       properties:
                         action:
@@ -903,9 +900,9 @@ spec:
                             rule, all queries are subject to the specified action.
                           type: string
                         clientAddressConditions:
-                          description: (Updatable) A list of CIDR blocks. In order
-                            for the rule action to apply, the query must come from
-                            a client within one of the CIDR blocks.
+                          description: (Updatable) A list of CIDR blocks. The query
+                            must come from a client within one of the blocks in order
+                            for the rule action to apply.
                           items:
                             type: string
                           type: array
@@ -916,9 +913,9 @@ spec:
                             type: string
                           type: array
                         qnameCoverConditions:
-                          description: (Updatable) A list of domain names. In order
-                            for the rule action to apply, the query must either match
-                            or be a subdomain of one of the listed domains.
+                          description: (Updatable) A list of domain names. The query
+                            must be covered by one of the domains in order for the
+                            rule action to apply.
                           items:
                             type: string
                           type: array

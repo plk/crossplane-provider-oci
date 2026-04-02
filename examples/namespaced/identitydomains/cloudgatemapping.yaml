@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGateMapping
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgatemapping
   labels:
     testing.upbound.io/example-name: test_cloud_gate_mapping
   name: test-cloud-gate-mapping
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.cloud_gate_mapping_authorization}
     cloudGate:
     - valueSelector:
@@ -39,18 +40,16 @@ spec:
     tags:
     - key: ${var.cloud_gate_mapping_tags_key}
       value: ${var.cloud_gate_mapping_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: App
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgatemapping
   labels:
     testing.upbound.io/example-name: test_cloud_gate_mapping_app
   name: test-cloud-gate-mapping-app
+  namespace: crossplane-system
 spec:
   forProvider:
     basedOnTemplate:
@@ -59,36 +58,32 @@ spec:
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
     schemas:
     - urn:ietf:params:scim:schemas:oracle:idcs:App
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGate
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgatemapping
   labels:
     testing.upbound.io/example-name: test_cloud_gate_mapping_cloud_gate
   name: test-cloud-gate-mapping-cloud-gate
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: cloudGateMappingName
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
     schemas:
     - urn:ietf:params:scim:schemas:oracle:idcs:CloudGate
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGateServer
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgatemapping
   labels:
     testing.upbound.io/example-name: test_cloud_gate_mapping_server
   name: test-cloud-gate-mapping-server
+  namespace: crossplane-system
 spec:
   forProvider:
     cloudGate:

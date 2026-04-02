@@ -823,7 +823,6 @@ type SddcObservation struct {
 	// The current state of the SDDC.
 	State *string `json:"state,omitempty" tf:"state,omitempty"`
 
-	// Usage of system tag keys. These predefined keys are scoped to namespaces. Example: {orcl-cloud: {free-tier-retain: true}}
 	// +mapType=granular
 	SystemTags map[string]*string `json:"systemTags,omitempty" tf:"system_tags,omitempty"`
 

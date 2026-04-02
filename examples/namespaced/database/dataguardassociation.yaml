@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: DataGuardAssociation
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/dataguardassociation
   labels:
     testing.upbound.io/example-name: test_exadata_data_guard_association
   name: test-exadata-data-guard-association
+  namespace: crossplane-system
 spec:
   forProvider:
     creationType: ExistingVmCluster
@@ -14,24 +15,22 @@ spec:
       key: example-key
       name: example-secret
     databaseId: ${data.oci_database_databases.exadb.databases[0].id}
-    deleteStandbyDbHomeOnDelete: "true"
+    deleteStandbyDbHomeOnDelete: 'true'
     peerVmClusterIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_exadata_vm_cluster_for_standby_db
     protectionMode: MAXIMUM_PERFORMANCE
     transportType: ASYNC
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/dataguardassociation
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -52,24 +51,22 @@ spec:
     - 10.231.225.76
     shape: ExadataCC.Quarter3.100
     timeZone: US/Pacific
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmCluster
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/dataguardassociation
   labels:
     testing.upbound.io/example-name: test_exadata_vm_cluster_for_standby_db
   name: test-exadata-vm-cluster-for-standby-db
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    cpuCoreCount: "4"
+    cpuCoreCount: '4'
     displayName: vmClusterForStandbyDB
     exadataInfrastructureIdSelector:
       matchLabels:
@@ -80,18 +77,16 @@ spec:
     vmClusterNetworkIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vm_cluster_network
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmClusterNetwork
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/dataguardassociation
   labels:
     testing.upbound.io/example-name: test_vm_cluster_network
   name: test-vm-cluster-network
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -111,8 +106,8 @@ spec:
       - 192.168.19.7
       - 192.168.19.8
       - 192.168.19.9
-      port: "1522"
-    validateVmClusterNetwork: "true"
+      port: '1522'
+    validateVmClusterNetwork: 'true'
     vmNetworks:
     - domainName: oracle.com
       gateway: 192.169.20.2
@@ -123,7 +118,7 @@ spec:
         ip: 192.169.19.19
       - hostname: myprefix2-xapb28
         ip: 192.169.19.21
-      vlanId: "100"
+      vlanId: '100'
     - domainName: oracle.com
       gateway: 192.168.20.2
       netmask: 255.255.192.0
@@ -137,4 +132,4 @@ spec:
         ip: 192.168.19.15
         vip: 192.168.19.17
         vipHostname: myprefix2-xapb26-vip
-      vlanId: "101"
+      vlanId: '101'

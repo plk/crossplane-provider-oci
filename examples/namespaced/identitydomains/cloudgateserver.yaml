@@ -1,17 +1,18 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGateServer
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgateserver
   labels:
     testing.upbound.io/example-name: test_cloud_gate_server
   name: test-cloud-gate-server
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.cloud_gate_server_authorization}
     cloudGate:
     - valueSelector:
@@ -29,18 +30,16 @@ spec:
     tags:
     - key: ${var.cloud_gate_server_tags_key}
       value: ${var.cloud_gate_server_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: CloudGate
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/cloudgateserver
   labels:
     testing.upbound.io/example-name: test_cloud_gate_server_cloud_gate
   name: test-cloud-gate-server-cloud-gate
+  namespace: crossplane-system
 spec:
   forProvider:
     displayName: name

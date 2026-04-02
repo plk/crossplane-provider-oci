@@ -1,19 +1,20 @@
+---
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: subnet_label_2
   name: subnet2
+  namespace: crossplane-system
 spec:
   forProvider:
+    cidrBlock: 10.0.2.0/24
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
+    displayName: subnet2
+    prohibitInternetIngress: true
+    prohibitPublicIpOnVnic: true
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: vcn_label_1
-    displayName: subnet2
-    cidrBlock: "10.0.2.0/24"
-    prohibitInternetIngress: true
-    prohibitPublicIpOnVnic: true

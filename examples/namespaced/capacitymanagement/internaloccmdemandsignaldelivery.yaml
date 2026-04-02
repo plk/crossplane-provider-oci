@@ -1,12 +1,13 @@
+---
 apiVersion: capacitymanagement.oci.m.upbound.io/v1alpha1
 kind: InternalOccmDemandSignalDelivery
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: capacitymanagement/v1alpha1/internaloccmdemandsignaldelivery
   labels:
     testing.upbound.io/example-name: test_internal_occm_demand_signal_delivery
   name: test-internal-occm-demand-signal-delivery
+  namespace: crossplane-system
 spec:
   forProvider:
     acceptedQuantity: ${var.internal_occm_demand_signal_delivery_accepted_quantity}

@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ScheduledAction
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/scheduledaction
   labels:
     testing.upbound.io/example-name: test_scheduled_action
   name: test-scheduled-action
+  namespace: crossplane-system
 spec:
   forProvider:
     actionType: ${var.scheduled_action_action_type}
@@ -21,18 +22,16 @@ spec:
     schedulingWindowIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_scheduling_policy_scheduling_window
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/scheduledaction
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -45,9 +44,9 @@ spec:
     computeCount: 2
     contacts:
     - email: testuser2@testdomain.com
-      isPrimary: "true"
+      isPrimary: 'true'
       name: name
-      phoneNumber: "1234567891"
+      phoneNumber: '1234567891'
     corporateProxy: http://192.168.19.1:80
     definedTags:
       ${oci_identity_tag_namespace.tag-namespace1.name}.${oci_identity_tag.tag1.name}: updatedvalue
@@ -65,7 +64,7 @@ spec:
       daysOfWeek:
       - name: TUESDAY
       hoursOfDay:
-      - "4"
+      - '4'
       isCustomActionTimeoutEnabled: true
       leadTimeInWeeks: 2
       months:
@@ -76,7 +75,7 @@ spec:
       patchingMode: ROLLING
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     netmask: 255.255.255.0
     networkBondingModeDetails:
     - backupNetworkBondingMode: ACTIVE_BACKUP
@@ -86,18 +85,16 @@ spec:
     shape: ExadataCC.X7
     storageCount: 3
     timeZone: US/Pacific
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: SchedulingPlan
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/scheduledaction
   labels:
     testing.upbound.io/example-name: test_scheduling_plan
   name: test-scheduling-plan
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -113,18 +110,16 @@ spec:
       matchLabels:
         testing.upbound.io/example-name: test_scheduling_policy
     serviceType: ${var.scheduling_plan_service_type}
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: SchedulingPolicy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/scheduledaction
   labels:
     testing.upbound.io/example-name: test_scheduling_policy
   name: test-scheduling-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     cadence: ${var.scheduling_policy_cadence}
@@ -136,18 +131,16 @@ spec:
     definedTags: ${var.scheduling_policy_defined_tags_value}
     displayName: ${var.scheduling_policy_display_name}
     freeformTags: ${var.scheduling_policy_freeform_tags}
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: SchedulingPolicySchedulingWindow
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/scheduledaction
   labels:
     testing.upbound.io/example-name: test_scheduling_policy_scheduling_window
   name: test-scheduling-policy-scheduling-window
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

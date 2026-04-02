@@ -1,12 +1,13 @@
+---
 apiVersion: apiplatform.oci.m.upbound.io/v1alpha1
 kind: ApiPlatformInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apiplatform/v1alpha1/apiplatforminstance
   labels:
     testing.upbound.io/example-name: test_api_platform_instance
   name: test-api-platform-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

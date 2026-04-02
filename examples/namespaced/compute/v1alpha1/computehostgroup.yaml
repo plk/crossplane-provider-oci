@@ -1,10 +1,11 @@
+---
 apiVersion: compute.oci.m.upbound.io/v1alpha1
 kind: ComputeHostGroup
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: computehostgroup_label_1
   name: computehostgroup1
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${AVAILABILITY_DOMAIN}

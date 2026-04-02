@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: ProcessSet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/processset
   labels:
     testing.upbound.io/example-name: test_process_set
   name: test-process-set
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

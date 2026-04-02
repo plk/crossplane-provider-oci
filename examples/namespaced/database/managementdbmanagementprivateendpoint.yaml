@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ManagementDbManagementPrivateEndpoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/managementdbmanagementprivateendpoint
   labels:
     testing.upbound.io/example-name: test_db_management_private_endpoint_create
   name: test-db-management-private-endpoint-create
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -24,18 +25,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_subnet
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: NetworkSecurityGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/managementdbmanagementprivateendpoint
   labels:
     testing.upbound.io/example-name: test_network_security_group
   name: test-network-security-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -44,18 +43,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/managementdbmanagementprivateendpoint
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/24
@@ -67,18 +64,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/managementdbmanagementprivateendpoint
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

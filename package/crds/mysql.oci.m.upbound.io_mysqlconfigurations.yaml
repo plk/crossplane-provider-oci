@@ -168,26 +168,13 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   initVariables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables set only at DB system initialization.
-                      These variables cannot be changed later at runtime.
+                    description: User-defined service variables set only at DB system
+                      initialization. These variables cannot be changed later at runtime.
                     items:
                       properties:
                         lowerCaseTableNames:
                           description: Represents the MySQL server system variable
                             lower_case_table_names (https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
-                          type: string
-                      type: object
-                    type: array
-                  options:
-                    description: The MySQL options defined in the Configuration.
-                    items:
-                      properties:
-                        name:
-                          description: The option name.
-                          type: string
-                        value:
-                          description: The option value.
                           type: string
                       type: object
                     type: array
@@ -282,8 +269,7 @@ spec:
                     description: The name of the associated Shape.
                     type: string
                   variables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables.
+                    description: User-defined service variables.
                     items:
                       properties:
                         autoIncrementIncrement:
@@ -1017,26 +1003,13 @@ spec:
                     type: object
                     x-kubernetes-map-type: granular
                   initVariables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables set only at DB system initialization.
-                      These variables cannot be changed later at runtime.
+                    description: User-defined service variables set only at DB system
+                      initialization. These variables cannot be changed later at runtime.
                     items:
                       properties:
                         lowerCaseTableNames:
                           description: Represents the MySQL server system variable
                             lower_case_table_names (https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
-                          type: string
-                      type: object
-                    type: array
-                  options:
-                    description: The MySQL options defined in the Configuration.
-                    items:
-                      properties:
-                        name:
-                          description: The option name.
-                          type: string
-                        value:
-                          description: The option value.
                           type: string
                       type: object
                     type: array
@@ -1131,8 +1104,7 @@ spec:
                     description: The name of the associated Shape.
                     type: string
                   variables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables.
+                    description: User-defined service variables.
                     items:
                       properties:
                         autoIncrementIncrement:
@@ -1842,26 +1814,13 @@ spec:
                     description: The OCID of the Configuration.
                     type: string
                   initVariables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables set only at DB system initialization.
-                      These variables cannot be changed later at runtime.
+                    description: User-defined service variables set only at DB system
+                      initialization. These variables cannot be changed later at runtime.
                     items:
                       properties:
                         lowerCaseTableNames:
                           description: Represents the MySQL server system variable
                             lower_case_table_names (https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
-                          type: string
-                      type: object
-                    type: array
-                  options:
-                    description: The MySQL options defined in the Configuration.
-                    items:
-                      properties:
-                        name:
-                          description: The option name.
-                          type: string
-                        value:
-                          description: The option value.
                           type: string
                       type: object
                     type: array
@@ -1896,8 +1855,7 @@ spec:
                     description: The Configuration type, DEFAULT or CUSTOM.
                     type: string
                   variables:
-                    description: DEPRECATED -- please use the options field instead.
-                      User-defined service variables.
+                    description: User-defined service variables.
                     items:
                       properties:
                         autoIncrementIncrement:

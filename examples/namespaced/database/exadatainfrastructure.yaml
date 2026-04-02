@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/exadatainfrastructure
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -19,9 +20,9 @@ spec:
     computeCount: 2
     contacts:
     - email: testuser2@testdomain.com
-      isPrimary: "true"
+      isPrimary: 'true'
       name: name
-      phoneNumber: "1234567891"
+      phoneNumber: '1234567891'
     corporateProxy: http://192.168.19.1:80
     displayName: tstExaInfra
     dnsServer:
@@ -35,7 +36,7 @@ spec:
       daysOfWeek:
       - name: TUESDAY
       hoursOfDay:
-      - "4"
+      - '4'
       isCustomActionTimeoutEnabled: true
       leadTimeInWeeks: 2
       months:
@@ -46,7 +47,7 @@ spec:
       patchingMode: ROLLING
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     netmask: 255.255.255.0
     networkBondingModeDetails:
     - backupNetworkBondingMode: ACTIVE_BACKUP

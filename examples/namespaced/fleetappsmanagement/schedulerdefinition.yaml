@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: SchedulerDefinition
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/schedulerdefinition
   labels:
     testing.upbound.io/example-name: test_scheduler_definition
   name: test-scheduler-definition
+  namespace: crossplane-system
 spec:
   forProvider:
     actionGroups:
@@ -37,18 +38,16 @@ spec:
           testing.upbound.io/example-name: test_maintenance_window
       recurrences: ${var.scheduler_definition_schedule_recurrences}
       type: ${var.scheduler_definition_schedule_type}
-
 ---
-
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: MaintenanceWindow
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/schedulerdefinition
   labels:
     testing.upbound.io/example-name: test_maintenance_window
   name: test-maintenance-window
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

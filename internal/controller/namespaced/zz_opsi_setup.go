@@ -12,7 +12,6 @@ import (
 	awrhub "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/awrhub"
 	awrhubsource "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/awrhubsource"
 	awrhubsourceawrhubsourcesmanagement "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/awrhubsourceawrhubsourcesmanagement"
-	chargebackplan "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/chargebackplan"
 	databaseinsight "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/databaseinsight"
 	enterprisemanagerbridge "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/enterprisemanagerbridge"
 	exadatainsight "github.com/oracle/provider-oci/internal/controller/namespaced/opsi/exadatainsight"
@@ -33,7 +32,6 @@ func Setup_opsi(mgr ctrl.Manager, o controller.Options) error {
 		awrhub.Setup,
 		awrhubsource.Setup,
 		awrhubsourceawrhubsourcesmanagement.Setup,
-		chargebackplan.Setup,
 		databaseinsight.Setup,
 		enterprisemanagerbridge.Setup,
 		exadatainsight.Setup,
@@ -60,7 +58,6 @@ func SetupGated_opsi(mgr ctrl.Manager, o controller.Options) error {
 		awrhub.SetupGated,
 		awrhubsource.SetupGated,
 		awrhubsourceawrhubsourcesmanagement.SetupGated,
-		chargebackplan.SetupGated,
 		databaseinsight.SetupGated,
 		enterprisemanagerbridge.SetupGated,
 		exadatainsight.SetupGated,

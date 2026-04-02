@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SensitiveDataModel
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/sensitivedatamodel
   labels:
     testing.upbound.io/example-name: test_sensitive_data_model
   name: test-sensitive-data-model
+  namespace: crossplane-system
 spec:
   forProvider:
     appSuiteName: ${var.sensitive_data_model_app_suite_name}

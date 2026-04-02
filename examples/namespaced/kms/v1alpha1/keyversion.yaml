@@ -1,13 +1,13 @@
+---
 apiVersion: kms.oci.m.upbound.io/v1alpha1
 kind: KeyVersion
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: keyversion_label_1
   name: keyversion1
+  namespace: crossplane-system
 spec:
   forProvider:
-    # ref: https://registry.terraform.io/providers/oracle/oci/7.27.0/docs/resources/kms_key_version
     keyIdSelector:
       matchLabels:
         testing.upbound.io/example-name: key_label_1

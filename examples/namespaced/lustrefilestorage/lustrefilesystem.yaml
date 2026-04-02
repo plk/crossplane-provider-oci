@@ -1,12 +1,13 @@
+---
 apiVersion: lustrefilestorage.oci.m.upbound.io/v1alpha1
 kind: LustreFileSystem
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: test_lustre_file_system_import_job
   name: test-lustre-file-system-import-job
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -31,18 +32,16 @@ spec:
     subnetIdSelector:
       matchLabels:
         testing.upbound.io/example-name: my_subnet
-
 ---
-
 apiVersion: clusterplacementgroups.oci.m.upbound.io/v1alpha1
 kind: ClusterPlacementGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: test_cpg
   name: test-cpg
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -52,18 +51,16 @@ spec:
         testing.upbound.io/example-name: example
     description: cpg for lustre file system
     name: test_cpg
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: my_route_table
   name: my-route-table
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -73,18 +70,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: my_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: SecurityList
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: my_security_list
   name: my-security-list
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -95,7 +90,7 @@ spec:
     - destination: 0.0.0.0/0
       protocol: all
     ingressSecurityRules:
-    - protocol: "6"
+    - protocol: '6'
       source: 0.0.0.0/0
       tcpOptions:
       - max: 22
@@ -107,23 +102,21 @@ spec:
       source: 0.0.0.0/0
     - protocol: 1
       source: 10.0.0.0/16
-    - protocol: "6"
+    - protocol: '6'
       source: 10.0.0.0/16
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: my_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: my_subnet
   name: my-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domain.ad.name}
@@ -142,18 +135,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: my_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: lustrefilestorage/v1alpha1/lustrefilesystem
   labels:
     testing.upbound.io/example-name: my_vcn
   name: my-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: ${var.my_vcn-cidr}

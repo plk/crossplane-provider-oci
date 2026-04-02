@@ -164,7 +164,7 @@ spec:
                       is the default.
                     type: boolean
                   status:
-                    description: (Updatable) Status of Cloud Guard tenant
+                    description: (Updatable) Partner service status
                     type: string
                 type: object
               initProvider:
@@ -269,7 +269,7 @@ spec:
                       is the default.
                     type: boolean
                   status:
-                    description: (Updatable) Status of Cloud Guard tenant
+                    description: (Updatable) Partner service status
                     type: string
                 type: object
               managementPolicies:
@@ -388,7 +388,7 @@ spec:
                       is the default.
                     type: boolean
                   status:
-                    description: (Updatable) Status of Cloud Guard tenant
+                    description: (Updatable) Partner service status
                     type: string
                 type: object
               conditions:

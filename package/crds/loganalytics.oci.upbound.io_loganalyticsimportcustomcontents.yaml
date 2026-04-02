@@ -92,8 +92,7 @@ spec:
                       content if a conflict is found during import content operation.
                     type: boolean
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               initProvider:
@@ -126,8 +125,7 @@ spec:
                       content if a conflict is found during import content operation.
                     type: boolean
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                 type: object
               managementPolicies:
@@ -309,8 +307,7 @@ spec:
                       content if a conflict is found during import content operation.
                     type: boolean
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   parserNames:
                     description: The parser names.

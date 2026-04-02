@@ -297,19 +297,6 @@ type InstancePoolPlacementConfigurationsInitParameters struct {
 	// (Updatable) The availability domain to place instances.  Example: Uocm:PHX-AD-1
 	AvailabilityDomain *string `json:"availabilityDomain,omitempty" tf:"availability_domain,omitempty"`
 
-	// The OCID of the compute cluster that the instance will be created in.
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/namespaced/compute/v1alpha1.ComputeCluster
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
-	ComputeClusterID *string `json:"computeClusterId,omitempty" tf:"compute_cluster_id,omitempty"`
-
-	// Reference to a ComputeCluster in compute to populate computeClusterId.
-	// +kubebuilder:validation:Optional
-	ComputeClusterIDRef *v1.NamespacedReference `json:"computeClusterIdRef,omitempty" tf:"-"`
-
-	// Selector for a ComputeCluster in compute to populate computeClusterId.
-	// +kubebuilder:validation:Optional
-	ComputeClusterIDSelector *v1.NamespacedSelector `json:"computeClusterIdSelector,omitempty" tf:"-"`
-
 	// (Updatable) The fault domains to place instances.
 	FaultDomains []*string `json:"faultDomains,omitempty" tf:"fault_domains,omitempty"`
 
@@ -338,9 +325,6 @@ type InstancePoolPlacementConfigurationsObservation struct {
 	// (Updatable) The availability domain to place instances.  Example: Uocm:PHX-AD-1
 	AvailabilityDomain *string `json:"availabilityDomain,omitempty" tf:"availability_domain,omitempty"`
 
-	// The OCID of the compute cluster that the instance will be created in.
-	ComputeClusterID *string `json:"computeClusterId,omitempty" tf:"compute_cluster_id,omitempty"`
-
 	// (Updatable) The fault domains to place instances.
 	FaultDomains []*string `json:"faultDomains,omitempty" tf:"fault_domains,omitempty"`
 
@@ -359,20 +343,6 @@ type InstancePoolPlacementConfigurationsParameters struct {
 	// (Updatable) The availability domain to place instances.  Example: Uocm:PHX-AD-1
 	// +kubebuilder:validation:Optional
 	AvailabilityDomain *string `json:"availabilityDomain" tf:"availability_domain,omitempty"`
-
-	// The OCID of the compute cluster that the instance will be created in.
-	// +crossplane:generate:reference:type=github.com/oracle/provider-oci/apis/namespaced/compute/v1alpha1.ComputeCluster
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/v2/pkg/resource.ExtractResourceID()
-	// +kubebuilder:validation:Optional
-	ComputeClusterID *string `json:"computeClusterId,omitempty" tf:"compute_cluster_id,omitempty"`
-
-	// Reference to a ComputeCluster in compute to populate computeClusterId.
-	// +kubebuilder:validation:Optional
-	ComputeClusterIDRef *v1.NamespacedReference `json:"computeClusterIdRef,omitempty" tf:"-"`
-
-	// Selector for a ComputeCluster in compute to populate computeClusterId.
-	// +kubebuilder:validation:Optional
-	ComputeClusterIDSelector *v1.NamespacedSelector `json:"computeClusterIdSelector,omitempty" tf:"-"`
 
 	// (Updatable) The fault domains to place instances.
 	// +kubebuilder:validation:Optional

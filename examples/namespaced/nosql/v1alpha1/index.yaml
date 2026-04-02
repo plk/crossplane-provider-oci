@@ -1,10 +1,11 @@
+---
 apiVersion: nosql.oci.m.upbound.io/v1alpha1
 kind: Index
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: index_label_1
   name: index1
+  namespace: crossplane-system
 spec:
   forProvider:
     keys:

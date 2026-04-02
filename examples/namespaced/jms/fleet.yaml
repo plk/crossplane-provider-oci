@@ -1,12 +1,13 @@
+---
 apiVersion: jms.oci.m.upbound.io/v1alpha1
 kind: Fleet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: jms/v1alpha1/fleet
   labels:
     testing.upbound.io/example-name: example_fleet
   name: example-fleet
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

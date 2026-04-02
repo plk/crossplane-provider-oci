@@ -1,12 +1,13 @@
+---
 apiVersion: apmsynthetics.oci.m.upbound.io/v1alpha1
 kind: DedicatedVantagePoint
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmsynthetics/v1alpha1/dedicatedvantagepoint
   labels:
     testing.upbound.io/example-name: test_dedicated_vantage_point
   name: test-dedicated-vantage-point
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainId: ${var.apm_domain_id}

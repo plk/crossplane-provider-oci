@@ -1,12 +1,13 @@
+---
 apiVersion: apmconfig.oci.m.upbound.io/v1alpha1
 kind: Config
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmconfig/v1alpha1/config
   labels:
     testing.upbound.io/example-name: test_config
   name: test-config
+  namespace: crossplane-system
 spec:
   forProvider:
     apmDomainIdSelector:
@@ -17,18 +18,16 @@ spec:
     displayName: ${var.config_display_name}
     filterText: ${var.config_filter_text}
     freeformTags: ${var.config_freeform_tags}
-
 ---
-
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apmconfig/v1alpha1/config
   labels:
     testing.upbound.io/example-name: test_apm_domain
   name: test-apm-domain
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

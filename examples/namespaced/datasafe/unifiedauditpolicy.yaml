@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: UnifiedAuditPolicy
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/unifiedauditpolicy
   labels:
     testing.upbound.io/example-name: test_unified_audit_policy
   name: test-unified-audit-policy
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

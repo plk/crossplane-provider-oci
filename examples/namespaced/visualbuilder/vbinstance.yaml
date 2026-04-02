@@ -1,12 +1,13 @@
+---
 apiVersion: visualbuilder.oci.m.upbound.io/v1alpha1
 kind: VbInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: visualbuilder/v1alpha1/vbinstance
   labels:
     testing.upbound.io/example-name: test_vb_instance_acl
   name: test-vb-instance-acl
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -17,11 +18,11 @@ spec:
     idcsOpenIdSecretRef:
       key: example-key
       name: example-secret
-    isVisualBuilderEnabled: "true"
+    isVisualBuilderEnabled: 'true'
     networkEndpointDetails:
     - allowlistedHttpIps: ${var.vb_instance_network_endpoint_details_allowlisted_http_ips}
       allowlistedHttpVcns:
       - allowlistedIpCidrs: ${var.vb_instance_network_endpoint_details_allowlisted_http_vcns_allowlisted_ip_cidrs}
         id: ${var.vb_instance_network_endpoint_details_allowlisted_http_vcns_id}
       networkEndpointType: ${var.vb_instance_network_endpoint_details_network_endpoint_type}
-    nodeCount: "1"
+    nodeCount: '1'

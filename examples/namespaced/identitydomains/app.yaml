@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: App
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/app
   labels:
     testing.upbound.io/example-name: test_app
   name: test-app
+  namespace: crossplane-system
 spec:
   forProvider:
     accessTokenExpiry: ${var.app_access_token_expiry}
@@ -21,8 +22,7 @@ spec:
       value: ${var.app_allowed_tags_value}
     appIcon: ${var.app_app_icon}
     appThumbnail: ${var.app_app_thumbnail}
-    attrRenderingmetadata:
-  namespace: crossplane-system
+    attrRenderingMetadata:
     - datatype: ${var.app_attr_rendering_metadata_datatype}
       helptext: ${var.app_attr_rendering_metadata_helptext}
       label: ${var.app_attr_rendering_metadata_label}
@@ -40,7 +40,7 @@ spec:
       widget: ${var.app_attr_rendering_metadata_widget}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     audience: ${var.app_audience}
     authorization: ${var.app_authorization}
     basedOnTemplate:
@@ -189,7 +189,7 @@ spec:
     urnietfparamsscimschemasoracleidcsextensionradiusAppApp:
     - captureClientIp: ${var.app_urnietfparamsscimschemasoracleidcsextensionradius_app_app_capture_client_ip}
       clientIp: ${var.app_urnietfparamsscimschemasoracleidcsextensionradius_app_app_client_ip}
-      countryCodeResponseAttributeId: "1"
+      countryCodeResponseAttributeId: '1'
       endUserIpAttribute: ${var.app_urnietfparamsscimschemasoracleidcsextensionradius_app_app_end_user_ip_attribute}
       groupMembershipRadiusAttribute: ${var.app_urnietfparamsscimschemasoracleidcsextensionradius_app_app_group_membership_radius_attribute}
       groupNameFormat: ${var.app_urnietfparamsscimschemasoracleidcsextensionradius_app_app_group_name_format}

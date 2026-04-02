@@ -1,10 +1,11 @@
+---
 apiVersion: apm.oci.m.upbound.io/v1alpha1
 kind: ApmDomain
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: apmdomain_label_1
   name: apmdomain1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

@@ -1,13 +1,14 @@
+---
 apiVersion: compute.oci.m.upbound.io/v1alpha1
 kind: InstanceMaintenanceEvent
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: instancemaintenanceevent_label_1
   name: instancemaintenanceevent1
+  namespace: crossplane-system
 spec:
   forProvider:
     canDeleteLocalStorage: true
     displayName: instancemaintenanceevent1
     instanceMaintenanceEventId: ${INSTANCEMAINTENANCEEVENT_ID}
-    timeWindowStart: "2026-01-01T23:00:00Z"
+    timeWindowStart: 2026-01-01T23:00:00Z

@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: RunbookVersion
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/runbookversion
   labels:
     testing.upbound.io/example-name: test_runbook_version
   name: test-runbook-version
+  namespace: crossplane-system
 spec:
   forProvider:
     definedTags: ${var.defined_tags}
@@ -85,9 +86,9 @@ spec:
       stepProperties:
       - actionOnFailure: ABORT
         notificationPreferences:
-        - shouldNotifyOnPause: "false"
-          shouldNotifyOnTaskFailure: "false"
-          shouldNotifyOnTaskSuccess: "false"
+        - shouldNotifyOnPause: 'false'
+          shouldNotifyOnTaskFailure: 'false'
+          shouldNotifyOnTaskSuccess: 'false'
         pauseDetails:
         - kind: USER_ACTION
         preCondition: target.product.name == "Oracle Weblogic Server"
@@ -99,9 +100,9 @@ spec:
         executionDetails:
         - command: pwd
           executionType: SCRIPT
-          isExecutableContent: "false"
-          isLocked: "false"
-          isReadOutputVariableEnabled: "false"
+          isExecutableContent: 'false'
+          isLocked: 'false'
+          isReadOutputVariableEnabled: 'false'
           variables:
           - inputVariables:
             - description: inputVarDescription
@@ -109,13 +110,13 @@ spec:
               type: STRING
             outputVariables:
             - outputVariables
-        isApplySubjectTask: "false"
-        isCopyToLibraryEnabled: "false"
-        isDiscoveryOutputTask: "false"
+        isApplySubjectTask: 'false'
+        isCopyToLibraryEnabled: 'false'
+        isDiscoveryOutputTask: 'false'
         name: name
         osType: WINDOWS
         platform: Oracle Fusion Middleware
         properties:
-        - numRetries: "10"
-          timeoutInSeconds: "10"
+        - numRetries: '10'
+          timeoutInSeconds: '10'
         scope: LOCAL

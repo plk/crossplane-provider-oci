@@ -1,12 +1,13 @@
+---
 apiVersion: securityattribute.oci.m.upbound.io/v1alpha1
 kind: SecurityAttribute
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: securityattribute/v1alpha1/securityattribute
   labels:
     testing.upbound.io/example-name: test_security_attribute
   name: test-security-attribute
+  namespace: crossplane-system
 spec:
   forProvider:
     description: ${var.security_attribute_description}

@@ -1,12 +1,13 @@
+---
 apiVersion: cloudbridge.oci.m.upbound.io/v1alpha1
 kind: Environment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudbridge/v1alpha1/environment
   labels:
     testing.upbound.io/example-name: test_environment
   name: test-environment
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

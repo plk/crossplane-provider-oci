@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: VmClusterNetwork
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/vmclusternetwork
   labels:
     testing.upbound.io/example-name: test_vm_cluster_network
   name: test-vm-cluster-network
+  namespace: crossplane-system
 spec:
   forProvider:
     action: ADD_DBSERVER_NETWORK
@@ -50,7 +51,7 @@ spec:
       - dbServerId: ${data.oci_database_db_servers.test_db_servers.db_servers.1.id}
         hostname: backuphostname-q3rhi2
         ip: 192.161.13.3
-      vlanId: "232"
+      vlanId: '232'
     - domainName: oracle.com
       gateway: 192.163.10.3
       netmask: 255.255.224.0
@@ -66,7 +67,7 @@ spec:
         ip: 192.163.10.6
         vip: 192.163.10.7
         vipHostname: clienthostname-igrik2-vip
-      vlanId: "324"
+      vlanId: '324'
     - domainName: drdomainname.com
       gateway: 255.255.248.1
       netmask: 255.255.248.0
@@ -82,19 +83,17 @@ spec:
         ip: 255.255.248.4
         vip: 255.255.248.5
         vipHostname: drhostname-csuct2-vip
-      vlanId: "262"
-
+      vlanId: '262'
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: ExadataInfrastructure
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/vmclusternetwork
   labels:
     testing.upbound.io/example-name: test_exadata_infrastructure
   name: test-exadata-infrastructure
+  namespace: crossplane-system
 spec:
   forProvider:
     activationFile: activation.zip
@@ -107,9 +106,9 @@ spec:
     computeCount: 2
     contacts:
     - email: testuser2@testdomain.com
-      isPrimary: "true"
+      isPrimary: 'true'
       name: name
-      phoneNumber: "1234567891"
+      phoneNumber: '1234567891'
     corporateProxy: http://192.168.19.1:80
     displayName: tstExaInfra
     dnsServer:
@@ -123,7 +122,7 @@ spec:
       daysOfWeek:
       - name: TUESDAY
       hoursOfDay:
-      - "4"
+      - '4'
       isCustomActionTimeoutEnabled: true
       leadTimeInWeeks: 2
       months:
@@ -134,7 +133,7 @@ spec:
       patchingMode: ROLLING
       preference: CUSTOM_PREFERENCE
       weeksOfMonth:
-      - "2"
+      - '2'
     netmask: 255.255.255.0
     networkBondingModeDetails:
     - backupNetworkBondingMode: ACTIVE_BACKUP

@@ -1,12 +1,13 @@
+---
 apiVersion: datasafe.oci.m.upbound.io/v1alpha1
 kind: SecurityPolicyDeploymentManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: datasafe/v1alpha1/securitypolicydeploymentmanagement
   labels:
     testing.upbound.io/example-name: test_security_policy_deployment_management
   name: test-security-policy-deployment-management
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

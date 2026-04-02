@@ -1,12 +1,13 @@
+---
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: AutonomousDatabaseSaasAdminUser
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousdatabasesaasadminuser
   labels:
     testing.upbound.io/example-name: test_saas_admin_user
   name: test-saas-admin-user
+  namespace: crossplane-system
 spec:
   forProvider:
     accessType: READ_WRITE
@@ -17,18 +18,16 @@ spec:
     passwordSecretRef:
       key: example-key
       name: example-secret
-
 ---
-
 apiVersion: database.oci.m.upbound.io/v1alpha1
 kind: AutonomousDatabase
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: database/v1alpha1/autonomousdatabasesaasadminuser
   labels:
     testing.upbound.io/example-name: test_autonomous_database
   name: test-autonomous-database
+  namespace: crossplane-system
 spec:
   forProvider:
     adminPasswordSecretRef:
@@ -37,8 +36,8 @@ spec:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: example
-    cpuCoreCount: "1"
-    dataStorageSizeInTbs: "1"
+    cpuCoreCount: '1'
+    dataStorageSizeInTbs: '1'
     dbName: Xsk5djnfdl23423
     dbVersion: 19c
     dbWorkload: AJD

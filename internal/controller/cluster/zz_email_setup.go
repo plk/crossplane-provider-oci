@@ -11,7 +11,6 @@ import (
 
 	dkim "github.com/oracle/provider-oci/internal/controller/cluster/email/dkim"
 	emaildomain "github.com/oracle/provider-oci/internal/controller/cluster/email/emaildomain"
-	emailippool "github.com/oracle/provider-oci/internal/controller/cluster/email/emailippool"
 	emailreturnpath "github.com/oracle/provider-oci/internal/controller/cluster/email/emailreturnpath"
 	sender "github.com/oracle/provider-oci/internal/controller/cluster/email/sender"
 	suppression "github.com/oracle/provider-oci/internal/controller/cluster/email/suppression"
@@ -23,7 +22,6 @@ func Setup_email(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		dkim.Setup,
 		emaildomain.Setup,
-		emailippool.Setup,
 		emailreturnpath.Setup,
 		sender.Setup,
 		suppression.Setup,
@@ -41,7 +39,6 @@ func SetupGated_email(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		dkim.SetupGated,
 		emaildomain.SetupGated,
-		emailippool.SetupGated,
 		emailreturnpath.SetupGated,
 		sender.SetupGated,
 		suppression.SetupGated,

@@ -1,12 +1,13 @@
+---
 apiVersion: containerinstances.oci.m.upbound.io/v1alpha1
 kind: ContainerInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: containerinstances/v1alpha1/containerinstance
   labels:
     testing.upbound.io/example-name: test_container_instance
   name: test-container-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     availabilityDomain: ${data.oci_identity_availability_domains.test_availability_domains.availability_domains.2.name}
@@ -25,23 +26,23 @@ spec:
         environment: variable
       healthChecks:
       - failureAction: KILL
-        failureThreshold: "10"
+        failureThreshold: '10'
         headers:
         - name: name
           value: value
         healthCheckType: HTTP
-        initialDelayInSeconds: "10"
-        intervalInSeconds: "10"
+        initialDelayInSeconds: '10'
+        intervalInSeconds: '10'
         name: name
         path: path
-        port: "10"
-        successThreshold: "1"
-        timeoutInSeconds: "10"
+        port: '10'
+        successThreshold: '1'
+        timeoutInSeconds: '10'
       imageUrl: busybox
-      isResourcePrincipalDisabled: "false"
+      isResourcePrincipalDisabled: 'false'
       resourceConfig:
-      - memoryLimitInGbs: "1.0"
-        vcpusLimit: "1.0"
+      - memoryLimitInGbs: '1.0'
+        vcpusLimit: '1.0'
       securityContext:
       - capabilities:
         - addCapabilities:
@@ -55,9 +56,9 @@ spec:
         runAsUser: 10
         securityContextType: LINUX
       volumeMounts:
-      - isReadOnly: "false"
+      - isReadOnly: 'false'
         mountPath: /mnt
-        partition: "10"
+        partition: '10'
         subPath: /subPath
         volumeName: volumeName1
       - mountPath: /mnt
@@ -74,11 +75,11 @@ spec:
       - search domain
     freeformTags:
       bar-key: foo-value
-    gracefulShutdownTimeoutInSeconds: "10"
+    gracefulShutdownTimeoutInSeconds: '10'
     shape: CI.Standard.E4.Flex
     shapeConfig:
-    - memoryInGbs: "8"
-      ocpus: "4"
+    - memoryInGbs: '8'
+      ocpus: '4'
     state: ACTIVE
     vnics:
     - definedTags: ${map("tf_test_namespace.test_tag", "value")}
@@ -86,10 +87,10 @@ spec:
       freeformTags:
         freeformTag: freeformTags
       hostnameLabel: hostnamelabel
-      isPublicIpAssigned: "true"
+      isPublicIpAssigned: 'true'
       nsgIds: []
       privateIp: 10.0.0.7
-      skipSourceDestCheck: "false"
+      skipSourceDestCheck: 'false'
       subnetIdSelector:
         matchLabels:
           testing.upbound.io/example-name: test_subnet
@@ -102,18 +103,16 @@ spec:
         fileName: my_file
       name: volumeName2
       volumeType: CONFIGFILE
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: InternetGateway
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: containerinstances/v1alpha1/containerinstance
   labels:
     testing.upbound.io/example-name: test_ig
   name: test-ig
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -122,18 +121,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: RouteTable
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: containerinstances/v1alpha1/containerinstance
   labels:
     testing.upbound.io/example-name: test_route_table
   name: test-route-table
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -147,18 +144,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Subnet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: containerinstances/v1alpha1/containerinstance
   labels:
     testing.upbound.io/example-name: test_subnet
   name: test-subnet
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/24
@@ -174,18 +169,16 @@ spec:
     vcnIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_vcn
-
 ---
-
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: Vcn
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: containerinstances/v1alpha1/containerinstance
   labels:
     testing.upbound.io/example-name: test_vcn
   name: test-vcn
+  namespace: crossplane-system
 spec:
   forProvider:
     cidrBlock: 10.0.0.0/16

@@ -1,12 +1,13 @@
+---
 apiVersion: capacitymanagement.oci.m.upbound.io/v1alpha1
 kind: OccCustomerGroup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: capacitymanagement/v1alpha1/occcustomergroup
   labels:
     testing.upbound.io/example-name: test_occ_customer_group
   name: test-occ-customer-group
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

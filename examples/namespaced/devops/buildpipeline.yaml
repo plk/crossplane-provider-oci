@@ -1,12 +1,13 @@
+---
 apiVersion: devops.oci.m.upbound.io/v1alpha1
 kind: BuildPipeline
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/buildpipeline
   labels:
     testing.upbound.io/example-name: test_build_pipeline
   name: test-build-pipeline
+  namespace: crossplane-system
 spec:
   forProvider:
     buildPipelineParameters:
@@ -19,18 +20,16 @@ spec:
     projectIdSelector:
       matchLabels:
         testing.upbound.io/example-name: test_project
-
 ---
-
 apiVersion: ons.oci.m.upbound.io/v1alpha1
 kind: NotificationTopic
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: devops/v1alpha1/buildpipeline
   labels:
     testing.upbound.io/example-name: test_notification_topic
   name: test-notification-topic
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

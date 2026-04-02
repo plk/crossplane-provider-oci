@@ -1,12 +1,13 @@
+---
 apiVersion: osmanagementhub.oci.m.upbound.io/v1alpha1
 kind: ProfileAttachManagedInstanceGroupManagement
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: osmanagementhub/v1alpha1/profileattachmanagedinstancegroupmanagement
   labels:
     testing.upbound.io/example-name: test_profile_attach_managed_instance_group_management
   name: test-profile-attach-managed-instance-group-management
+  namespace: crossplane-system
 spec:
   forProvider:
     managedInstanceGroupIdSelector:

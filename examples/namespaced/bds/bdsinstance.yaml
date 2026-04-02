@@ -1,12 +1,13 @@
+---
 apiVersion: bds.oci.m.upbound.io/v1alpha1
 kind: BdsInstance
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: bds/v1alpha1/bdsinstance
   labels:
     testing.upbound.io/example-name: test_bds_instance
   name: test-bds-instance
+  namespace: crossplane-system
 spec:
   forProvider:
     bootstrapScriptUrl: https://objectstorage.us-ashburn-1.oraclecloud.com/p/Lk5JT9tnUIOG4yLm6S21QVR7m3Rm2uj1RAS2Olx5v14onLU2Y-b0lIc_N0RuUIge/n/idpbwtq1b3ta/b/bucket-20230214-1316/o/execute_bootstrap_script.sh

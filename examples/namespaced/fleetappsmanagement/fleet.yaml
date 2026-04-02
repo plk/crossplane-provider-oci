@@ -1,12 +1,13 @@
+---
 apiVersion: fleetappsmanagement.oci.m.upbound.io/v1alpha1
 kind: Fleet
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: fleetappsmanagement/v1alpha1/fleet
   labels:
     testing.upbound.io/example-name: test_fleet
   name: test-fleet
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -46,24 +47,24 @@ spec:
     environmentType: Stage
     freeformTags:
       Department: Accounting
-    isTargetAutoConfirm: "true"
+    isTargetAutoConfirm: 'true'
     notificationPreferences:
     - compartmentId: ${var.compartment_id}
       preferences:
-      - onJobCanceled: "true"
-        onJobFailure: "true"
-        onJobScheduleChange: "true"
-        onJobStart: "true"
-        onJobSuccess: "true"
-        onResourceNonCompliance: "true"
-        onRunbookNewerVersion: "true"
-        onTaskFailure: "true"
-        onTaskPause: "true"
-        onTaskSuccess: "true"
-        onTopologyModification: "true"
+      - onJobCanceled: 'true'
+        onJobFailure: 'true'
+        onJobScheduleChange: 'true'
+        onJobStart: 'true'
+        onJobSuccess: 'true'
+        onResourceNonCompliance: 'true'
+        onRunbookNewerVersion: 'true'
+        onTaskFailure: 'true'
+        onTaskPause: 'true'
+        onTaskSuccess: 'true'
+        onTopologyModification: 'true'
         upcomingSchedule:
         - notifyBefore: notifyBefore2
-          onUpcomingSchedule: "true"
+          onUpcomingSchedule: 'true'
       topicId: ${var.oci_ons_notification_topic}
     resourceSelection:
     - resourceSelectionType: DYNAMIC
@@ -72,7 +73,7 @@ spec:
         rules:
         - basis: inventoryProperties
           compartmentId: ${var.tenancy_id}
-          compartmentIdInSubtree: "true"
+          compartmentIdInSubtree: 'true'
           conditions:
           - attrGroup: Instance
             attrKey: shape

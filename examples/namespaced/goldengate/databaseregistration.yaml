@@ -1,12 +1,13 @@
+---
 apiVersion: goldengate.oci.m.upbound.io/v1alpha1
 kind: DatabaseRegistration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: goldengate/v1alpha1/databaseregistration
   labels:
     testing.upbound.io/example-name: test_database_registration
   name: test-database-registration
+  namespace: crossplane-system
 spec:
   forProvider:
     aliasName: ${var.database_registration_alias_name}

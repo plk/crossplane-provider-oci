@@ -267,29 +267,8 @@ type CloudVmClusterInitParameters struct {
 	// The time zone to use for the cloud VM cluster. For details, see Time Zones.
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
-}
-
-type CloudVmClusterMultiCloudIdentityConnectorConfigsInitParameters struct {
-}
-
-type CloudVmClusterMultiCloudIdentityConnectorConfigsObservation struct {
-
-	// Cloud provider
-	CloudProvider *string `json:"cloudProvider,omitempty" tf:"cloud_provider,omitempty"`
-
-	// The OCID of the cloud VM cluster.
-	ID *string `json:"id,omitempty" tf:"id,omitempty"`
-}
-
-type CloudVmClusterMultiCloudIdentityConnectorConfigsParameters struct {
 }
 
 type CloudVmClusterObservation struct {
@@ -396,7 +375,7 @@ type CloudVmClusterObservation struct {
 	MemorySizeInGbs *float64 `json:"memorySizeInGbs,omitempty" tf:"memory_size_in_gbs,omitempty"`
 
 	// Details of the multi cloud identity connectors of the VM cluster.
-	MultiCloudIdentityConnectorConfigs []CloudVmClusterMultiCloudIdentityConnectorConfigsObservation `json:"multiCloudIdentityConnectorConfigs,omitempty" tf:"multi_cloud_identity_connector_configs,omitempty"`
+	MultiCloudIdentityConnectorConfigs []MultiCloudIdentityConnectorConfigsObservation `json:"multiCloudIdentityConnectorConfigs,omitempty" tf:"multi_cloud_identity_connector_configs,omitempty"`
 
 	// The number of nodes in the cloud VM cluster.
 	NodeCount *float64 `json:"nodeCount,omitempty" tf:"node_count,omitempty"`
@@ -470,14 +449,8 @@ type CloudVmClusterObservation struct {
 	// The time zone to use for the cloud VM cluster. For details, see Time Zones.
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
 
 	// The OCID of the virtual IP (VIP) IPv4 addresses associated with the cloud VM cluster. The Cluster Ready Services (CRS) creates and maintains one VIP IPv4 address for each node in the Exadata Cloud Service instance to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
 	VipIds []*string `json:"vipIds,omitempty" tf:"vip_ids,omitempty"`
@@ -702,17 +675,9 @@ type CloudVmClusterParameters struct {
 	// +kubebuilder:validation:Optional
 	TimeZone *string `json:"timeZone,omitempty" tf:"time_zone,omitempty"`
 
-	// (Updatable) Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
-	// +kubebuilder:validation:Optional
-	VMBackupStorageType *string `json:"vmBackupStorageType,omitempty" tf:"vm_backup_storage_type,omitempty"`
-
 	// The vmcluster type for the VM cluster/Cloud VM cluster.
 	// +kubebuilder:validation:Optional
 	VMClusterType *string `json:"vmClusterType,omitempty" tf:"vm_cluster_type,omitempty"`
-
-	// Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
-	// +kubebuilder:validation:Optional
-	VMFileSystemStorageType *string `json:"vmFileSystemStorageType,omitempty" tf:"vm_file_system_storage_type,omitempty"`
 }
 
 type DBPlansInitParameters struct {
@@ -849,6 +814,21 @@ type IormConfigCacheObservation struct {
 }
 
 type IormConfigCacheParameters struct {
+}
+
+type MultiCloudIdentityConnectorConfigsInitParameters struct {
+}
+
+type MultiCloudIdentityConnectorConfigsObservation struct {
+
+	// Cloud provider
+	CloudProvider *string `json:"cloudProvider,omitempty" tf:"cloud_provider,omitempty"`
+
+	// The OCID of the cloud VM cluster.
+	ID *string `json:"id,omitempty" tf:"id,omitempty"`
+}
+
+type MultiCloudIdentityConnectorConfigsParameters struct {
 }
 
 // CloudVmClusterSpec defines the desired state of CloudVmCluster

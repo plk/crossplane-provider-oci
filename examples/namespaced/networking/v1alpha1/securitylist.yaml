@@ -1,10 +1,11 @@
+---
 apiVersion: networking.oci.m.upbound.io/v1alpha1
 kind: SecurityList
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: securitylist_label_1
   name: securitylist1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -15,23 +16,23 @@ spec:
     - destination: 0.0.0.0/0
       protocol: all
     ingressSecurityRules:
-    - protocol: "6"
+    - protocol: '6'
       source: 10.0.0.0/16
       tcpOptions:
       - max: 2050
         min: 2048
-    - protocol: "6"
+    - protocol: '6'
       source: 10.0.0.0/16
       tcpOptions:
       - sourcePortRange:
         - max: 2050
           min: 2048
-    - protocol: "6"
+    - protocol: '6'
       source: 10.0.0.0/16
       tcpOptions:
       - max: 111
         min: 111
-    - protocol: "6"
+    - protocol: '6'
       source: 0.0.0.0/0
       tcpOptions:
       - max: 22

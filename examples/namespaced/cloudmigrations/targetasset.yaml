@@ -1,12 +1,13 @@
+---
 apiVersion: cloudmigrations.oci.m.upbound.io/v1alpha1
 kind: TargetAsset
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: cloudmigrations/v1alpha1/targetasset
   labels:
     testing.upbound.io/example-name: test_target_asset
   name: test-target-asset
+  namespace: crossplane-system
 spec:
   forProvider:
     blockVolumesPerformance: ${var.target_asset_block_volumes_performance}

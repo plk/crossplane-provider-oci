@@ -47,7 +47,7 @@ type VcnInitParameters struct {
 	// The list of BYOIPv6 OCIDs and BYOIPv6 prefixes required to create a VCN that uses BYOIPv6 address ranges.
 	Byoipv6CidrDetails []Byoipv6CidrDetailsInitParameters `json:"byoipv6cidrDetails,omitempty" tf:"byoipv6cidr_details,omitempty"`
 
-	// Deprecated. Do not set this value. Use cidrBlocks instead. Example: 10.0.0.0/16
+	// Deprecated. Do not set this value. Use cidr_blocks instead. Example: 10.0.0.0/16
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// (Updatable) The list of one or more IPv4 CIDR blocks for the VCN that meet the following criteria:
@@ -102,7 +102,7 @@ type VcnObservation struct {
 	// The list of BYOIPv6 OCIDs and BYOIPv6 prefixes required to create a VCN that uses BYOIPv6 address ranges.
 	Byoipv6CidrDetails []Byoipv6CidrDetailsObservation `json:"byoipv6cidrDetails,omitempty" tf:"byoipv6cidr_details,omitempty"`
 
-	// Deprecated. Do not set this value. Use cidrBlocks instead. Example: 10.0.0.0/16
+	// Deprecated. Do not set this value. Use cidr_blocks instead. Example: 10.0.0.0/16
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// (Updatable) The list of one or more IPv4 CIDR blocks for the VCN that meet the following criteria:
@@ -170,7 +170,7 @@ type VcnParameters struct {
 	// +kubebuilder:validation:Optional
 	Byoipv6CidrDetails []Byoipv6CidrDetailsParameters `json:"byoipv6cidrDetails,omitempty" tf:"byoipv6cidr_details,omitempty"`
 
-	// Deprecated. Do not set this value. Use cidrBlocks instead. Example: 10.0.0.0/16
+	// Deprecated. Do not set this value. Use cidr_blocks instead. Example: 10.0.0.0/16
 	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 

@@ -1,12 +1,13 @@
+---
 apiVersion: bds.oci.m.upbound.io/v1alpha1
 kind: AutoScalingConfiguration
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: bds/v1alpha1/autoscalingconfiguration
   labels:
     testing.upbound.io/example-name: test_auto_scaling_configuration
   name: test-auto-scaling-configuration
+  namespace: crossplane-system
 spec:
   forProvider:
     bdsInstanceId: ${var.bds_instance_id}

@@ -1,12 +1,13 @@
+---
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: ExadataInsight
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/exadatainsight
   labels:
     testing.upbound.io/example-name: test_exadata_insight
   name: test-exadata-insight
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -31,6 +32,7 @@ spec:
           passwordSecretIdSecretRef:
             key: example-key
             name: example-secret
+            namespace: upbound-system
           role: ${var.credential_details_role}
           userName: ${var.user_name}
           walletSecretId: ${var.wallet_secret_id}

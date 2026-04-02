@@ -106,6 +106,11 @@ func (in *CreateFusionEnvironmentAdminUserDetailsInitParameters) DeepCopyInto(ou
 		*out = new(string)
 		**out = **in
 	}
+	if in.PasswordSecretRef != nil {
+		in, out := &in.PasswordSecretRef, &out.PasswordSecretRef
+		*out = new(v1.LocalSecretKeySelector)
+		**out = **in
+	}
 	if in.Username != nil {
 		in, out := &in.Username, &out.Username
 		*out = new(string)
@@ -174,6 +179,11 @@ func (in *CreateFusionEnvironmentAdminUserDetailsParameters) DeepCopyInto(out *C
 	if in.LastName != nil {
 		in, out := &in.LastName, &out.LastName
 		*out = new(string)
+		**out = **in
+	}
+	if in.PasswordSecretRef != nil {
+		in, out := &in.PasswordSecretRef, &out.PasswordSecretRef
+		*out = new(v1.LocalSecretKeySelector)
 		**out = **in
 	}
 	if in.Username != nil {
@@ -370,6 +380,11 @@ func (in *FusionEnvironmentAdminUserInitParameters) DeepCopyInto(out *FusionEnvi
 		*out = new(string)
 		**out = **in
 	}
+	if in.PasswordSecretRef != nil {
+		in, out := &in.PasswordSecretRef, &out.PasswordSecretRef
+		*out = new(v1.LocalSecretKeySelector)
+		**out = **in
+	}
 	if in.Username != nil {
 		in, out := &in.Username, &out.Username
 		*out = new(string)
@@ -502,6 +517,11 @@ func (in *FusionEnvironmentAdminUserParameters) DeepCopyInto(out *FusionEnvironm
 	if in.LastName != nil {
 		in, out := &in.LastName, &out.LastName
 		*out = new(string)
+		**out = **in
+	}
+	if in.PasswordSecretRef != nil {
+		in, out := &in.PasswordSecretRef, &out.PasswordSecretRef
+		*out = new(v1.LocalSecretKeySelector)
 		**out = **in
 	}
 	if in.Username != nil {

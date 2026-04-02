@@ -1,12 +1,13 @@
+---
 apiVersion: apiaccesscontrol.oci.m.upbound.io/v1alpha1
 kind: PrivilegedApiControl
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: apiaccesscontrol/v1alpha1/privilegedapicontrol
   labels:
     testing.upbound.io/example-name: test_privileged_api_control
   name: test-privileged-api-control
+  namespace: crossplane-system
 spec:
   forProvider:
     approverGroupIdList: ${var.privileged_api_control_approver_group_id_list}

@@ -1067,11 +1067,6 @@ func (in *CrossConnectInitParameters) DeepCopyInto(out *CrossConnectInitParamete
 			(*out)[key] = outVal
 		}
 	}
-	if in.InterfaceName != nil {
-		in, out := &in.InterfaceName, &out.InterfaceName
-		*out = new(string)
-		**out = **in
-	}
 	if in.IsActive != nil {
 		in, out := &in.IsActive, &out.IsActive
 		*out = new(bool)
@@ -1103,11 +1098,6 @@ func (in *CrossConnectInitParameters) DeepCopyInto(out *CrossConnectInitParamete
 		in, out := &in.NearCrossConnectOrCrossConnectGroupIDSelector, &out.NearCrossConnectOrCrossConnectGroupIDSelector
 		*out = new(v1.NamespacedSelector)
 		(*in).DeepCopyInto(*out)
-	}
-	if in.OciPhysicalDeviceName != nil {
-		in, out := &in.OciPhysicalDeviceName, &out.OciPhysicalDeviceName
-		*out = new(string)
-		**out = **in
 	}
 	if in.PortSpeedShapeName != nil {
 		in, out := &in.PortSpeedShapeName, &out.PortSpeedShapeName
@@ -1373,11 +1363,6 @@ func (in *CrossConnectObservation) DeepCopyInto(out *CrossConnectObservation) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.InterfaceName != nil {
-		in, out := &in.InterfaceName, &out.InterfaceName
-		*out = new(string)
-		**out = **in
-	}
 	if in.IsActive != nil {
 		in, out := &in.IsActive, &out.IsActive
 		*out = new(bool)
@@ -1532,11 +1517,6 @@ func (in *CrossConnectParameters) DeepCopyInto(out *CrossConnectParameters) {
 			(*out)[key] = outVal
 		}
 	}
-	if in.InterfaceName != nil {
-		in, out := &in.InterfaceName, &out.InterfaceName
-		*out = new(string)
-		**out = **in
-	}
 	if in.IsActive != nil {
 		in, out := &in.IsActive, &out.IsActive
 		*out = new(bool)
@@ -1568,11 +1548,6 @@ func (in *CrossConnectParameters) DeepCopyInto(out *CrossConnectParameters) {
 		in, out := &in.NearCrossConnectOrCrossConnectGroupIDSelector, &out.NearCrossConnectOrCrossConnectGroupIDSelector
 		*out = new(v1.NamespacedSelector)
 		(*in).DeepCopyInto(*out)
-	}
-	if in.OciPhysicalDeviceName != nil {
-		in, out := &in.OciPhysicalDeviceName, &out.OciPhysicalDeviceName
-		*out = new(string)
-		**out = **in
 	}
 	if in.PortSpeedShapeName != nil {
 		in, out := &in.PortSpeedShapeName, &out.PortSpeedShapeName

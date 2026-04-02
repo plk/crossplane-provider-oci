@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: ApprovalWorkflow
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflow
   labels:
     testing.upbound.io/example-name: test_approval_workflow
   name: test-approval-workflow
+  namespace: crossplane-system
 spec:
   forProvider:
     approvalWorkflowSteps:
@@ -18,7 +19,7 @@ spec:
           testing.upbound.io/example-name: test_approval_workflow_approval_workflow_step
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.approval_workflow_authorization}
     description: ${var.approval_workflow_description}
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
@@ -31,18 +32,16 @@ spec:
     tags:
     - key: ${var.approval_workflow_tags_key}
       value: ${var.approval_workflow_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: ApprovalWorkflowStep
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflow
   labels:
     testing.upbound.io/example-name: test_approval_workflow_approval_workflow_step
   name: test-approval-workflow-approval-workflow-step
+  namespace: crossplane-system
 spec:
   forProvider:
     approvers:
@@ -51,26 +50,24 @@ spec:
         matchLabels:
           testing.upbound.io/example-name: test_approval_workflow_user
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
-    order: "1"
+    order: '1'
     schemas:
     - urn:ietf:params:scim:schemas:oracle:idcs:ApprovalWorkflowStep
     type: regular
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: User
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflow
   labels:
     testing.upbound.io/example-name: test_approval_workflow_user
   name: test-approval-workflow-user
+  namespace: crossplane-system
 spec:
   forProvider:
     emails:
-    - primary: "true"
+    - primary: 'true'
       type: work
       value: value@email.com
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}

@@ -1,12 +1,13 @@
+---
 apiVersion: servicecatalog.oci.m.upbound.io/v1alpha1
 kind: PrivateApplication
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: servicecatalog/v1alpha1/privateapplication
   labels:
     testing.upbound.io/example-name: test_private_application
   name: test-private-application
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

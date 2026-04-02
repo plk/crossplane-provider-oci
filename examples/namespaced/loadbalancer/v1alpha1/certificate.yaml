@@ -1,13 +1,14 @@
+---
 apiVersion: loadbalancer.oci.m.upbound.io/v1alpha1
 kind: Certificate
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: certificate_label_1
   name: certificate1
+  namespace: crossplane-system
 spec:
   forProvider:
+    certificateName: certificate1
     loadBalancerIdSelector:
       matchLabels:
         testing.upbound.io/example-name: loadbalancer_label_1
-    certificateName: "certificate1"

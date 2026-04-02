@@ -1,12 +1,13 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: ApprovalWorkflowAssignment
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflowassignment
   labels:
     testing.upbound.io/example-name: test_approval_workflow_assignment
   name: test-approval-workflow-assignment
+  namespace: crossplane-system
 spec:
   forProvider:
     approvalWorkflow:
@@ -20,7 +21,7 @@ spec:
     assignmentType: ${var.approval_workflow_assignment_assignment_type}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.approval_workflow_assignment_authorization}
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
     schemas:
@@ -28,24 +29,22 @@ spec:
     tags:
     - key: ${var.approval_workflow_assignment_tags_key}
       value: ${var.approval_workflow_assignment_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: ApprovalWorkflow
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/approvalworkflowassignment
   labels:
     testing.upbound.io/example-name: test_approval_workflow_assignment_approval_workflow
   name: test-approval-workflow-assignment-approval-workflow
+  namespace: crossplane-system
 spec:
   forProvider:
     idcsEndpoint: ${data.oci_identity_domain.test_domain.url}
     maxDuration:
     - unit: MONTH
-      value: "1"
+      value: '1'
     name: test
     schemas:
     - urn:ietf:params:scim:schemas:oracle:idcs:ApprovalWorkflow

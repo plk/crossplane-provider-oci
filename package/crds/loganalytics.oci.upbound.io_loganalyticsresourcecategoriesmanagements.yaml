@@ -77,8 +77,7 @@ spec:
               forProvider:
                 properties:
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   resourceCategories:
                     description: The list of categories to be assigned to the resource.
@@ -109,8 +108,7 @@ spec:
                   autoscaler.
                 properties:
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   resourceCategories:
                     description: The list of categories to be assigned to the resource.
@@ -239,8 +237,7 @@ spec:
                   id:
                     type: string
                   namespace:
-                    description: The Log Analytics namespace used for the request.
-                      The namespace can be obtained by running 'oci os ns get'
+                    description: The Logging Analytics namespace used for the request.
                     type: string
                   resourceCategories:
                     description: The list of categories to be assigned to the resource.

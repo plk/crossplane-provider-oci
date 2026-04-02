@@ -1,16 +1,17 @@
+---
 apiVersion: integration.oci.m.upbound.io/v1alpha1
 kind: IntegrationInstance
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: integrationinstance_label_1
   name: integrationinstance1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
       matchLabels:
         testing.upbound.io/example-name: compartment_label_1
     displayName: integrationinstance1
-    integrationInstanceType: "STANDARDX"
+    integrationInstanceType: STANDARDX
     isByol: False
     messagePacks: 1

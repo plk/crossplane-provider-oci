@@ -1,12 +1,13 @@
+---
 apiVersion: demandsignal.oci.m.upbound.io/v1alpha1
 kind: OccDemandSignal
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: demandsignal/v1alpha1/occdemandsignal
   labels:
     testing.upbound.io/example-name: test_occ_demand_signal
   name: test-occ-demand-signal
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

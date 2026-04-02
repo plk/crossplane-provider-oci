@@ -1,12 +1,13 @@
+---
 apiVersion: bds.oci.m.upbound.io/v1alpha1
 kind: BdsInstanceNodeBackup
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: bds/v1alpha1/bdsinstancenodebackup
   labels:
     testing.upbound.io/example-name: test_bds_instance_node_backup
   name: test-bds-instance-node-backup
+  namespace: crossplane-system
 spec:
   forProvider:
     backupType: FULL

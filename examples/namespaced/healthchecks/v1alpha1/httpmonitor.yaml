@@ -1,10 +1,11 @@
+---
 apiVersion: healthchecks.oci.m.upbound.io/v1alpha1
 kind: HTTPMonitor
 metadata:
-  namespace: crossplane-system
   labels:
     testing.upbound.io/example-name: httpmonitor_label_1
   name: httpmonitor1
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -14,4 +15,4 @@ spec:
     intervalInSeconds: 30
     protocol: HTTPS
     targets:
-      - www.example.com
+    - www.example.com

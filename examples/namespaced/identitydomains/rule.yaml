@@ -1,18 +1,19 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Rule
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/rule
   labels:
     testing.upbound.io/example-name: test_rule
   name: test-rule
+  namespace: crossplane-system
 spec:
   forProvider:
     active: ${var.rule_active}
     attributeSets:
     - all
-    attributes: ""
+    attributes: ''
     authorization: ${var.rule_authorization}
     condition: ${var.rule_condition}
     conditionGroup:
@@ -37,18 +38,16 @@ spec:
     tags:
     - key: ${var.rule_tags_key}
       value: ${var.rule_tags_value}
-
 ---
-
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: Condition
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/rule
   labels:
     testing.upbound.io/example-name: test_rule_condition
   name: test-rule-condition
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeName: attributeName

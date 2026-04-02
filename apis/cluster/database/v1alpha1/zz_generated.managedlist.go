@@ -7,33 +7,6 @@ package v1alpha1
 
 import resource "github.com/crossplane/crossplane-runtime/v2/pkg/resource"
 
-// GetItems of this AdvancedClusterFileSystemList.
-func (l *AdvancedClusterFileSystemList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this AdvancedClusterFileSystemMountList.
-func (l *AdvancedClusterFileSystemMountList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this AdvancedClusterFileSystemUnmountList.
-func (l *AdvancedClusterFileSystemUnmountList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this ApplicationVipList.
 func (l *ApplicationVipList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -279,15 +252,6 @@ func (l *CloudVmClusterList) GetItems() []resource.Managed {
 
 // GetItems of this DataGuardAssociationList.
 func (l *DataGuardAssociationList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this DataPatchList.
-func (l *DataPatchList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]
@@ -718,51 +682,6 @@ func (l *ManagementCloudDbSystemList) GetItems() []resource.Managed {
 	return items
 }
 
-// GetItems of this ManagementCloudExadataInfrastructureList.
-func (l *ManagementCloudExadataInfrastructureList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this ManagementCloudExadataInfrastructureManagedexadataManagementList.
-func (l *ManagementCloudExadataInfrastructureManagedexadataManagementList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this ManagementCloudExadataStorageConnectorList.
-func (l *ManagementCloudExadataStorageConnectorList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this ManagementCloudExadataStorageGridList.
-func (l *ManagementCloudExadataStorageGridList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this ManagementCloudExadataStorageServerList.
-func (l *ManagementCloudExadataStorageServerList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this ManagementCloudListenerList.
 func (l *ManagementCloudListenerList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
@@ -1051,35 +970,8 @@ func (l *ManagementPluggabledatabasePluggableDatabaseDbmFeaturesManagementList) 
 	return items
 }
 
-// GetItems of this MigrationAssessmentAssessorActionList.
-func (l *MigrationAssessmentAssessorActionList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this MigrationAssessmentList.
-func (l *MigrationAssessmentList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
 // GetItems of this MigrationConnectionList.
 func (l *MigrationConnectionList) GetItems() []resource.Managed {
-	items := make([]resource.Managed, len(l.Items))
-	for i := range l.Items {
-		items[i] = &l.Items[i]
-	}
-	return items
-}
-
-// GetItems of this MigrationJobAdvisorReportCheckList.
-func (l *MigrationJobAdvisorReportCheckList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
 	for i := range l.Items {
 		items[i] = &l.Items[i]

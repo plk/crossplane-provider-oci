@@ -1,12 +1,13 @@
+---
 apiVersion: opsi.oci.m.upbound.io/v1alpha1
 kind: EnterpriseManagerBridge
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/enterprisemanagerbridge
   labels:
     testing.upbound.io/example-name: test_enterprise_manager_bridge
   name: test-enterprise-manager-bridge
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -20,18 +21,16 @@ spec:
     objectStorageBucketNameSelector:
       matchLabels:
         testing.upbound.io/example-name: test_bucket
-
 ---
-
 apiVersion: objectstorage.oci.m.upbound.io/v1alpha1
 kind: Bucket
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: opsi/v1alpha1/enterprisemanagerbridge
   labels:
     testing.upbound.io/example-name: test_bucket
   name: test-bucket
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:

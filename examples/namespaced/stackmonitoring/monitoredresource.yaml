@@ -1,12 +1,13 @@
+---
 apiVersion: stackmonitoring.oci.m.upbound.io/v1alpha1
 kind: MonitoredResource
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: stackmonitoring/v1alpha1/monitoredresource
   labels:
     testing.upbound.io/example-name: test_monitored_resource
   name: test-monitored-resource
+  namespace: crossplane-system
 spec:
   forProvider:
     compartmentIdSelector:
@@ -21,6 +22,6 @@ spec:
     - name: osName
       value: Linux
     - name: osVersion
-      value: "7.0"
+      value: '7.0'
     resourceTimeZone: en
     type: host

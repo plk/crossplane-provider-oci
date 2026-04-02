@@ -14,7 +14,7 @@ import (
 	v2 "github.com/crossplane/crossplane-runtime/v2/apis/common/v2"
 )
 
-type ManagementExternalExadataStorageConnectorCredentialInfoInitParameters struct {
+type CredentialInfoInitParameters struct {
 
 	// (Updatable) The password of the user.
 	PasswordSecretRef v1.LocalSecretKeySelector `json:"passwordSecretRef" tf:"-"`
@@ -32,7 +32,7 @@ type ManagementExternalExadataStorageConnectorCredentialInfoInitParameters struc
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
 
-type ManagementExternalExadataStorageConnectorCredentialInfoObservation struct {
+type CredentialInfoObservation struct {
 
 	// (Updatable) The full path of the SSL truststore location in the agent.
 	SSLTrustStoreLocation *string `json:"sslTrustStoreLocation,omitempty" tf:"ssl_trust_store_location,omitempty"`
@@ -44,7 +44,7 @@ type ManagementExternalExadataStorageConnectorCredentialInfoObservation struct {
 	Username *string `json:"username,omitempty" tf:"username,omitempty"`
 }
 
-type ManagementExternalExadataStorageConnectorCredentialInfoParameters struct {
+type CredentialInfoParameters struct {
 
 	// (Updatable) The password of the user.
 	// +kubebuilder:validation:Optional
@@ -89,7 +89,7 @@ type ManagementExternalExadataStorageConnectorInitParameters struct {
 	ConnectorName *string `json:"connectorName,omitempty" tf:"connector_name,omitempty"`
 
 	// (Updatable) The user credential information.
-	CredentialInfo []ManagementExternalExadataStorageConnectorCredentialInfoInitParameters `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
+	CredentialInfo []CredentialInfoInitParameters `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
 
 	// (Updatable) Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see Resource Tags. Example: {"Operations.CostCenter": "42"}
 	// +mapType=granular
@@ -119,7 +119,7 @@ type ManagementExternalExadataStorageConnectorObservation struct {
 	ConnectorName *string `json:"connectorName,omitempty" tf:"connector_name,omitempty"`
 
 	// (Updatable) The user credential information.
-	CredentialInfo []ManagementExternalExadataStorageConnectorCredentialInfoObservation `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
+	CredentialInfo []CredentialInfoObservation `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
 
 	// (Updatable) Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see Resource Tags. Example: {"Operations.CostCenter": "42"}
 	// +mapType=granular
@@ -193,7 +193,7 @@ type ManagementExternalExadataStorageConnectorParameters struct {
 
 	// (Updatable) The user credential information.
 	// +kubebuilder:validation:Optional
-	CredentialInfo []ManagementExternalExadataStorageConnectorCredentialInfoParameters `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
+	CredentialInfo []CredentialInfoParameters `json:"credentialInfo,omitempty" tf:"credential_info,omitempty"`
 
 	// (Updatable) Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see Resource Tags. Example: {"Operations.CostCenter": "42"}
 	// +kubebuilder:validation:Optional

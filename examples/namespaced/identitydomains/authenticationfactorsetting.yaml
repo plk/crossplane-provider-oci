@@ -1,16 +1,17 @@
+---
 apiVersion: identitydomains.oci.m.upbound.io/v1alpha1
 kind: AuthenticationFactorSetting
 metadata:
-  namespace: crossplane-system
   annotations:
     meta.upbound.io/example-id: identitydomains/v1alpha1/authenticationfactorsetting
   labels:
     testing.upbound.io/example-name: test_authentication_factor_setting
   name: test-authentication-factor-setting
+  namespace: crossplane-system
 spec:
   forProvider:
     attributeSets: []
-    attributes: ""
+    attributes: ''
     authenticationFactorSettingId: AuthenticationFactorSettings
     authorization: ${var.authentication_factor_setting_authorization}
     autoEnrollEmailFactorDisabled: ${var.authentication_factor_setting_auto_enroll_email_factor_disabled}
@@ -20,64 +21,64 @@ spec:
       helpDeskGenerationEnabled: ${var.authentication_factor_setting_bypass_code_settings_help_desk_generation_enabled}
       helpDeskMaxUsage: ${var.authentication_factor_setting_bypass_code_settings_help_desk_max_usage}
       length: ${var.authentication_factor_setting_bypass_code_settings_length}
-      maxActive: "6"
+      maxActive: '6'
       selfServiceGenerationEnabled: ${var.authentication_factor_setting_bypass_code_settings_self_service_generation_enabled}
     clientAppSettings:
     - deviceProtectionPolicy: NONE
-      initialLockoutPeriodInSecs: "30"
-      keyPairLength: "2048"
+      initialLockoutPeriodInSecs: '30'
+      keyPairLength: '2048'
       lockoutEscalationPattern: Constant
-      maxFailuresBeforeLockout: "10"
-      maxFailuresBeforeWarning: "5"
-      maxLockoutIntervalInSecs: "86400"
-      minPinLength: "6"
+      maxFailuresBeforeLockout: '10'
+      maxFailuresBeforeWarning: '5'
+      maxLockoutIntervalInSecs: '86400'
+      minPinLength: '6'
       policyUpdateFreqInDays: ${var.authentication_factor_setting_client_app_settings_policy_update_freq_in_days}
       requestSigningAlgo: ${var.authentication_factor_setting_client_app_settings_request_signing_algo}
       sharedSecretEncoding: ${var.authentication_factor_setting_client_app_settings_shared_secret_encoding}
-      unlockAppForEachRequestEnabled: "false"
-      unlockAppIntervalInSecs: "300"
-      unlockOnAppForegroundEnabled: "false"
-      unlockOnAppStartEnabled: "false"
+      unlockAppForEachRequestEnabled: 'false'
+      unlockAppIntervalInSecs: '300'
+      unlockOnAppForegroundEnabled: 'false'
+      unlockOnAppStartEnabled: 'false'
     compliancePolicy:
     - action: Allow
       name: lockScreenRequired
-      value: "false"
+      value: 'false'
     - action: Allow
       name: lockScreenRequiredUnknown
-      value: "false"
+      value: 'false'
     - action: Allow
       name: jailBrokenDevice
-      value: "false"
+      value: 'false'
     - action: Allow
       name: jailBrokenDeviceUnknown
-      value: "false"
+      value: 'false'
     - action: Allow
       name: minWindowsVersion
-      value: "8.1"
+      value: '8.1'
     - action: Allow
       name: minIosVersion
-      value: "7.1"
+      value: '7.1'
     - action: Allow
       name: minAndroidVersion
-      value: "4.1"
+      value: '4.1'
     - action: Allow
       name: minIosAppVersion
-      value: "4.0"
+      value: '4.0'
     - action: Allow
       name: minAndroidAppVersion
-      value: "8.0"
+      value: '8.0'
     - action: Allow
       name: minWindowsAppVersion
-      value: "1.0"
+      value: '1.0'
     emailEnabled: ${var.authentication_factor_setting_email_enabled}
     emailSettings:
     - emailLinkCustomUrl: ${var.authentication_factor_setting_email_settings_email_link_custom_url}
       emailLinkEnabled: ${var.authentication_factor_setting_email_settings_email_link_enabled}
     endpointRestrictions:
-    - maxEndpointTrustDurationInDays: "180"
+    - maxEndpointTrustDurationInDays: '180'
       maxEnrolledDevices: ${var.authentication_factor_setting_endpoint_restrictions_max_enrolled_devices}
-      maxIncorrectAttempts: "20"
-      maxTrustedEndpoints: "20"
+      maxIncorrectAttempts: '20'
+      maxTrustedEndpoints: '20'
       trustedEndpointsEnabled: ${var.authentication_factor_setting_endpoint_restrictions_trusted_endpoints_enabled}
     fidoAuthenticatorEnabled: ${var.authentication_factor_setting_fido_authenticator_enabled}
     hideBackupFactorEnabled: ${var.authentication_factor_setting_hide_backup_factor_enabled}
@@ -99,26 +100,26 @@ spec:
     totpEnabled: ${var.authentication_factor_setting_totp_enabled}
     totpSettings:
     - emailOtpValidityDurationInMins: ${var.authentication_factor_setting_totp_settings_email_otp_validity_duration_in_mins}
-      emailPasscodeLength: "6"
+      emailPasscodeLength: '6'
       hashingAlgorithm: ${var.authentication_factor_setting_totp_settings_hashing_algorithm}
-      jwtValidityDurationInSecs: "300"
-      keyRefreshIntervalInDays: "60"
-      passcodeLength: "6"
-      smsOtpValidityDurationInMins: "6"
-      smsPasscodeLength: "6"
-      timeStepInSecs: "30"
-      timeStepTolerance: "3"
+      jwtValidityDurationInSecs: '300'
+      keyRefreshIntervalInDays: '60'
+      passcodeLength: '6'
+      smsOtpValidityDurationInMins: '6'
+      smsPasscodeLength: '6'
+      timeStepInSecs: '30'
+      timeStepTolerance: '3'
     urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings:
     - attestation: NONE
       authenticatorSelectionAttachment: BOTH
-      authenticatorSelectionRequireResidentKey: "false"
+      authenticatorSelectionRequireResidentKey: 'false'
       authenticatorSelectionResidentKey: NONE
       authenticatorSelectionUserVerification: ${var.authentication_factor_setting_urnietfparamsscimschemasoracleidcsextensionfido_authentication_factor_settings_authenticator_selection_user_verification}
-      domainValidationLevel: "1"
-      excludeCredentials: "false"
+      domainValidationLevel: '1'
+      excludeCredentials: 'false'
       publicKeyTypes:
       - RS1
-      timeout: "60000"
+      timeout: '60000'
     urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings:
     - duoSecuritySettings:
       - apiHostname: ${var.authentication_factor_setting_urnietfparamsscimschemasoracleidcsextensionthird_party_authentication_factor_settings_duo_security_settings_api_hostname}

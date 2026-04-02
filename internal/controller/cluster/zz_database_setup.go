@@ -9,9 +9,6 @@ import (
 
 	"github.com/crossplane/upjet/v2/pkg/controller"
 
-	advancedclusterfilesystem "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystem"
-	advancedclusterfilesystemmount "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystemmount"
-	advancedclusterfilesystemunmount "github.com/oracle/provider-oci/internal/controller/cluster/database/advancedclusterfilesystemunmount"
 	applicationvip "github.com/oracle/provider-oci/internal/controller/cluster/database/applicationvip"
 	autonomouscontainerdatabase "github.com/oracle/provider-oci/internal/controller/cluster/database/autonomouscontainerdatabase"
 	autonomouscontainerdatabaseaddstandby "github.com/oracle/provider-oci/internal/controller/cluster/database/autonomouscontainerdatabaseaddstandby"
@@ -44,7 +41,6 @@ import (
 	databasesoftwareimage "github.com/oracle/provider-oci/internal/controller/cluster/database/databasesoftwareimage"
 	databaseupgrade "github.com/oracle/provider-oci/internal/controller/cluster/database/databaseupgrade"
 	dataguardassociation "github.com/oracle/provider-oci/internal/controller/cluster/database/dataguardassociation"
-	datapatch "github.com/oracle/provider-oci/internal/controller/cluster/database/datapatch"
 	dbhome "github.com/oracle/provider-oci/internal/controller/cluster/database/dbhome"
 	dbnode "github.com/oracle/provider-oci/internal/controller/cluster/database/dbnode"
 	dbnodeconsoleconnection "github.com/oracle/provider-oci/internal/controller/cluster/database/dbnodeconsoleconnection"
@@ -88,11 +84,6 @@ import (
 	managementclouddbsystemcloudstackmonitoringsmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemcloudstackmonitoringsmanagement"
 	managementclouddbsystemconnector "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemconnector"
 	managementclouddbsystemdiscovery "github.com/oracle/provider-oci/internal/controller/cluster/database/managementclouddbsystemdiscovery"
-	managementcloudexadatainfrastructure "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatainfrastructure"
-	managementcloudexadatainfrastructuremanagedexadatamanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatainfrastructuremanagedexadatamanagement"
-	managementcloudexadatastorageconnector "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastorageconnector"
-	managementcloudexadatastoragegrid "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastoragegrid"
-	managementcloudexadatastorageserver "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudexadatastorageserver"
 	managementcloudlistener "github.com/oracle/provider-oci/internal/controller/cluster/database/managementcloudlistener"
 	managementdatabasedbmfeaturesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementdatabasedbmfeaturesmanagement"
 	managementdbmanagementprivateendpoint "github.com/oracle/provider-oci/internal/controller/cluster/database/managementdbmanagementprivateendpoint"
@@ -126,11 +117,8 @@ import (
 	managementnamedcredential "github.com/oracle/provider-oci/internal/controller/cluster/database/managementnamedcredential"
 	managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement "github.com/oracle/provider-oci/internal/controller/cluster/database/managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement"
 	migration "github.com/oracle/provider-oci/internal/controller/cluster/database/migration"
-	migrationassessment "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationassessment"
-	migrationassessmentassessoraction "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationassessmentassessoraction"
 	migrationconnection "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationconnection"
 	migrationjob "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationjob"
-	migrationjobadvisorreportcheck "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationjobadvisorreportcheck"
 	migrationmigration "github.com/oracle/provider-oci/internal/controller/cluster/database/migrationmigration"
 	oneoffpatch "github.com/oracle/provider-oci/internal/controller/cluster/database/oneoffpatch"
 	pluggabledatabase "github.com/oracle/provider-oci/internal/controller/cluster/database/pluggabledatabase"
@@ -155,9 +143,6 @@ import (
 // the supplied manager.
 func Setup_database(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		advancedclusterfilesystem.Setup,
-		advancedclusterfilesystemmount.Setup,
-		advancedclusterfilesystemunmount.Setup,
 		applicationvip.Setup,
 		autonomouscontainerdatabase.Setup,
 		autonomouscontainerdatabaseaddstandby.Setup,
@@ -190,7 +175,6 @@ func Setup_database(mgr ctrl.Manager, o controller.Options) error {
 		databasesoftwareimage.Setup,
 		databaseupgrade.Setup,
 		dataguardassociation.Setup,
-		datapatch.Setup,
 		dbhome.Setup,
 		dbnode.Setup,
 		dbnodeconsoleconnection.Setup,
@@ -234,11 +218,6 @@ func Setup_database(mgr ctrl.Manager, o controller.Options) error {
 		managementclouddbsystemcloudstackmonitoringsmanagement.Setup,
 		managementclouddbsystemconnector.Setup,
 		managementclouddbsystemdiscovery.Setup,
-		managementcloudexadatainfrastructure.Setup,
-		managementcloudexadatainfrastructuremanagedexadatamanagement.Setup,
-		managementcloudexadatastorageconnector.Setup,
-		managementcloudexadatastoragegrid.Setup,
-		managementcloudexadatastorageserver.Setup,
 		managementcloudlistener.Setup,
 		managementdatabasedbmfeaturesmanagement.Setup,
 		managementdbmanagementprivateendpoint.Setup,
@@ -272,11 +251,8 @@ func Setup_database(mgr ctrl.Manager, o controller.Options) error {
 		managementnamedcredential.Setup,
 		managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement.Setup,
 		migration.Setup,
-		migrationassessment.Setup,
-		migrationassessmentassessoraction.Setup,
 		migrationconnection.Setup,
 		migrationjob.Setup,
-		migrationjobadvisorreportcheck.Setup,
 		migrationmigration.Setup,
 		oneoffpatch.Setup,
 		pluggabledatabase.Setup,
@@ -307,9 +283,6 @@ func Setup_database(mgr ctrl.Manager, o controller.Options) error {
 // the supplied manager gated.
 func SetupGated_database(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
-		advancedclusterfilesystem.SetupGated,
-		advancedclusterfilesystemmount.SetupGated,
-		advancedclusterfilesystemunmount.SetupGated,
 		applicationvip.SetupGated,
 		autonomouscontainerdatabase.SetupGated,
 		autonomouscontainerdatabaseaddstandby.SetupGated,
@@ -342,7 +315,6 @@ func SetupGated_database(mgr ctrl.Manager, o controller.Options) error {
 		databasesoftwareimage.SetupGated,
 		databaseupgrade.SetupGated,
 		dataguardassociation.SetupGated,
-		datapatch.SetupGated,
 		dbhome.SetupGated,
 		dbnode.SetupGated,
 		dbnodeconsoleconnection.SetupGated,
@@ -386,11 +358,6 @@ func SetupGated_database(mgr ctrl.Manager, o controller.Options) error {
 		managementclouddbsystemcloudstackmonitoringsmanagement.SetupGated,
 		managementclouddbsystemconnector.SetupGated,
 		managementclouddbsystemdiscovery.SetupGated,
-		managementcloudexadatainfrastructure.SetupGated,
-		managementcloudexadatainfrastructuremanagedexadatamanagement.SetupGated,
-		managementcloudexadatastorageconnector.SetupGated,
-		managementcloudexadatastoragegrid.SetupGated,
-		managementcloudexadatastorageserver.SetupGated,
 		managementcloudlistener.SetupGated,
 		managementdatabasedbmfeaturesmanagement.SetupGated,
 		managementdbmanagementprivateendpoint.SetupGated,
@@ -424,11 +391,8 @@ func SetupGated_database(mgr ctrl.Manager, o controller.Options) error {
 		managementnamedcredential.SetupGated,
 		managementpluggabledatabasepluggabledatabasedbmfeaturesmanagement.SetupGated,
 		migration.SetupGated,
-		migrationassessment.SetupGated,
-		migrationassessmentassessoraction.SetupGated,
 		migrationconnection.SetupGated,
 		migrationjob.SetupGated,
-		migrationjobadvisorreportcheck.SetupGated,
 		migrationmigration.SetupGated,
 		oneoffpatch.SetupGated,
 		pluggabledatabase.SetupGated,

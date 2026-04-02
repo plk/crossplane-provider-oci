@@ -54,9 +54,6 @@ type ComputeGpuMemoryClusterInitParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// (Updatable) Configuration settings for GPU Memory Cluster scaling.
-	GpuMemoryClusterScaleConfig []GpuMemoryClusterScaleConfigInitParameters `json:"gpuMemoryClusterScaleConfig,omitempty" tf:"gpu_memory_cluster_scale_config,omitempty"`
-
 	// The OCID of the GPU memory fabric.
 	GpuMemoryFabricID *string `json:"gpuMemoryFabricId,omitempty" tf:"gpu_memory_fabric_id,omitempty"`
 
@@ -97,9 +94,6 @@ type ComputeGpuMemoryClusterObservation struct {
 	// (Updatable) Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see Resource Tags.  Example: {"Department": "Finance"}
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
-
-	// (Updatable) Configuration settings for GPU Memory Cluster scaling.
-	GpuMemoryClusterScaleConfig []GpuMemoryClusterScaleConfigObservation `json:"gpuMemoryClusterScaleConfig,omitempty" tf:"gpu_memory_cluster_scale_config,omitempty"`
 
 	// The OCID of the GPU memory fabric.
 	GpuMemoryFabricID *string `json:"gpuMemoryFabricId,omitempty" tf:"gpu_memory_fabric_id,omitempty"`
@@ -170,10 +164,6 @@ type ComputeGpuMemoryClusterParameters struct {
 	// +mapType=granular
 	FreeformTags map[string]*string `json:"freeformTags,omitempty" tf:"freeform_tags,omitempty"`
 
-	// (Updatable) Configuration settings for GPU Memory Cluster scaling.
-	// +kubebuilder:validation:Optional
-	GpuMemoryClusterScaleConfig []GpuMemoryClusterScaleConfigParameters `json:"gpuMemoryClusterScaleConfig,omitempty" tf:"gpu_memory_cluster_scale_config,omitempty"`
-
 	// The OCID of the GPU memory fabric.
 	// +kubebuilder:validation:Optional
 	GpuMemoryFabricID *string `json:"gpuMemoryFabricId,omitempty" tf:"gpu_memory_fabric_id,omitempty"`
@@ -194,45 +184,6 @@ type ComputeGpuMemoryClusterParameters struct {
 	// (Updatable) The number of instances currently running in the GpuMemoryCluster
 	// +kubebuilder:validation:Optional
 	Size *string `json:"size,omitempty" tf:"size,omitempty"`
-}
-
-type GpuMemoryClusterScaleConfigInitParameters struct {
-
-	// (Updatable) Enables downsizing towards the target size.
-	IsDownsizeEnabled *bool `json:"isDownsizeEnabled,omitempty" tf:"is_downsize_enabled,omitempty"`
-
-	// (Updatable) Enables upsizing towards the target size.
-	IsUpsizeEnabled *bool `json:"isUpsizeEnabled,omitempty" tf:"is_upsize_enabled,omitempty"`
-
-	// (Updatable) The configured target size for the GPU Memory cluster.
-	TargetSize *string `json:"targetSize,omitempty" tf:"target_size,omitempty"`
-}
-
-type GpuMemoryClusterScaleConfigObservation struct {
-
-	// (Updatable) Enables downsizing towards the target size.
-	IsDownsizeEnabled *bool `json:"isDownsizeEnabled,omitempty" tf:"is_downsize_enabled,omitempty"`
-
-	// (Updatable) Enables upsizing towards the target size.
-	IsUpsizeEnabled *bool `json:"isUpsizeEnabled,omitempty" tf:"is_upsize_enabled,omitempty"`
-
-	// (Updatable) The configured target size for the GPU Memory cluster.
-	TargetSize *string `json:"targetSize,omitempty" tf:"target_size,omitempty"`
-}
-
-type GpuMemoryClusterScaleConfigParameters struct {
-
-	// (Updatable) Enables downsizing towards the target size.
-	// +kubebuilder:validation:Optional
-	IsDownsizeEnabled *bool `json:"isDownsizeEnabled,omitempty" tf:"is_downsize_enabled,omitempty"`
-
-	// (Updatable) Enables upsizing towards the target size.
-	// +kubebuilder:validation:Optional
-	IsUpsizeEnabled *bool `json:"isUpsizeEnabled" tf:"is_upsize_enabled,omitempty"`
-
-	// (Updatable) The configured target size for the GPU Memory cluster.
-	// +kubebuilder:validation:Optional
-	TargetSize *string `json:"targetSize,omitempty" tf:"target_size,omitempty"`
 }
 
 // ComputeGpuMemoryClusterSpec defines the desired state of ComputeGpuMemoryCluster

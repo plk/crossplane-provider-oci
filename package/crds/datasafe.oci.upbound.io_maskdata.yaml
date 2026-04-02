@@ -74,31 +74,6 @@ spec:
                 properties:
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        passwordSecretRef:
-                          description: A SecretKeySelector is a reference to a secret
-                            key in an arbitrary namespace.
-                          properties:
-                            key:
-                              description: The key to select.
-                              type: string
-                            name:
-                              description: Name of the secret.
-                              type: string
-                            namespace:
-                              description: Namespace of the secret.
-                              type: string
-                          required:
-                          - key
-                          - name
-                          - namespace
-                          type: object
-                        userName:
-                          type: string
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object
@@ -117,33 +92,6 @@ spec:
                 properties:
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        passwordSecretRef:
-                          description: A SecretKeySelector is a reference to a secret
-                            key in an arbitrary namespace.
-                          properties:
-                            key:
-                              description: The key to select.
-                              type: string
-                            name:
-                              description: Name of the secret.
-                              type: string
-                            namespace:
-                              description: Namespace of the secret.
-                              type: string
-                          required:
-                          - key
-                          - name
-                          - namespace
-                          type: object
-                        userName:
-                          type: string
-                      required:
-                      - passwordSecretRef
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object
@@ -251,13 +199,6 @@ spec:
                     type: string
                   maskingPolicyId:
                     type: string
-                  targetCredentials:
-                    items:
-                      properties:
-                        userName:
-                          type: string
-                      type: object
-                    type: array
                   targetId:
                     type: string
                 type: object
