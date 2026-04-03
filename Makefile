@@ -412,4 +412,4 @@ help-special: crossplane.help
 
 # ====================================================================================
 # Sub-package Support
--include build/makelib/subpackage.mk
+-include scripts/subpackage.mk
